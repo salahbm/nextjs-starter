@@ -31,6 +31,8 @@ const config = [
       '**/next-env.d.ts',
       '**/next.config.ts',
       '**/yarn.lock',
+      '**/postcss.config.mjs',
+      '**/eslint.config.mjs',
     ],
   },
   ...compat.extends(
