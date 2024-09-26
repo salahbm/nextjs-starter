@@ -1,0 +1,24 @@
+{
+  "Meta": {
+    "keywords": "Exporum",
+    "description": "Exporum",
+    "home": {
+      "title": "{brand} ",
+      "description": "{brand}  is the best group management platform for small businesses and freelancers"
+    }
+  },
+  "Home": {
+    "title": "Welcome to Exporum",
+    "description": "The best group management platform for small businesses and freelancers"
+  },
+  "Header": {
+    "languages": {
+      "kr": "KOR",
+      "en": "ENG"
+    },
+    "theme": {
+      "light": "Light",
+      "dark": "Dark"
+    }
+  }
+}
