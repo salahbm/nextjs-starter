@@ -5,6 +5,7 @@ import { BRAND_NAME } from '@/constants/brand';
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 import { routing } from '@/i18n/routing';
 import '@/styles/globals.css';
+import React from 'react';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

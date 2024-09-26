@@ -42,6 +42,8 @@ const config = [
     'plugin:prettier/recommended',
     'prettier',
     'next/core-web-vitals',
+    'eslint:recommended',
+    'next',
   ),
   {
     plugins: {
