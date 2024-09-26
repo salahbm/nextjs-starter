@@ -89,8 +89,10 @@ bun  test
 
 ## COMMONLY USED LIBRARIES
 
-- [Zustand](https://github.com/pmndrs/zustand), -[SWR](https://swr.vercel.app/) -[SCSS](https://sass-lang.com/)
-
+- [Zustand](https://github.com/pmndrs/zustand)
+- [SWR](https://swr.vercel.app/)
+- [React Query](https://react-query.tanstack.com/)
+- [SCSS](https://sass-lang.com/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [ShadCn UI](https://ui.shadcn.com/)
 - [Radix UI](https://www.radix-ui.com/)
@@ -99,4 +101,5 @@ bun  test
 - [Husky](https://github.com/typicode/husky)
 - [Lint-staged](https://github.com/okonet/lint-staged)
 - [Next Intl](https://github.com/vercel/next.js/tree/canary/packages/next-intl)
-- [Bun](https://bun.run/) -[Jest](https://jestjs.io/)
+- [Bun](https://bun.run/)
+- [Jest](https://jestjs.io/)
