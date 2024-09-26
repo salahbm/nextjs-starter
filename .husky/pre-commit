@@ -1,1 +1,2 @@
 bun format 
+bun lint 
