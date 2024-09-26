@@ -1,0 +1,37 @@
+/* FONTS */
+
+.text-header-1 {
+  @apply font-pretendard text-[32px] font-medium leading-[38px] tracking-normal md:text-[36px] md:leading-[44px] lg:text-[44px] lg:leading-[48px];
+}
+.text-header-2 {
+  @apply font-pretendard text-[28px] font-medium leading-[34px] tracking-normal md:text-[32px] md:leading-[38px] lg:text-[36px] lg:leading-[44px];
+}
+
+.text-title {
+  @apply font-pretendard text-[20px] font-medium leading-[30px] tracking-normal md:text-[24px] md:leading-[36px] lg:text-[28px] lg:leading-[42x];
+}
+
+.text-subtitle-1 {
+  @apply font-pretendard text-[16px] font-medium leading-[24px] tracking-normal md:text-[16px] md:leading-[24px] lg:text-[18px] lg:leading-[28px];
+}
+.text-subtitle-2 {
+  @apply font-pretendard text-[14px] font-normal leading-[22px] tracking-normal md:text-[16px] md:leading-[24px] lg:text-[18px] lg:leading-[28px];
+}
+
+.text-body-1 {
+  @apply font-pretendard text-[14px] font-medium leading-[20px] tracking-normal md:text-[14px] md:leading-[20px] lg:text-[16px] lg:leading-[24px];
+}
+.text-body-2 {
+  @apply font-pretendard text-[14px] font-normal leading-[20px] tracking-normal md:text-[14px] md:leading-[20px] lg:text-[16px] lg:leading-[24px];
+}
+
+.text-caption-1 {
+  @apply font-pretendard text-[12px] font-medium leading-[18px] tracking-normal md:text-[12px] md:leading-[18px] lg:text-[14px] lg:leading-[20px];
+}
+.text-caption-2 {
+  @apply font-pretendard text-[12px] font-normal leading-[18px] tracking-normal md:text-[12px] md:leading-[18px] lg:text-[14px] lg:leading-[20px];
+}
+
+.text-badges {
+  @apply font-pretendard text-[10px] font-normal leading-[12px] tracking-normal md:text-[10px] md:leading-[12px] lg:text-[10px] lg:leading-[12px];
+}

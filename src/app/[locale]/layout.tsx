@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import pretendard from '@/styles/fonts';
+import pretendard from '@/public/fonts';
 import { getTranslations } from 'next-intl/server';
 import { BRAND_NAME } from '@/constants/brand';
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';

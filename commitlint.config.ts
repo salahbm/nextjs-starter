@@ -5,7 +5,7 @@ module.exports = {
       2,
       'always',
       [
-        'init', // Initial commit/first commit
+        'init', // Initialize some changes
         'build', // Changes that affect the build system or external dependencies
         'chore', // Changes to the build process or auxiliary tools
         'ci', // Changes to our CI configuration files and scripts

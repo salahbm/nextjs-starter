@@ -1,4 +1,16 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## ALTIALL
+
+This is a Next.js project bootstrapped with bun create next-app@latest.
+
+## Installation
+
+To install this project, run:
+
+```bash
+npm install
+# or
+bun add
+```
 
 ## Getting Started
 
@@ -7,30 +19,84 @@ First, run the development server:
 ```bash
 npm run dev
 # or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+bun --bun run dev
 ```
+
+## LOCAL DEVELOPMENT
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Linting and Formatting
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To lint your code, you can use:
 
-## Learn More
+```bash
+npm run lint
+#or
+bun  lint
+```
 
-To learn more about Next.js, take a look at the following resources:
+To automatically fix linting errors, use:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run lint:fix
+#or
+bun  lint:fix
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+For strict linting, use:
 
-## Deploy on Vercel
+```bash
+npm run lint:strict
+#or
+bun  lint:strict
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+To format your code with Prettier, use:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run prettier
+#or
+bun  prettier
+```
+
+## Git Hooks
+
+This project uses Husky to manage Git hooks. You can set up Husky by running:
+
+```bash
+npm run prepare
+#or
+bun  prepare
+```
+
+## Testing
+
+Currently, there are no tests specified. You can run the test script to confirm:
+
+```bash
+npm run test
+#or
+bun  test
+```
+
+## ENVIRONMENTS
+
+- [Node.js latest](https://nodejs.org/en/)
+- [Npm latest](https://www.npmjs.com/)
+- [Next.js latest](https://nextjs.org/)
+
+## COMMONLY USED LIBRARIES
+
+- [Zustand](https://github.com/pmndrs/zustand), -[SWR](https://swr.vercel.app/) -[SCSS](https://sass-lang.com/)
+
+- [Tailwind CSS](https://tailwindcss.com/)
+- [ShadCn UI](https://ui.shadcn.com/)
+- [Radix UI](https://www.radix-ui.com/)
+- [Prettier](https://prettier.io/)
+- [ESLint](https://eslint.org/)
+- [Husky](https://github.com/typicode/husky)
+- [Lint-staged](https://github.com/okonet/lint-staged)
+- [Next Intl](https://github.com/vercel/next.js/tree/canary/packages/next-intl)
+- [Bun](https://bun.run/) -[Jest](https://jestjs.io/)
