@@ -18,6 +18,7 @@ module.exports = {
         'test', // Adding missing tests
         'wip', // Work in progress
         'qa', // QA
+        'delete', // Delete a file
       ],
     ],
   },
