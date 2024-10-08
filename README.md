@@ -1,4 +1,4 @@
-## EXPORUM
+## NEXT KIT
 
 This is a Next.js project bootstrapped with bun create next-app@latest.
 
@@ -83,18 +83,16 @@ bun  test
 
 ## ENVIRONMENTS
 
-- [Node.js latest](https://nodejs.org/en/)
-- [Npm latest](https://www.npmjs.com/)
-- [Next.js latest](https://nextjs.org/)
+- [Node.js 14](https://nodejs.org/en/)
+- [Npm v20](https://www.npmjs.com/)
+- [Next.js v9](https://nextjs.org/)
 
 ## COMMONLY USED LIBRARIES
 
 - [Zustand](https://github.com/pmndrs/zustand)
-- [SWR](https://swr.vercel.app/)
 - [React Query](https://react-query.tanstack.com/)
-- [SCSS](https://sass-lang.com/)
 - [Tailwind CSS](https://tailwindcss.com/)
-- [ShadCn UI](https://ui.shadcn.com/)
+- [ShadCN UI](https://ui.shadcn.com/)
 - [Radix UI](https://www.radix-ui.com/)
 - [Prettier](https://prettier.io/)
 - [ESLint](https://eslint.org/)
@@ -103,3 +101,4 @@ bun  test
 - [Next Intl](https://github.com/vercel/next.js/tree/canary/packages/next-intl)
 - [Bun](https://bun.run/)
 - [Jest](https://jestjs.io/)
+- [Tanstack Query Client](https://tanstack.com/query/v4)

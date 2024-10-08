@@ -7,8 +7,7 @@ module.exports = {
       [
         'init', // Initialize some changes
         'build', // Changes that affect the build system or external dependencies
-        'chore', // Changes to the build process or auxiliary tools
-        'ci', // Changes to our CI configuration files and scripts
+        'update', // Changes that exist and update the code  or corrects existing code
         'docs', // Documentation only changes
         'feat', // A new feature
         'fix', // A bug fix
@@ -16,7 +15,6 @@ module.exports = {
         'revert', // Revert a commit
         'style', // Changes that do not affect the meaning of the code
         'test', // Adding missing tests
-        'wip', // Work in progress
         'qa', // QA
         'delete', // Delete a file
       ],
