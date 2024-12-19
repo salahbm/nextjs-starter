@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
-import pretendard from '@/public/fonts';
 import { getTranslations } from 'next-intl/server';
 import { BRAND_NAME } from '@/constants/brand';
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 import { routing } from '@/i18n/routing';
 import '@/styles/globals.css';
 import React from 'react';
+import pretendard from '@/public/fonts';
 
-export function generateStaticParams() {
+export function generateStaticParams(): { locale: string }[] {
   return routing.locales.map((locale) => ({ locale }));
 }
 
@@ -31,7 +31,7 @@ export default function IndexLayout({
 }: Readonly<{
   children: React.ReactNode;
   params: { locale: string };
-}>) {
+}>): JSX.Element {
   return (
     <html lang={locale}>
       <body className={pretendard.className}>{children}</body>
