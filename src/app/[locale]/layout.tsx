@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { BRAND_NAME } from '@/constants/brand';
-import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 import { routing } from '@/i18n/routing';
 import '@/styles/globals.css';
 import React from 'react';
