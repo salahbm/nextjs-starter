@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/compare/v0.3.0-alpha.1...v0.3.0) (2024-12-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* **jest:** JEST TESTING
+
+### ✨ Features
+
+* **jest:** jest configs, optimise Jest config, add tests for home ([b19ea18](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/commit/b19ea18de11f85b51b1fa43ac630336c3bd0e9e3))
+
 ## [0.3.0-alpha.1](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/compare/v0.3.0-alpha.0...v0.3.0-alpha.1) (2024-12-20)
 
 ### 📚 Documentation
