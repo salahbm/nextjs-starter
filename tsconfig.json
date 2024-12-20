@@ -32,7 +32,8 @@
       "@/locales/*": ["../locales/*"],
       "@/public/*": ["../public/*"],
       "@/i18n/*": ["i18n/*"]
-    }
+    },
+    "types": ["node", "jest", "@testing-library/jest-dom"]
   },
   "include": [
     "next-env.d.ts",
@@ -41,7 +42,8 @@
     ".next/types/**/*.ts",
     "eslint.config.mjs",
     "next.config.mjs",
-    "postcss.config.mjs"
+    "postcss.config.mjs",
+    "babel.config.js"
   ],
   "exclude": ["node_modules", ".next"]
 }
