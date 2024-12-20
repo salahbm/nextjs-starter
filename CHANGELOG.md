@@ -4,20 +4,18 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## 0.2.0-alpha.0 (2024-12-20)
 
-
 ### ⚠ BREAKING CHANGES
 
-* **cz & conventional commits:** Conventional Changes
+- **cz & conventional commits:** Conventional Changes
 
 ### Features
 
-* **cz & conventional commits:** installed and enabaled conventional commits ([8c7c3ed](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/commit/8c7c3edbcd511eeb7f6649ce2481d560417480a2))
-* global types, Params -> init ([5d1f8cf](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/commit/5d1f8cfec81f1e1c154bba591cb5b813bf66f670))
-* localization ([aa419a9](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/commit/aa419a97d81ebd2ffa2a83b839eecbc5d703ad1a))
-
+- **cz & conventional commits:** installed and enabaled conventional commits ([8c7c3ed](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/commit/8c7c3edbcd511eeb7f6649ce2481d560417480a2))
+- global types, Params -> init ([5d1f8cf](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/commit/5d1f8cfec81f1e1c154bba591cb5b813bf66f670))
+- localization ([aa419a9](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/commit/aa419a97d81ebd2ffa2a83b839eecbc5d703ad1a))
 
 ### Bug Fixes
 
-* eslint pre-commit ([534b199](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/commit/534b19957e0b4e516c99cc078e1387df6a77aa3f))
-* lint ([98dbe24](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/commit/98dbe245bf70c091e189b0d6c8424abcdb28f431))
-* lint errors ([ed578cc](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/commit/ed578cc7989f14f5973f8c7fc19404d4ba61e372))
+- eslint pre-commit ([534b199](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/commit/534b19957e0b4e516c99cc078e1387df6a77aa3f))
+- lint ([98dbe24](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/commit/98dbe245bf70c091e189b0d6c8424abcdb28f431))
+- lint errors ([ed578cc](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/commit/ed578cc7989f14f5973f8c7fc19404d4ba61e372))
