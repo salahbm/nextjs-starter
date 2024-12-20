@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0-alpha.1](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/compare/v0.3.0-alpha.0...v0.3.0-alpha.1) (2024-12-20)
+
+
+### 📚 Documentation
+
+* **update read.me and add license:** readme File is optimised and License is updated to MIT ([0de8e85](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/commit/0de8e85cb08ed745a7094d6a86b876d062c462ed))
+
 ## [0.3.0-alpha.0](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/compare/v0.2.0...v0.3.0-alpha.0) (2024-12-20)
 
 ### ⚠ BREAKING CHANGES
