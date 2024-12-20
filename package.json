@@ -17,7 +17,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "commit": "cz",
-    "release": "standard-version"
+    "release": "standard-version",
+    "push": "git add . && bun run commit && bun run release && git push origin $(git branch --show-current) --follow-tags"
   },
   "config": {
     "commitizen": {
