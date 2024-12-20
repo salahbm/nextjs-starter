@@ -1,6 +1,6 @@
 /* FONTS */
-.text-header-1 {
-  font-family: 'Pretendard', sans-serif;
+.font-header-1 {
+  font-family: var(--font-pretendard);
   font-size: 32px;
   font-weight: 500;
   line-height: 38px;
@@ -8,21 +8,21 @@
 }
 
 @media (min-width: 768px) {
-  .text-header-1 {
+  .font-header-1 {
     font-size: 36px;
     line-height: 44px;
   }
 }
 
-@media (min-width: 1024px) {
-  .text-header-1 {
+@media (min-width: 1280px) {
+  .font-header-1 {
     font-size: 44px;
     line-height: 48px;
   }
 }
 
-.text-header-2 {
-  font-family: 'Pretendard', sans-serif;
+.font-header-2 {
+  font-family: var(--font-pretendard);
   font-size: 28px;
   font-weight: 500;
   line-height: 34px;
@@ -30,21 +30,21 @@
 }
 
 @media (min-width: 768px) {
-  .text-header-2 {
+  .font-header-2 {
     font-size: 32px;
     line-height: 38px;
   }
 }
 
-@media (min-width: 1024px) {
-  .text-header-2 {
+@media (min-width: 1280px) {
+  .font-header-2 {
     font-size: 36px;
     line-height: 44px;
   }
 }
 
-.text-title {
-  font-family: 'Pretendard', sans-serif;
+.font-title {
+  font-family: var(--font-pretendard);
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -52,36 +52,57 @@
 }
 
 @media (min-width: 768px) {
-  .text-title {
+  .font-title {
     font-size: 24px;
     line-height: 36px;
   }
 }
 
-@media (min-width: 1024px) {
-  .text-title {
+@media (min-width: 1280px) {
+  .font-title {
     font-size: 28px;
     line-height: 42px;
   }
 }
+.font-title-2 {
+  font-family: var(--font-pretendard);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: normal;
+}
 
-.text-subtitle-1 {
-  font-family: 'Pretendard', sans-serif;
+@media (min-width: 768px) {
+  .font-title-2 {
+    font-size: 22px;
+    line-height: 28px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .font-title-2 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+
+.font-subtitle-1 {
+  font-family: var(--font-pretendard);
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
   letter-spacing: normal;
 }
 
-@media (min-width: 1024px) {
-  .text-subtitle-1 {
+@media (min-width: 1280px) {
+  .font-subtitle-1 {
     font-size: 18px;
     line-height: 28px;
   }
 }
 
-.text-subtitle-2 {
-  font-family: 'Pretendard', sans-serif;
+.font-subtitle-2 {
+  font-family: var(--font-pretendard);
   font-size: 14px;
   font-weight: 400;
   line-height: 22px;
@@ -89,83 +110,75 @@
 }
 
 @media (min-width: 768px) {
-  .text-subtitle-2 {
+  .font-subtitle-2 {
     font-size: 16px;
     line-height: 24px;
   }
 }
 
-@media (min-width: 1024px) {
-  .text-subtitle-2 {
+@media (min-width: 1280px) {
+  .font-subtitle-2 {
     font-size: 18px;
     line-height: 28px;
   }
 }
 
-.text-body-1 {
-  font-family: 'Pretendard', sans-serif;
+.font-body-1 {
+  font-family: var(--font-pretendard);
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
   letter-spacing: normal;
 }
 
-@media (min-width: 1024px) {
-  .text-body-1 {
+@media (min-width: 1280px) {
+  .font-body-1 {
     font-size: 16px;
     line-height: 24px;
   }
 }
 
-.text-body-2 {
-  font-family: 'Pretendard', sans-serif;
+.font-body-2 {
+  font-family: var(--font-pretendard);
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
   letter-spacing: normal;
 }
 
-@media (min-width: 1024px) {
-  .text-body-2 {
+@media (min-width: 1280px) {
+  .font-body-2 {
     font-size: 16px;
     line-height: 24px;
   }
 }
 
-.text-caption-1 {
-  font-family: 'Pretendard', sans-serif;
+.font-caption-1 {
+  font-family: var(--font-pretendard);
   font-size: 12px;
   font-weight: 500;
   line-height: 18px;
   letter-spacing: normal;
 }
 
-@media (min-width: 1024px) {
-  .text-caption-1 {
+@media (min-width: 1280px) {
+  .font-caption-1 {
     font-size: 14px;
     line-height: 20px;
   }
 }
 
-.text-caption-2 {
-  font-family: 'Pretendard', sans-serif;
+.font-caption-2 {
+  font-family: var(--font-pretendard);
   font-size: 12px;
   font-weight: 400;
   line-height: 18px;
   letter-spacing: normal;
 }
 
-@media (min-width: 1024px) {
-  .text-caption-2 {
+@media (min-width: 1280px) {
+  .font-caption-2 {
     font-size: 14px;
     line-height: 20px;
   }
-}
-
-.text-badges {
-  font-family: 'Pretendard', sans-serif;
-  font-size: 10px;
-  font-weight: 400;
-  line-height: 12px;
-  letter-spacing: normal;
 }

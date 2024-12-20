@@ -2,6 +2,16 @@
 
 This is a Next.js project bootstrapped with bun create next-app@latest.
 
+## NOTE
+
+Make sure you have [bun](https://bun.run) installed. You can install it with:
+
+```bash
+npm i -g bun
+#or
+check on [https://bun.sh/](https://bun.sh/)
+```
+
 ## Installation
 
 To install this project, run:
@@ -83,9 +93,74 @@ bun  test
 
 ## ENVIRONMENTS
 
-- [Node.js 14](https://nodejs.org/en/)
-- [Npm v20](https://www.npmjs.com/)
-- [Next.js v9](https://nextjs.org/)
+- [Node.js](https://nodejs.org/en/)
+- [Npm](https://www.npmjs.com/)
+- [Next.js](https://nextjs.org/)
+
+# **Commitizen, Standard Version, and Workflow Documentation**
+
+This project is configured with **Commitizen** for standardized commit messages and **Standard Version** for automated versioning and changelog generation.
+
+---
+
+## COMMITIZEN
+
+To use Commitizen, run the following command:
+
+```bash
+npm run commit
+#or
+bun run commit
+```
+
+## STANDARD VERSION
+
+To use Standard Version, run the following command:
+
+```bash
+bun run release
+#or
+bun run release:dev # for development
+#or
+bun run release:prod # for production
+```
+
+## WORKFLOW
+
+This project is configured with a GitHub workflow to automatically update the changelog and version when a new release is created.
+
+The workflow is configured to run on the `push` event to the `main` branch.
+The workflow will automatically update the changelog and version when a new release is created.
+
+```bash
+bun run push
+#or
+bun run push:dev # for development
+```
+
+## VERSIONING
+
+The project is versioned using [standard-version](https://github.com/conventional-changelog/standard-version).
+
+## CHANGELOG
+
+The changelog is generated using [standard-version](https://github.com/conventional-changelog/standard-version) and [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog).
+
+The changelog is stored in the `CHANGELOG.md` file.
+
+The changelog is generated automatically when a new release is created.
+
+## Gitlab ACTIONS
+
+The project is configured with Gitlab Actions to automatically update the changelog and version when a new release is created.
+
+## NOTICE
+
+```bash
+The project is configured with Gitlab Actions to automatically update the changelog and version when a new release is created.
+```
+
+---
 
 ## COMMONLY USED LIBRARIES
 
@@ -102,3 +177,7 @@ bun  test
 - [Bun](https://bun.run/)
 - [Jest](https://jestjs.io/)
 - [Tanstack Query Client](https://tanstack.com/query/v4)
+
+## **License**
+
+This project is licensed under the [MIT License](LICENSE).

@@ -4,16 +4,15 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [0.3.0-alpha.0](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/compare/v0.2.0...v0.3.0-alpha.0) (2024-12-20)
 
-
 ### ⚠ BREAKING CHANGES
 
-* **updated package.json:** Better command lines to optimise the workflow
+- **updated package.json:** Better command lines to optimise the workflow
 
 n
 
 ### 🐛 Bug Fixes
 
-* **updated package.json:** updated package json for better commands ([b6483bd](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/commit/b6483bd9ef1a2d1c38a496c2d58e7348df7189ae))
+- **updated package.json:** updated package json for better commands ([b6483bd](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/commit/b6483bd9ef1a2d1c38a496c2d58e7348df7189ae))
 
 ## [0.2.0](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/compare/v0.2.0-alpha.0...v0.2.0) (2024-12-20)
 

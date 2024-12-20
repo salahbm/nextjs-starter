@@ -4,6 +4,7 @@
   "private": true,
   "module": "index.ts",
   "type": "module",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -41,6 +42,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "sass": "^1.83.0",
+    "sharp": "^0.33.5",
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7",
     "zustand": "^5.0.2"
