@@ -1,6 +1,6 @@
 {
   "name": "nextjs-boilerplate",
-  "version": "0.2.0",
+  "version": "0.3.0-alpha.0",
   "private": true,
   "module": "index.ts",
   "type": "module",
