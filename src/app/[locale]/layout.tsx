@@ -11,8 +11,11 @@ export function generateStaticParams(): { locale: string }[] {
 }
 
 export async function generateMetadata({
-  params: { locale },
-}: Params): Promise<Metadata> {
+  params,
+}: Readonly<{
+  params: { locale: string };
+}>): Promise<Metadata> {
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'Meta' });
   const title = t('home.title', { brand: BRAND_NAME });
   const description = t('home.description', { brand: BRAND_NAME });
@@ -24,13 +27,15 @@ export async function generateMetadata({
   };
 }
 
-export default function IndexLayout({
+export default async function IndexLayout({
   children,
-  params: { locale },
+  params,
 }: Readonly<{
   children: React.ReactNode;
   params: { locale: string };
-}>): JSX.Element {
+}>): Promise<JSX.Element> {
+  const { locale } = await params;
+
   return (
     <html lang={locale}>
       <body className={pretendard.className}>{children}</body>
