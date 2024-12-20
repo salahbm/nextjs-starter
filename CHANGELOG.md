@@ -4,15 +4,14 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [0.2.0](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/compare/v0.2.0-alpha.0...v0.2.0) (2024-12-20)
 
-
 ### ⚠ BREAKING CHANGES
 
-* **versionrc file initilised:** versioning && commands
+- **versionrc file initilised:** versioning && commands
 
 ### ✨ Features
 
-* **changelog and standard verions:** enables to follow versioning of the project ([f4f2849](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/commit/f4f2849164f42d3e2f15977e42eb633b37e834fc))
-* **versionrc file initilised:** versionrc to follow the versioning ([82c6896](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/commit/82c68962cf8b101a34a4df489b3e267f7bb3a720))
+- **changelog and standard verions:** enables to follow versioning of the project ([f4f2849](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/commit/f4f2849164f42d3e2f15977e42eb633b37e834fc))
+- **versionrc file initilised:** versionrc to follow the versioning ([82c6896](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/commit/82c68962cf8b101a34a4df489b3e267f7bb3a720))
 
 ## 0.2.0-alpha.0 (2024-12-20)
 
