@@ -4,25 +4,22 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [0.4.0](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/compare/v0.3.0-alpha.1...v0.4.0) (2024-12-20)
 
-
 ### ⚠ BREAKING CHANGES
 
-* **jest:** JEST TESTING
+- **jest:** JEST TESTING
 
 ### ♻️ Chores
 
-* **release:** 0.3.0 ([d356dac](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/commit/d356dac4a460250615f70b9ceedfc07c57e1b5c9))
-
+- **release:** 0.3.0 ([d356dac](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/commit/d356dac4a460250615f70b9ceedfc07c57e1b5c9))
 
 ### ✨ Features
 
-* **jest:** jest configs, optimise Jest config, add tests for home ([b19ea18](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/commit/b19ea18de11f85b51b1fa43ac630336c3bd0e9e3))
-* webpack is updated to use svg files in ease way ([40a5408](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/commit/40a5408e1149511080811afe331a75572ebd33ca))
-
+- **jest:** jest configs, optimise Jest config, add tests for home ([b19ea18](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/commit/b19ea18de11f85b51b1fa43ac630336c3bd0e9e3))
+- webpack is updated to use svg files in ease way ([40a5408](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/commit/40a5408e1149511080811afe331a75572ebd33ca))
 
 ### 💎 Styles
 
-* **home:** home page is updated to give better explaination and links ([c0cc97e](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/commit/c0cc97ed26cdc218a131091de937c67a9932231f))
+- **home:** home page is updated to give better explaination and links ([c0cc97e](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/commit/c0cc97ed26cdc218a131091de937c67a9932231f))
 
 ## [0.3.0](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/compare/v0.3.0-alpha.1...v0.3.0) (2024-12-20)
 

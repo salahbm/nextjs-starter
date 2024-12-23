@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
+import React from 'react';
+
 import { BRAND_NAME } from '@/constants/brand';
 import { routing } from '@/i18n/routing';
 import '@/styles/globals.css';
-import React from 'react';
 import pretendard from '@/public/fonts';
 
 export function generateStaticParams(): { locale: string }[] {
@@ -35,7 +36,6 @@ export default async function IndexLayout({
   params: { locale: string };
 }>): Promise<JSX.Element> {
   const { locale } = await params;
-
   return (
     <html lang={locale}>
       <body className={pretendard.className}>{children}</body>

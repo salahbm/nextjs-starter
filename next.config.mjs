@@ -1,8 +1,9 @@
 /** @type {import('next').NextConfig} */
 
-import createNextIntlPlugin from 'next-intl/plugin';
 import path from 'path';
 import { fileURLToPath } from 'url';
+
+import createNextIntlPlugin from 'next-intl/plugin';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 

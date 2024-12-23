@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Loading: React.FC = (): JSX.Element => {
+const Loading: React.FC = () => {
   return <div>Loading...</div>;
 };
 
