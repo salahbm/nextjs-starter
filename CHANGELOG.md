@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.6.0-minor.0](https://github.com/salahbm/nextjs-starter/compare/v0.5.0...v0.6.0-minor.0) (2025-03-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* **update packafges, lint, husky, prettier, scripts:** 1. lint
+
+### 🚀 Performance Improvements
+
+* **update packafges, lint, husky, prettier, scripts:** prettier, Lint, Husky, Packages ([8b41432](https://github.com/salahbm/nextjs-starter/commit/8b41432961e7601cc6c6d693cd394ad0f010ba8f))
+
 ## [0.5.0](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/compare/v0.4.0...v0.5.0) (2024-12-23)
 
 ### ⚠ BREAKING CHANGES

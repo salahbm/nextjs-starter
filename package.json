@@ -1,6 +1,6 @@
 {
   "name": "salahbm-nextjs-starter",
-  "version": "0.5.0",
+  "version": "0.6.0-minor.0",
   "private": true,
   "module": "index.ts",
   "type": "module",
