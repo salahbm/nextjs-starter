@@ -37,6 +37,7 @@
     "target": "ES2017"
   },
   "include": [
+    "svg.d.ts",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
@@ -45,8 +46,7 @@
     "next.config.mjs",
     "postcss.config.mjs",
     "babel.config.js",
-    "jest.config.ts",
-    "svg.d.ts"
+    "jest.config.ts"
   ],
   "exclude": ["node_modules", ".next"]
 }

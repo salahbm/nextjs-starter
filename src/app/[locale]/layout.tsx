@@ -1,11 +1,14 @@
-import type { Metadata } from 'next';
-import { getTranslations } from 'next-intl/server';
 import React from 'react';
 
+import { getTranslations } from 'next-intl/server';
+
+import type { Metadata } from 'next';
+
 import { BRAND_NAME } from '@/constants/brand';
+
 import { routing } from '@/i18n/routing';
-import '@/styles/globals.css';
 import pretendard from '@/public/fonts';
+import '@/styles/globals.css';
 
 export function generateStaticParams(): { locale: string }[] {
   return routing.locales.map((locale) => ({ locale }));

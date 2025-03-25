@@ -1,0 +1,22 @@
+{
+  "dimensions": false,
+  "svgoConfig": {
+    "plugins": [
+      "removeDimensions",
+      {
+        "name": "convertColors",
+        "params": {
+          "currentColor": true
+        }
+      },
+      {
+        "name": "preset-default",
+        "params": {
+          "overrides": {
+            "removeTitle": false
+          }
+        }
+      }
+    ]
+  }
+}

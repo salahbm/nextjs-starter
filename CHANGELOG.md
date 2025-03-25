@@ -4,15 +4,14 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [0.5.0](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/compare/v0.4.0...v0.5.0) (2024-12-23)
 
-
 ### ⚠ BREAKING CHANGES
 
-* **locales&lint:** Eslint Updated with imports sorting, localizations are updated to match Nextjs 15
-and React 19
+- **locales&lint:** Eslint Updated with imports sorting, localizations are updated to match Nextjs 15
+  and React 19
 
 ### ✨ Features
 
-* **locales&lint:** updated&Feat: react, eslint, localizations ([6af04bc](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/commit/6af04bccf3bc3e80b249784aa97efd5c07aa9965)), closes [#1](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/issues/1)
+- **locales&lint:** updated&Feat: react, eslint, localizations ([6af04bc](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/commit/6af04bccf3bc3e80b249784aa97efd5c07aa9965)), closes [#1](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/issues/1)
 
 ## [0.4.0](https://gitlab.com/momenti/nextjs-boilerplate-by-salah/compare/v0.3.0-alpha.1...v0.4.0) (2024-12-20)
 

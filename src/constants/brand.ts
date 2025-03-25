@@ -1,1 +1,1 @@
-export const BRAND_NAME = 'Exporum';
+export const BRAND_NAME = 'SALAH BM NEXT JS STARTER';

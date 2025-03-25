@@ -31,6 +31,7 @@ module.exports = {
         'revert',
         'style',
         'test',
+        'merge',
       ],
     ],
   },
@@ -49,11 +50,7 @@ module.exports = {
             title: 'Improvements',
             emoji: '👌',
           },
-          fix: {
-            description: 'A bug fix',
-            title: 'Bug Fixes',
-            emoji: '🐛',
-          },
+          fix: { description: 'A bug fix', title: 'Bug Fixes', emoji: '🐛' },
           docs: {
             description: 'Documentation only changes',
             title: 'Documentation',
@@ -103,6 +100,11 @@ module.exports = {
             title: 'Reverts',
             emoji: '🗑',
           },
+          merge: {
+            description: 'Merges a branch to main',
+            title: 'Merges',
+            emoji: '🔀',
+          },
         },
       },
       scope: {
@@ -113,19 +115,13 @@ module.exports = {
         description:
           'Write a short, imperative tense description of the change',
       },
-      body: {
-        description: 'Provide a longer description of the change',
-      },
-      isBreaking: {
-        description: 'Are there any breaking changes?',
-      },
+      body: { description: 'Provide a longer description of the change' },
+      isBreaking: { description: 'Are there any breaking changes?' },
       breakingBody: {
         description:
           'A BREAKING CHANGE commit requires a body. Please enter a longer description of the commit itself',
       },
-      breaking: {
-        description: 'Describe the breaking changes',
-      },
+      breaking: { description: 'Describe the breaking changes' },
       isIssueAffected: {
         description: 'Does this change affect any open issues?',
       },

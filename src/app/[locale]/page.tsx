@@ -1,5 +1,6 @@
-import Link from 'next/link';
 import React from 'react';
+
+import Link from 'next/link';
 
 const Home = (): JSX.Element => {
   return (
@@ -16,15 +17,6 @@ const Home = (): JSX.Element => {
         className="font-body-1 text-gray-6 underline"
       >
         Check out the README
-      </Link>
-
-      {/* CHECK OUT THE MOMENTI-ESLINT */}
-      <Link
-        href="https://gitlab.com/momenti/momenti-eslint"
-        target="_blank"
-        className="font-body-2 text-gray-7 underline"
-      >
-        This Project uses Momenti ESLint
       </Link>
     </div>
   );
