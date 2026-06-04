@@ -2,20 +2,18 @@
 
 import { useCallback, useTransition } from 'react';
 
-import { usePathname, useRouter } from 'next/navigation';
-
 import Cookies from 'js-cookie';
 import { useLocale } from 'next-intl';
 
 import { COOKIE_KEYS } from '@/constants/cookies';
 
-import { Locale, routing } from '@/i18n/routing';
+import { Locale, routing, usePathname, useRouter } from '@/i18n/routing';
 
 const useTranslation = () => {
+  // Use next-intl's locale-aware router and pathname (not next/navigation)
   const router = useRouter();
   const pathname = usePathname();
   const currentLocale = useLocale();
-  //   const queryClient = useQueryClient();
   const [isPending, startTransition] = useTransition();
   const { locales } = routing;
 
@@ -23,29 +21,16 @@ const useTranslation = () => {
     (value: string) => {
       Cookies.set(COOKIE_KEYS.LANGUAGE, value, { expires: 365 });
 
-      const segments = pathname.split('/');
-      const currentLangIndex = locales.includes(segments[1] as Locale)
-        ? 1
-        : null;
-
-      if (currentLangIndex !== null) {
-        segments[1] = value;
-      } else {
-        segments.unshift(value);
-      }
-
-      const newPath = segments.join('/');
-
-      // Transition navigation
+      // next-intl's router.replace handles locale prefix automatically —
+      // no manual path segment manipulation needed.
       startTransition(() => {
-        router.replace(newPath);
-        router.refresh();
+        router.replace(
+          { pathname: pathname as '/' },
+          { locale: value as Locale },
+        );
       });
-
-      // Refetch all queries
-      //   queryClient.invalidateQueries();
     },
-    [pathname, router, locales, startTransition],
+    [pathname, router, startTransition],
   );
 
   return { locales, currentLocale, handleLocale, isPending };

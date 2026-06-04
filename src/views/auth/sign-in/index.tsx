@@ -2,8 +2,6 @@
 
 import { useState } from 'react';
 
-import { useRouter } from 'next/navigation';
-
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ArrowRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
@@ -17,7 +15,7 @@ import { Input, PasswordInput } from '@/components/ui/input';
 
 import { COOKIE_KEYS } from '@/constants/cookies';
 
-import { Link } from '@/i18n/routing';
+import { Link, useRouter } from '@/i18n/routing';
 
 export function SignInView() {
   const router = useRouter();
