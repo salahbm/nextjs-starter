@@ -16,6 +16,7 @@ import { Input, PasswordInput } from '@/components/ui/input';
 import { required } from '@/utils/zod-locale';
 
 import { COOKIE_KEYS } from '@/constants/cookies';
+import { routes } from '@/constants/routes';
 
 import { Link, useRouter } from '@/i18n/routing';
 
@@ -57,7 +58,7 @@ export function SignInView() {
       ).toUTCString()}`;
 
       // Redirect to dashboard or home page after successful login
-      router.push('/dashboard');
+      router.push(routes.home);
     } catch (error) {
       console.error('Sign in error:', error);
     } finally {

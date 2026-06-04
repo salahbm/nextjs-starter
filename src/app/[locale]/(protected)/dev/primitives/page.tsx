@@ -43,7 +43,7 @@ import {
 
 import { useAlert } from '@/providers/alert';
 
-export default function DashboardPage() {
+export default function PrimitivesPage() {
   const alert = useAlert();
   const t = useTranslations();
 

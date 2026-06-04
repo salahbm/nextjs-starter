@@ -1,7 +1,12 @@
-import { redirect } from 'next/navigation';
-
 import { NextPage } from 'next';
 
-const ProtectedPage: NextPage = () => redirect('/dashboard');
+const HomePage: NextPage = () => {
+  return (
+    <div className="container mx-auto pb-8">
+      <h1 className="typo-header">Welcome</h1>
+      <p className="typo-body-1">You are logged in</p>
+    </div>
+  );
+};
 
-export default ProtectedPage;
+export default HomePage;

@@ -39,9 +39,7 @@ export default function proxy(request: NextRequest) {
 
   // Redirect authenticated users away from auth pages
   if (isAuthenticated && isPublicRoute) {
-    return NextResponse.redirect(
-      new URL(`/${locale}${routes.dashboard}`, origin),
-    );
+    return NextResponse.redirect(new URL(`/${locale}${routes.home}`, origin));
   }
 
   // Pass to i18n middleware for locale negotiation and routing

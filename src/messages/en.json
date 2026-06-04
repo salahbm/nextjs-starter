@@ -11,10 +11,8 @@
   },
   "Sidebar": {
     "dashboard": "Dashboard",
-    "users": "Users",
-    "settings": "Settings",
-    "admins": "Admins",
-    "profile": "Profile",
+    "dev": "Development",
+    "primitives": "Primitives",
     "preferences": "Preferences",
     "table": "Table",
     "forms": "Forms"

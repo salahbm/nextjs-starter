@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 
+import { useRouter } from 'next/navigation';
+
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ArrowRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
@@ -39,6 +41,7 @@ const signUpSchema = z.object({
 type SignUpFormValues = z.infer<typeof signUpSchema>;
 
 export function SignUpView() {
+  const router = useRouter();
   const t = useTranslations('auth');
   const [isLoading, setIsLoading] = useState(false);
 
@@ -62,7 +65,7 @@ export function SignUpView() {
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
       // Redirect to success page after successful registration
-      // router.push('/success');
+      router.push('/success');
     } catch (error) {
       console.error('Sign up error:', error);
     } finally {

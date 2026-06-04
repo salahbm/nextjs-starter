@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 import { User } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
@@ -21,7 +23,9 @@ const Avatar = () => {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" forceMount className="w-40">
         <DropdownMenuItem>
-          <button type="button">Profile</button>
+          <Link href="/preferences">
+            <button type="button">Profile</button>
+          </Link>
         </DropdownMenuItem>
         <DropdownMenuItem>Logout</DropdownMenuItem>
       </DropdownMenuContent>

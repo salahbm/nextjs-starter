@@ -3,15 +3,11 @@
 export const routes = {
   home: '/',
   signIn: '/sign-in',
-  dashboard: '/dashboard',
-  users: '/users',
-  documents: '/documents',
-  settings: '/settings',
-  profile: '/settings/profile',
-  admins: '/settings/admins',
-  preferences: '/settings/preferences',
-  table: '/table',
-  forms: '/forms',
+
+  preferences: '/preferences',
+  dev: '/dev/primitives',
+  table: '/dev/table',
+  forms: '/dev/forms',
 };
 
 export interface SideNavItem {
@@ -24,40 +20,34 @@ export interface SideNavItem {
 // Define the navigation items
 export const SIDENAV: SideNavItem[] = [
   {
-    href: routes.dashboard,
+    href: routes.home,
     label: 'dashboard',
     icon: 'LayoutDashboard',
   },
-
   {
-    href: routes.table,
-    label: 'table',
-    icon: 'Table',
+    href: routes.preferences,
+    label: 'preferences',
+    icon: 'Settings',
   },
   {
-    href: routes.forms,
-    label: 'forms',
-    icon: 'Type',
-  },
-  {
-    href: routes.settings,
-    label: 'settings',
+    href: '#',
+    label: 'dev',
     icon: 'Settings',
     children: [
       {
-        href: routes.profile,
-        label: 'profile',
-        icon: 'User',
+        href: routes.dev,
+        label: 'primitives',
+        icon: 'Palette',
       },
       {
-        href: routes.admins,
-        label: 'admins',
-        icon: 'Users',
+        href: routes.table,
+        label: 'table',
+        icon: 'Table',
       },
       {
-        href: routes.preferences,
-        label: 'preferences',
-        icon: 'Settings',
+        href: routes.forms,
+        label: 'forms',
+        icon: 'Type',
       },
     ],
   },

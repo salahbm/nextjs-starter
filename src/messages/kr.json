@@ -11,10 +11,8 @@
   },
   "Sidebar": {
     "dashboard": "대시보드",
-    "users": "사용자",
-    "settings": "설정",
-    "admins": "관리자",
-    "profile": "프로필",
+    "dev": "개발",
+    "primitives": "프리미티브",
     "preferences": "환경설정",
     "table": "테이블",
     "forms": "폼"
