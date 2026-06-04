@@ -24,11 +24,10 @@ import { cn } from '@/lib/utils';
 
 import { TFieldValues } from '@/types/global';
 
-interface ComboboxProps
-  extends Omit<
-    React.ButtonHTMLAttributes<HTMLButtonElement>,
-    'value' | 'onValueChange'
-  > {
+interface ComboboxProps extends Omit<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  'value' | 'onValueChange'
+> {
   options?: Array<{
     value: string;
     label: string;
@@ -70,7 +69,9 @@ export const Combobox = React.forwardRef<HTMLButtonElement, ComboboxProps>(
 
     const handleSelect = (val: string) => {
       if (multiple) {
-        const currentValues = Array.isArray(value) ? value : [];
+        const currentValues = Array.isArray(value)
+          ? value.filter((item): item is string => typeof item === 'string')
+          : [];
         const valueExists = currentValues.includes(val);
 
         if (valueExists) {
@@ -89,8 +90,16 @@ export const Combobox = React.forwardRef<HTMLButtonElement, ComboboxProps>(
 
     // Get selected values as an array regardless of single or multiple mode
     const selectedValues = React.useMemo(() => {
-      if (Array.isArray(value)) return value;
-      return value ? [value] : [];
+      if (Array.isArray(value)) {
+        return value.filter((item): item is string => typeof item === 'string');
+      }
+
+      if (typeof value === 'string') return value ? [value] : [];
+      if (typeof value === 'number' || typeof value === 'boolean') {
+        return [String(value)];
+      }
+
+      return [];
     }, [value]);
 
     // Get labels for all selected values
@@ -112,7 +121,7 @@ export const Combobox = React.forwardRef<HTMLButtonElement, ComboboxProps>(
     const localLabel = React.useMemo(() => {
       if (selectedValues.length === 0) {
         return (
-          <span className="text-muted-foreground font-caption-1:font-body-2">
+          <span className="font-caption-1:font-body-2 text-muted-foreground">
             {placeholder}
           </span>
         );
@@ -134,9 +143,9 @@ export const Combobox = React.forwardRef<HTMLButtonElement, ComboboxProps>(
         <PopoverTrigger
           ref={ref}
           className={cn(
-            'selection:bg-primary selection:text-primary-foreground dark:bg-input/30 hover:border-muted-foreground border-input font-caption-1 md:font-body-1 group flex h-11 w-full min-w-0 items-center justify-between rounded border bg-transparent px-4 py-3 transition-[color,box-shadow] outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50',
-            'focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]',
-            'aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive',
+            'font-caption-1 md:font-body-1 group flex h-11 w-full min-w-0 items-center justify-between rounded border border-input bg-transparent px-4 py-3 transition-[color,box-shadow] outline-none selection:bg-primary selection:text-primary-foreground hover:border-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 dark:bg-input/30',
+            'focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50',
+            'aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40',
             'cursor-pointer',
             error && 'border-red',
             className,
@@ -149,7 +158,7 @@ export const Combobox = React.forwardRef<HTMLButtonElement, ComboboxProps>(
             {selectedValues.length > 2 && (
               <div
                 onClick={handleClear}
-                className="hover:bg-accent rounded-full p-1"
+                className="rounded-full p-1 hover:bg-accent"
                 aria-label="Clear selection"
               >
                 <XIcon className="size-3" />
@@ -157,14 +166,14 @@ export const Combobox = React.forwardRef<HTMLButtonElement, ComboboxProps>(
             )}
             <ChevronDown
               className={cn(
-                'group-disabled:text-accent size-5 shrink-0 text-neutral-500 transition-transform duration-200 group-data-[state=open]:rotate-180',
+                'size-5 shrink-0 text-neutral-500 transition-transform duration-200 group-disabled:text-accent group-data-[state=open]:rotate-180',
               )}
             />
           </div>
         </PopoverTrigger>
         <PopoverContent
           align="start"
-          className="w-full min-w-[var(--radix-popover-trigger-width)]"
+          className="w-full min-w-(--radix-popover-trigger-width)"
         >
           <Command>
             {searchable && <CommandInput placeholder={t('Common.search')} />}
@@ -190,7 +199,7 @@ export const Combobox = React.forwardRef<HTMLButtonElement, ComboboxProps>(
                       )}
                     >
                       <span>{option.label}</span>
-                      {isSelected && <Check className="text-primary size-4" />}
+                      {isSelected && <Check className="size-4 text-primary" />}
                     </CommandItem>
                   );
                 })}

@@ -10,7 +10,7 @@ const PUBLIC_ROUTES = ['/sign-in', '/sign-up', '/forgot-password', '/success'];
 
 const intlMiddleware = createIntlMiddleware(routing);
 
-export default function middleware(request: NextRequest) {
+export default function proxy(request: NextRequest) {
   const { pathname, origin } = request.nextUrl;
 
   // Extract locale

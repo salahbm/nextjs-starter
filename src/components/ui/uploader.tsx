@@ -79,11 +79,11 @@ function Uploader({
           onDrop={handleDrop}
           data-dragging={isDragging || undefined}
           data-files={files.length > 0 || undefined}
-          className="border-input data-[dragging=true]:bg-accent/50 has-[input:focus]:border-ring has-[input:focus]:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive relative flex min-h-52 flex-col items-center overflow-hidden rounded-lg border border-dashed p-4 transition-colors not-data-[files]:justify-center has-[input:focus]:ring-[3px]"
+          className="relative flex min-h-52 flex-col items-center overflow-hidden rounded-lg border border-dashed border-input p-4 transition-colors not-data-files:justify-center has-[input:focus]:border-ring has-[input:focus]:ring-[3px] has-[input:focus]:ring-ring/50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 data-[dragging=true]:bg-accent/50 dark:aria-invalid:ring-destructive/40"
         >
           <div className="flex flex-col items-center justify-center px-4 py-3 text-center">
             <div
-              className="bg-background mb-2 flex size-11 shrink-0 items-center justify-center rounded-full border"
+              className="mb-2 flex size-11 shrink-0 items-center justify-center rounded-full border bg-background"
               aria-hidden="true"
             >
               <ImageIcon className="size-4 opacity-60" />
@@ -91,7 +91,7 @@ function Uploader({
             <p className="font-body-1 mb-1.5">
               {t('Common.messages.dropYourFilesHere')}
             </p>
-            <p className="text-muted-foreground font-caption-1 uppercase">
+            <p className="font-caption-1 text-muted-foreground uppercase">
               {makeAcceptString(accept)} (max. {maxSizeMB}MB)
             </p>
             <Button
@@ -125,7 +125,7 @@ function Uploader({
 
       {errors.length > 0 && (
         <div
-          className="text-destructive font-caption-1 flex items-center gap-1"
+          className="font-caption-1 flex items-center gap-1 text-destructive"
           role="alert"
         >
           <AlertCircleIcon className="size-4 shrink-0" />
@@ -143,11 +143,11 @@ function Uploader({
           {files.map((file) => (
             <div
               key={file.id}
-              className="bg-background flex shrink items-center justify-between gap-2 rounded-lg border p-2 pe-3"
+              className="flex shrink items-center justify-between gap-2 rounded-lg border bg-background p-2 pe-3"
             >
               <div className="flex items-center gap-3 overflow-hidden">
                 {file.file.type.includes('image') ? (
-                  <div className="bg-accent aspect-square shrink-0 rounded">
+                  <div className="aspect-square shrink-0 rounded bg-accent">
                     <Image
                       src={file.preview || ''}
                       alt={file.file.name}
@@ -159,13 +159,13 @@ function Uploader({
                     />
                   </div>
                 ) : (
-                  <FileText className="text-accent-foreground size-6 rounded-[inherit] object-cover" />
+                  <FileText className="size-6 rounded-[inherit] object-cover text-accent-foreground" />
                 )}
                 <div className="flex min-w-0 flex-col gap-0.5">
                   <p className="font-caption-1 truncate text-[13px]">
                     {file.file.name}
                   </p>
-                  <p className="text-muted-foreground text-xs">
+                  <p className="text-xs text-muted-foreground">
                     {formatBytes(file.file.size)}
                   </p>
                 </div>
@@ -174,7 +174,7 @@ function Uploader({
               <Button
                 size="icon"
                 variant="ghost"
-                className="text-muted-foreground/80 hover:text-foreground -me-2 size-8 hover:bg-transparent"
+                className="-me-2 size-8 text-muted-foreground/80 hover:bg-transparent hover:text-foreground"
                 onClick={() => removeFile(file.id)}
                 aria-label="Remove file"
               >
