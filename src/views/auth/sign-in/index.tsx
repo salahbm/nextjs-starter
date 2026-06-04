@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -17,6 +16,8 @@ import { Form } from '@/components/ui/form';
 import { Input, PasswordInput } from '@/components/ui/input';
 
 import { COOKIE_KEYS } from '@/constants/cookies';
+
+import { Link } from '@/i18n/routing';
 
 export function SignInView() {
   const router = useRouter();

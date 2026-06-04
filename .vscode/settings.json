@@ -25,5 +25,6 @@
   "eslint.format.enable": true,
   "eslint.run": "onSave",
   "prettier.requireConfig": true,
-  "i18n-ally.localesPaths": ["src/i18n", "src/messages"]
+  "i18n-ally.localesPaths": ["src/i18n", "src/messages"],
+  "css.lint.unknownAtRules": "ignore"
 }

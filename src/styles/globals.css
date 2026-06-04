@@ -1,52 +1,87 @@
+/* =============================================================================
+ * GLOBAL STYLES — Tailwind CSS v4
+ * =============================================================================
+ * This file configures Tailwind v4 using the CSS-first approach:
+ * - @import for Tailwind core and custom partials
+ * - @custom-variant for dark mode
+ * - @theme inline for design tokens (colors, radii, fonts, animations)
+ * - @utility for custom utility classes (replaces @layer utilities in v3)
+ * - @layer base for global base resets
+ * ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+ * 1. IMPORTS
+ * ----------------------------------------------------------------------------- */
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
-/* CUSTOM CSS IMPORTS */
+/* Custom partial stylesheets */
 @import './common.css';
 @import './fonts.css';
 @import './inputs.css';
 @import './animations.css';
 
+/* -----------------------------------------------------------------------------
+ * 2. CUSTOM VARIANT — Dark Mode
+ * In Tailwind v4, dark mode is configured via @custom-variant instead of
+ * the old `darkMode` config key. This targets elements inside a `.dark` parent.
+ * ----------------------------------------------------------------------------- */
 @custom-variant dark (&:is(.dark *));
 
+/* -----------------------------------------------------------------------------
+ * 3. THEME — Design Tokens
+ * Defines all design tokens (colors, fonts, radii, animations) using
+ * @theme inline. These map CSS custom properties to Tailwind's theme system.
+ * ----------------------------------------------------------------------------- */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  /* Typography */
   --font-sans: var(--font-main);
   --font-mono: var(--font-geist-mono);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
+
+  /* Colors — Semantic palette */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
   --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Colors — Chart */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Colors — Sidebar */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Border Radius */
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  /* Animations — Accordion */
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
 
@@ -69,6 +104,14 @@
   }
 }
 
+/* -----------------------------------------------------------------------------
+ * 4. CUSTOM UTILITIES
+ * In Tailwind v4, custom utilities are registered via @utility (not @layer).
+ * This allows them to work with variants (hover:, dark:, lg:, etc.) and
+ * be sorted correctly in the generated CSS.
+ * ----------------------------------------------------------------------------- */
+
+/* Container — Responsive centered wrapper with max-width breakpoints */
 @utility container {
   width: 100%;
   margin-inline: auto;
@@ -95,31 +138,108 @@
   }
 }
 
+/* Flex helpers */
+@utility flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@utility flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Gradient text */
+@utility linear-gradient {
+  background: linear-gradient(
+    90deg,
+    var(--primary) 58.94%,
+    var(--secondary) 100%
+  );
+  background-clip: text;
+  color: transparent;
+}
+
+/* Card variants */
+@utility card {
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background-color: var(--card);
+  padding: 1rem;
+  color: var(--card-foreground);
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+@utility card-md {
+  border-radius: calc(var(--radius) - 2px);
+  border: 1px solid var(--border);
+  background-color: var(--card);
+  padding: 1rem;
+  color: var(--card-foreground);
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+@utility card-lg {
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background-color: var(--card);
+  padding: 1rem;
+  color: var(--card-foreground);
+  box-shadow:
+    0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+/* -----------------------------------------------------------------------------
+ * 5. CSS CUSTOM PROPERTIES — Light & Dark Themes
+ * These CSS variables power all semantic colors. They are referenced by
+ * the @theme block above via var(--...) to connect to Tailwind utilities.
+ * ----------------------------------------------------------------------------- */
+
+/* Light theme (default) */
 :root {
   --radius: 0.625rem;
+
+  /* Surfaces */
   --background: oklch(1 0 0);
   --foreground: oklch(0.147 0.004 49.25);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.147 0.004 49.25);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.147 0.004 49.25);
+
+  /* Brand */
   --primary: oklch(0.72 0.2 35.5);
   --primary-foreground: oklch(0.985 0.001 106.423);
   --secondary: oklch(0.56 0.25 296.2);
   --secondary-foreground: oklch(0.216 0.006 56.043);
+
+  /* Neutral */
   --muted: oklch(0.97 0.001 106.424);
   --muted-foreground: oklch(0.553 0.013 58.071);
   --accent: oklch(0.97 0.001 106.424);
   --accent-foreground: oklch(0.216 0.006 56.043);
+
+  /* Feedback */
   --destructive: oklch(0.577 0.245 27.325);
+
+  /* Borders & Rings */
   --border: oklch(0.923 0.003 48.717);
   --input: oklch(0.923 0.003 48.717);
   --ring: oklch(0.709 0.01 56.259);
+
+  /* Charts */
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
+
+  /* Sidebar */
   --sidebar: oklch(0.985 0.001 106.423);
   --sidebar-foreground: oklch(0.147 0.004 49.25);
   --sidebar-primary: oklch(0.72 0.2 35.5);
@@ -130,30 +250,44 @@
   --sidebar-ring: oklch(0.709 0.01 56.259);
 }
 
+/* Dark theme */
 .dark {
+  /* Surfaces */
   --background: oklch(0.147 0.004 49.25);
   --foreground: oklch(0.985 0.001 106.423);
   --card: oklch(0.216 0.006 56.043);
   --card-foreground: oklch(0.985 0.001 106.423);
   --popover: oklch(0.216 0.006 56.043);
   --popover-foreground: oklch(0.985 0.001 106.423);
+
+  /* Brand */
   --primary: oklch(0.72 0.2 35.5);
   --primary-foreground: oklch(0.216 0.006 56.043);
   --secondary: oklch(0.56 0.25 296.2);
   --secondary-foreground: oklch(0.985 0.001 106.423);
+
+  /* Neutral */
   --muted: oklch(0.268 0.007 34.298);
   --muted-foreground: oklch(0.709 0.01 56.259);
   --accent: oklch(0.268 0.007 34.298);
   --accent-foreground: oklch(0.985 0.001 106.423);
+
+  /* Feedback */
   --destructive: oklch(0.577 0.245 27.325);
+
+  /* Borders & Rings */
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.553 0.013 58.071);
+
+  /* Charts */
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
+
+  /* Sidebar */
   --sidebar: oklch(0.216 0.006 56.043);
   --sidebar-foreground: oklch(0.985 0.001 106.423);
   --sidebar-primary: oklch(0.72 0.2 35.5);
@@ -164,41 +298,25 @@
   --sidebar-ring: oklch(0.553 0.013 58.071);
 }
 
-@layer utilities {
-  .flex-center {
-    @apply flex items-center justify-center;
-  }
-  .flex-between {
-    @apply flex items-center justify-between;
-  }
-  .linear-gradient {
-    background: linear-gradient(
-      90deg,
-      var(--primary) 58.94%,
-      var(--secondary) 100%
-    );
-    background-clip: text;
-    color: transparent;
-  }
-
-  .card {
-    @apply rounded border bg-card p-4 text-card-foreground shadow-sm;
-  }
-
-  .card-md {
-    @apply rounded-md border bg-card p-4 text-card-foreground shadow-md;
-  }
-
-  .card-lg {
-    @apply rounded-lg border bg-card p-4 text-card-foreground shadow-lg;
-  }
-}
-
+/* -----------------------------------------------------------------------------
+ * 6. BASE LAYER — Global Resets
+ * These base styles apply globally. In Tailwind v4, @layer base is still
+ * valid for non-utility global styles (resets, defaults).
+ * ----------------------------------------------------------------------------- */
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    border-color: var(--border);
+    outline-color: color-mix(in oklch, var(--ring) 50%, transparent);
   }
+
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+
+  /* Restore pointer cursor for interactive elements (v4 changed the default) */
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
   }
 }

@@ -17,15 +17,6 @@ export const routing = defineRouting({
     name: COOKIE_KEYS.LANGUAGE,
     maxAge: 60 * 60 * 24 * 365,
   },
-
-  // The list of paths that should use the default locale
-  pathnames: {
-    '/': '/',
-    '/dashboard': '/dashboard',
-    '/users': '/users',
-    '/documents': '/documents',
-    '/profile': '/profile',
-  },
 });
 
 export type Locale = 'en' | 'ru';
