@@ -44,7 +44,11 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--muted);
+  background-color: color-mix(
+    in oklch,
+    var(--muted-foreground) 30%,
+    transparent
+  );
   border-radius: 8px;
   border: 4px solid transparent;
   background-clip: content-box;

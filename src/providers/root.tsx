@@ -2,6 +2,7 @@ import { PropsWithChildren } from 'react';
 
 import { NuqsAdapter } from 'nuqs/adapters/next/app';
 
+import AlertProvider from './alert';
 import Internationalization from './intl';
 import IntlErrorHandlingProvider from './intl-error';
 import QueryProvider from './query';
@@ -14,7 +15,9 @@ export default async function RootLayout({ children }: PropsWithChildren) {
       <Internationalization>
         <IntlErrorHandlingProvider>
           <QueryProvider>
-            <NuqsAdapter>{children}</NuqsAdapter>
+            <AlertProvider>
+              <NuqsAdapter>{children}</NuqsAdapter>
+            </AlertProvider>
           </QueryProvider>
           <ZodInitProvider />
         </IntlErrorHandlingProvider>

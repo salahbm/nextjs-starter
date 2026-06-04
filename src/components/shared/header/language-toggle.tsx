@@ -27,22 +27,22 @@ export function LanguageToggle() {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuItem onClick={() => handleLocale('en')}>
-          {currentLocale === 'en' && (
-            <Check className="mr-2 h-4 w-4 text-primary" />
-          )}{' '}
           English
+          {currentLocale === 'en' && (
+            <Check className="ml-auto h-4 w-4 text-primary" />
+          )}{' '}
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => handleLocale('ru')}>
-          {currentLocale === 'ru' && (
-            <Check className="mr-2 h-4 w-4 text-primary" />
-          )}{' '}
           Русский
+          {currentLocale === 'ru' && (
+            <Check className="ml-auto h-4 w-4 text-primary" />
+          )}{' '}
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => handleLocale('kr')}>
-          {currentLocale === 'kr' && (
-            <Check className="mr-2 h-4 w-4 text-primary" />
-          )}{' '}
           한국어
+          {currentLocale === 'kr' && (
+            <Check className="ml-auto h-4 w-4 text-primary" />
+          )}{' '}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

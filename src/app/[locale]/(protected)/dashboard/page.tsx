@@ -41,7 +41,10 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip';
 
+import { useAlert } from '@/providers/alert';
+
 export default function DashboardPage() {
+  const alert = useAlert();
   const t = useTranslations();
 
   return (
@@ -142,6 +145,19 @@ export default function DashboardPage() {
                   </div>
                 </SheetContent>
               </Sheet>
+            </div>
+          </div>
+
+          <div className="grid gap-4">
+            <h3 className="text-xl font-medium">Alert</h3>
+            <div className="card p-4">
+              <Button
+                onClick={() =>
+                  alert({ title: 'Confirm', description: 'Are you sure?' })
+                }
+              >
+                Open Alert
+              </Button>
             </div>
           </div>
 
