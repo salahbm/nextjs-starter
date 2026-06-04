@@ -3,7 +3,6 @@
 import { useState } from 'react';
 
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ArrowRight } from 'lucide-react';
@@ -16,48 +15,48 @@ import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
 import { Input, PasswordInput } from '@/components/ui/input';
 
-import { COOKIE_KEYS } from '@/constants/cookies';
-
-export function SignInView() {
-  const router = useRouter();
+export function SignUpView() {
   const t = useTranslations('auth');
   const [isLoading, setIsLoading] = useState(false);
 
   // Form validation schema with translations
-  const signInSchema = z.object({
+  const signUpSchema = z.object({
+    username: z.string().min(3, t('validation.username.minLength', { min: 3 })),
     email: z.email(t('validation.email.invalid')),
-    password: z.string().min(6, t('validation.password.minLength', { min: 6 })),
+    password: z
+      .string()
+      .min(8, t('validation.password.minLength', { min: 8 }))
+      .regex(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+        t('validation.password.containsUppercase'),
+      ),
   });
 
-  type SignInFormValues = z.infer<typeof signInSchema>;
+  type SignUpFormValues = z.infer<typeof signUpSchema>;
 
-  const form = useForm<SignInFormValues>({
-    resolver: zodResolver(signInSchema),
+  const form = useForm<SignUpFormValues>({
+    resolver: zodResolver(signUpSchema),
     defaultValues: {
+      username: '',
       email: '',
       password: '',
     },
   });
 
-  const onSubmit = async (data: SignInFormValues) => {
+  const onSubmit = async (data: SignUpFormValues) => {
     setIsLoading(true);
 
     try {
-      // Here you would implement your authentication logic
-      console.info('Sign in data:', data);
+      // Here you would implement your registration logic
+      console.info('Sign up data:', data);
 
       // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      // Set access token in cookie
-      document.cookie = `${COOKIE_KEYS.ACCESS_TOKEN}=${data.email}; path=/; expires=${new Date(
-        Date.now() + 60 * 60 * 24 * 7,
-      ).toUTCString()}`;
-
-      // Redirect to dashboard or home page after successful login
-      router.push('/dashboard');
+      // Redirect to success page after successful registration
+      // router.push('/success');
     } catch (error) {
-      console.error('Sign in error:', error);
+      console.error('Sign up error:', error);
     } finally {
       setIsLoading(false);
     }
@@ -67,22 +66,37 @@ export function SignInView() {
     <div className="flex min-h-screen flex-col items-center justify-center p-4">
       <div className="w-full max-w-md space-y-8">
         <div className="text-center">
-          <h1 className="font-header">{t('signIn.title')}</h1>
-          <p className="font-body-2 text-muted-foreground mt-2">
-            {t('signIn.subtitle')}
+          <h1 className="font-header">{t('signUp.title')}</h1>
+          <p className="font-body-2 mt-2 text-muted-foreground">
+            {t('signUp.subtitle')}
           </p>
         </div>
 
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
             <FormFields
-              name="email"
-              label={t('signIn.emailLabel')}
+              name="username"
+              label={t('signUp.usernameLabel')}
               required
               control={form.control}
               render={({ field }) => (
                 <Input
-                  placeholder={t('signIn.emailPlaceholder')}
+                  placeholder={t('signUp.usernamePlaceholder')}
+                  autoComplete="username"
+                  disabled={isLoading}
+                  {...field}
+                />
+              )}
+            />
+
+            <FormFields
+              name="email"
+              label={t('signUp.emailLabel')}
+              required
+              control={form.control}
+              render={({ field }) => (
+                <Input
+                  placeholder={t('signUp.emailPlaceholder')}
                   type="email"
                   autoComplete="email"
                   disabled={isLoading}
@@ -93,37 +107,30 @@ export function SignInView() {
 
             <FormFields
               name="password"
-              label={t('signIn.passwordLabel')}
+              label={t('signUp.passwordLabel')}
               required
+              message={t('validation.password.containsUppercase')}
+              messageClassName="text-muted-foreground text-xs"
               control={form.control}
               render={({ field }) => (
                 <PasswordInput
-                  placeholder={t('signIn.passwordPlaceholder')}
-                  autoComplete="current-password"
+                  placeholder={t('signUp.passwordPlaceholder')}
+                  autoComplete="new-password"
                   disabled={isLoading}
                   {...field}
                 />
               )}
             />
 
-            <div className="flex items-center justify-end">
-              <Link
-                href="/forgot-password"
-                className="font-body-2 text-primary hover:underline"
-              >
-                {t('signIn.forgotPassword')}
-              </Link>
-            </div>
-
             <Button type="submit" className="w-full" disabled={isLoading}>
-              {isLoading ? t('signIn.buttonLoading') : t('signIn.button')}
+              {isLoading ? t('signUp.buttonLoading') : t('signUp.button')}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
 
             <div className="font-caption-1 text-center">
-              {t('signIn.noAccount')}{' '}
-              <Link href="/sign-up" className="text-primary hover:underline">
-                {t('signIn.signUpLink')}
+              {t('signUp.haveAccount')}{' '}
+              <Link href="/sign-in" className="text-primary hover:underline">
+                {t('signUp.signInLink')}
               </Link>
             </div>
           </form>

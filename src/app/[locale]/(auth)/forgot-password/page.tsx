@@ -2,7 +2,7 @@ import { getTranslations } from 'next-intl/server';
 
 import { Metadata } from 'next';
 
-import { ForgotPasswordView } from '@/components/views/auth/forgot-password';
+import { ForgotPasswordView } from '@/views/auth/forgot-password';
 
 export async function generateMetadata({
   params,

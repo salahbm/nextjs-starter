@@ -2,7 +2,7 @@ import { getTranslations } from 'next-intl/server';
 
 import { Metadata } from 'next';
 
-import { SuccessView } from '@/components/views/auth/success';
+import { SuccessView } from '@/views/auth/success';
 
 export async function generateMetadata({
   params,

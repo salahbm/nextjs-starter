@@ -42,12 +42,12 @@ export function SuccessView({
     <div className="flex min-h-screen flex-col items-center justify-center p-4">
       <div className="w-full max-w-md space-y-8 text-center">
         <div className="flex justify-center">
-          <CheckCircle className="text-primary h-16 w-16" />
+          <CheckCircle className="h-16 w-16 text-primary" />
         </div>
 
         <div>
           <h1 className="font-header">{finalTitle}</h1>
-          <p className="font-body-2 text-muted-foreground mt-2">
+          <p className="font-body-2 mt-2 text-muted-foreground">
             {finalMessage}
           </p>
         </div>

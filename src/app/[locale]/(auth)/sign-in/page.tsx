@@ -2,7 +2,7 @@ import { getTranslations } from 'next-intl/server';
 
 import { Metadata } from 'next';
 
-import { SignInView } from '@/components/views/auth/sign-in';
+import { SignInView } from '@/views/auth/sign-in';
 
 export async function generateMetadata({
   params,
