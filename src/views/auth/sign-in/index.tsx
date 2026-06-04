@@ -68,8 +68,8 @@ export function SignInView() {
     <div className="flex min-h-screen flex-col items-center justify-center p-4">
       <div className="w-full max-w-md space-y-8">
         <div className="text-center">
-          <h1 className="font-header">{t('signIn.title')}</h1>
-          <p className="font-body-2 mt-2 text-muted-foreground">
+          <h1 className="typo-header">{t('signIn.title')}</h1>
+          <p className="typo-body-2 mt-2 text-muted-foreground">
             {t('signIn.subtitle')}
           </p>
         </div>
@@ -110,7 +110,7 @@ export function SignInView() {
             <div className="flex items-center justify-end">
               <Link
                 href="/forgot-password"
-                className="font-body-2 text-primary hover:underline"
+                className="typo-body-2 text-primary hover:underline"
               >
                 {t('signIn.forgotPassword')}
               </Link>
@@ -121,7 +121,7 @@ export function SignInView() {
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
 
-            <div className="font-caption-1 text-center">
+            <div className="typo-caption-1 text-center">
               {t('signIn.noAccount')}{' '}
               <Link href="/sign-up" className="text-primary hover:underline">
                 {t('signIn.signUpLink')}

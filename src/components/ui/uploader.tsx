@@ -88,10 +88,10 @@ function Uploader({
             >
               <ImageIcon className="size-4 opacity-60" />
             </div>
-            <p className="font-body-1 mb-1.5">
+            <p className="typo-body-1 mb-1.5">
               {t('Common.messages.dropYourFilesHere')}
             </p>
-            <p className="font-caption-1 text-muted-foreground uppercase">
+            <p className="typo-caption-1 text-muted-foreground uppercase">
               {makeAcceptString(accept)} (max. {maxSizeMB}MB)
             </p>
             <Button
@@ -125,7 +125,7 @@ function Uploader({
 
       {errors.length > 0 && (
         <div
-          className="font-caption-1 flex items-center gap-1 text-destructive"
+          className="typo-caption-1 flex items-center gap-1 text-destructive"
           role="alert"
         >
           <AlertCircleIcon className="size-4 shrink-0" />
@@ -162,7 +162,7 @@ function Uploader({
                   <FileText className="size-6 rounded-[inherit] object-cover text-accent-foreground" />
                 )}
                 <div className="flex min-w-0 flex-col gap-0.5">
-                  <p className="font-caption-1 truncate text-[13px]">
+                  <p className="typo-caption-1 truncate text-[13px]">
                     {file.file.name}
                   </p>
                   <p className="text-xs text-muted-foreground">

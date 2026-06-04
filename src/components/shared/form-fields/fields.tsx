@@ -37,7 +37,7 @@ export const FormFields = <T extends FieldValues>(props: CustomProps<T>) => {
           {label && (
             <FormLabel
               required={required}
-              className={cn(labelClassName, 'font-body-1')}
+              className={cn(labelClassName, 'typo-body-1')}
             >
               {label}
             </FormLabel>
@@ -46,7 +46,7 @@ export const FormFields = <T extends FieldValues>(props: CustomProps<T>) => {
           {message && (
             <FormDescription
               className={cn(
-                'font-caption-2 text-muted-foreground mt-0.5',
+                'typo-caption-2 mt-0.5 text-muted-foreground',
                 messageClassName,
               )}
             >

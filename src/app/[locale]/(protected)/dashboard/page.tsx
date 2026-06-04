@@ -48,10 +48,10 @@ export default function DashboardPage() {
     <div className="container mx-auto pb-8">
       <h1 className="mb-6 text-3xl font-bold">Theme Demo</h1>
 
-      <h2 className="text-primary text-xl font-semibold">
+      <h2 className="text-xl font-semibold text-primary">
         {t('Metadata.title')}
       </h2>
-      <p className="text-muted-foreground mb-8">{t('Metadata.description')}</p>
+      <p className="mb-8 text-muted-foreground">{t('Metadata.description')}</p>
 
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold">UI Components</h2>
@@ -147,7 +147,7 @@ export default function DashboardPage() {
 
           <div className="grid gap-4">
             <h3 className="text-xl font-medium">Tooltip</h3>
-            <div className="card flex justify-center p-4">
+            <div className="flex justify-center card p-4">
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
@@ -212,7 +212,7 @@ export default function DashboardPage() {
 
           <div className="grid gap-4">
             <h3 className="text-xl font-medium">Popover</h3>
-            <div className="card flex justify-center p-4">
+            <div className="flex justify-center card p-4">
               <Popover>
                 <PopoverTrigger asChild>
                   <Button variant="outline">Open Popover</Button>
@@ -221,7 +221,7 @@ export default function DashboardPage() {
                   <div className="grid gap-4">
                     <div className="space-y-2">
                       <h4 className="leading-none font-medium">Dimensions</h4>
-                      <p className="text-muted-foreground text-sm">
+                      <p className="text-sm text-muted-foreground">
                         Set the dimensions for the layer.
                       </p>
                     </div>
@@ -253,7 +253,7 @@ export default function DashboardPage() {
             <h3 className="text-xl font-medium">Tabs Variants</h3>
             <div className="grid gap-6">
               <div className="card p-4">
-                <h4 className="font-body-1 mb-4">Default Tabs</h4>
+                <h4 className="typo-body-1 mb-4">Default Tabs</h4>
                 <Tabs defaultValue="account">
                   <TabsList>
                     <TabsTrigger value="account">Account</TabsTrigger>
@@ -305,19 +305,19 @@ export default function DashboardPage() {
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
               <div className="card">
                 <h4 className="font-semibold">Card Title</h4>
-                <p className="text-muted-foreground text-sm">
+                <p className="text-sm text-muted-foreground">
                   Card description goes here
                 </p>
               </div>
               <div className="card-md">
                 <h4 className="font-semibold">Card Title</h4>
-                <p className="text-muted-foreground text-sm">
+                <p className="text-sm text-muted-foreground">
                   Card description goes here
                 </p>
               </div>
               <div className="card-lg">
                 <h4 className="font-semibold">Card Title</h4>
-                <p className="text-muted-foreground text-sm">
+                <p className="text-sm text-muted-foreground">
                   Card description goes here
                 </p>
               </div>
@@ -327,13 +327,13 @@ export default function DashboardPage() {
             <h3 className="text-xl font-medium">FONTS</h3>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
               <div className="card p-4">
-                <h4 className="font-header">Header</h4>
-                <p className="font-title">Title</p>
-                <p className="font-subtitle">Subtitle</p>
-                <p className="font-body-1">Body 1</p>
-                <p className="font-body-2">Body 2</p>
-                <p className="font-caption-1">Caption 1</p>
-                <p className="font-caption-2">Caption 2</p>
+                <h4 className="typo-header">Header</h4>
+                <p className="typo-title">Title</p>
+                <p className="typo-subtitle">Subtitle</p>
+                <p className="typo-body-1">Body 1</p>
+                <p className="typo-body-2">Body 2</p>
+                <p className="typo-caption-1">Caption 1</p>
+                <p className="typo-caption-2">Caption 2</p>
               </div>
             </div>
           </div>

@@ -56,8 +56,8 @@ export function ForgotPasswordView() {
     <div className="flex min-h-screen flex-col items-center justify-center p-4">
       <div className="w-full max-w-md space-y-8">
         <div className="text-center">
-          <h1 className="font-header">{t('forgotPassword.title')}</h1>
-          <p className="font-body-2 mt-2 text-muted-foreground">
+          <h1 className="typo-header">{t('forgotPassword.title')}</h1>
+          <p className="typo-body-2 mt-2 text-muted-foreground">
             {t('forgotPassword.subtitle')}
           </p>
         </div>
@@ -90,7 +90,7 @@ export function ForgotPasswordView() {
             <div className="text-center">
               <Link
                 href="/sign-in"
-                className="font-body-2 inline-flex items-center text-primary hover:underline"
+                className="typo-body-2 inline-flex items-center text-primary hover:underline"
               >
                 <ArrowLeft className="mr-2 h-4 w-4" />
                 {t('forgotPassword.backToSignIn')}

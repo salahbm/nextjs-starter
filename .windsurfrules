@@ -48,7 +48,7 @@ You are my coding assistant. Follow these rules strictly for this project:
    - Use `components/shared/form-fields/index.ts` as a wrapper for all input, select, date pickers, file uploads, etc.
    - Never use raw `<input>` directly in views unless unavoidable.
 9. **Typography**
-   - Always use classes from `styles/font.css` (`font-header` … `font-caption-2`).
+   - Always use classes from `styles/font.css` (`typo-header` … `typo-caption-2`).
      - These classes already define **font-size, weight, line-height**, and other text styles.
    - Avoid inline font styles (`font-size`, `font-weight`, `line-height`) unless absolutely unavoidable.
    - Do not create new font utility classes outside `styles/font.css`.

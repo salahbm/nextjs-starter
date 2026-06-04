@@ -46,8 +46,8 @@ export function SuccessView({
         </div>
 
         <div>
-          <h1 className="font-header">{finalTitle}</h1>
-          <p className="font-body-2 mt-2 text-muted-foreground">
+          <h1 className="typo-header">{finalTitle}</h1>
+          <p className="typo-body-2 mt-2 text-muted-foreground">
             {finalMessage}
           </p>
         </div>

@@ -66,8 +66,8 @@ export function SignUpView() {
     <div className="flex min-h-screen flex-col items-center justify-center p-4">
       <div className="w-full max-w-md space-y-8">
         <div className="text-center">
-          <h1 className="font-header">{t('signUp.title')}</h1>
-          <p className="font-body-2 mt-2 text-muted-foreground">
+          <h1 className="typo-header">{t('signUp.title')}</h1>
+          <p className="typo-body-2 mt-2 text-muted-foreground">
             {t('signUp.subtitle')}
           </p>
         </div>
@@ -127,7 +127,7 @@ export function SignUpView() {
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
 
-            <div className="font-caption-1 text-center">
+            <div className="typo-caption-1 text-center">
               {t('signUp.haveAccount')}{' '}
               <Link href="/sign-in" className="text-primary hover:underline">
                 {t('signUp.signInLink')}

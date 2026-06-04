@@ -43,7 +43,7 @@ export default function Pagination<TData>({
         type="button"
         onClick={() => handlePageChange(i)}
         variant={currentPage === i ? 'default' : 'ghost'}
-        className="font-body-2 size-6 rounded"
+        className="typo-body-2 size-6 rounded"
         size="icon"
       >
         {i + 1} {/* display as 1-based in UI only */}
@@ -103,7 +103,7 @@ export default function Pagination<TData>({
       <Combobox
         value={`${table.getState().pagination.pageSize}`}
         onValueChange={(val) => table.setPageSize(Number(val))}
-        className="font-body-2 h-8 w-fit gap-2 rounded py-0 pr-1 pl-2 [&>div>svg]:size-4.5"
+        className="typo-body-2 h-8 w-fit gap-2 rounded py-0 pr-1 pl-2 [&>div>svg]:size-4.5"
         options={sizesArray.map((size) => ({
           label: size.toString(),
           value: size.toString(),
@@ -120,7 +120,7 @@ export default function Pagination<TData>({
           disabled={currentPage === 0}
           title="Previous page"
         >
-          <ChevronLeft className="text-muted-foreground size-5" />
+          <ChevronLeft className="size-5 text-muted-foreground" />
         </Button>
         {renderPagination}
         <Button
@@ -132,7 +132,7 @@ export default function Pagination<TData>({
           disabled={currentPage >= pageCount - 1}
           title="Next page"
         >
-          <ChevronRight className="text-muted-foreground size-5" />
+          <ChevronRight className="size-5 text-muted-foreground" />
         </Button>
       </div>
     </div>

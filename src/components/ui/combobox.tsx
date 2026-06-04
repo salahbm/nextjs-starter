@@ -121,7 +121,7 @@ export const Combobox = React.forwardRef<HTMLButtonElement, ComboboxProps>(
     const localLabel = React.useMemo(() => {
       if (selectedValues.length === 0) {
         return (
-          <span className="font-caption-1:font-body-2 text-muted-foreground">
+          <span className="typo-caption-1:typo-body-2 text-muted-foreground">
             {placeholder}
           </span>
         );
@@ -143,7 +143,7 @@ export const Combobox = React.forwardRef<HTMLButtonElement, ComboboxProps>(
         <PopoverTrigger
           ref={ref}
           className={cn(
-            'font-caption-1 md:font-body-1 group flex h-11 w-full min-w-0 items-center justify-between rounded border border-input bg-transparent px-4 py-3 transition-[color,box-shadow] outline-none selection:bg-primary selection:text-primary-foreground hover:border-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 dark:bg-input/30',
+            'typo-caption-1 md:typo-body-1 group flex h-11 w-full min-w-0 items-center justify-between rounded border border-input bg-transparent px-4 py-3 transition-[color,box-shadow] outline-none selection:bg-primary selection:text-primary-foreground hover:border-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 dark:bg-input/30',
             'focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50',
             'aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40',
             'cursor-pointer',
@@ -179,7 +179,7 @@ export const Combobox = React.forwardRef<HTMLButtonElement, ComboboxProps>(
             {searchable && <CommandInput placeholder={t('Common.search')} />}
             <CommandList className="no-scrollbar max-h-80">
               <CommandEmpty>
-                <p className="font-body-2 text-muted-foreground">
+                <p className="typo-body-2 text-muted-foreground">
                   {t('Common.noData')}
                 </p>
               </CommandEmpty>

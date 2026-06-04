@@ -136,11 +136,15 @@ export const DatePicker: React.FC<DatePickerProps> = ({
         return (
           <div className="min-w-[320px] p-3">
             <Tabs defaultValue="date">
-              <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger value="date">{t('date')}</TabsTrigger>
-                <TabsTrigger value="time">{t('time')}</TabsTrigger>
+              <TabsList className="w-full">
+                <TabsTrigger value="date" className="flex-1">
+                  {t('date')}
+                </TabsTrigger>
+                <TabsTrigger value="time" className="flex-1">
+                  {t('time')}
+                </TabsTrigger>
               </TabsList>
-              <TabsContent value="date" className="mt-2">
+              <TabsContent value="date">
                 <Calendar
                   mode="single"
                   selected={value as Date}
@@ -165,7 +169,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
             <div className="flex flex-col space-y-2">
               <div className="flex items-center justify-start">
                 <div className="flex items-center space-x-2">
-                  <Clock className="text-muted-foreground h-5 w-5" />
+                  <Clock className="h-5 w-5 text-muted-foreground" />
                   <span className="text-sm font-medium">
                     {t('placeholder.time')}
                   </span>
@@ -241,9 +245,9 @@ export const DatePicker: React.FC<DatePickerProps> = ({
     <Popover>
       <PopoverTrigger
         className={cn(
-          'selection:bg-primary selection:text-primary-foreground dark:bg-input/30 hover:border-muted-foreground border-input font-caption-1 md:font-body-1 flex h-11 w-full min-w-0 cursor-pointer justify-between rounded border bg-transparent px-4 py-3 shadow-xs transition-[color,box-shadow] outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50',
-          'focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]',
-          'aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive',
+          'typo-caption-1 md:typo-body-1 flex h-11 w-full min-w-0 cursor-pointer justify-between rounded border border-input bg-transparent px-4 py-3 shadow-xs transition-[color,box-shadow] outline-none selection:bg-primary selection:text-primary-foreground hover:border-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 dark:bg-input/30',
+          'focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50',
+          'aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40',
           !value && 'text-muted-foreground',
           error && 'border-destructive',
           className,

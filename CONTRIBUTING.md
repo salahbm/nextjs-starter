@@ -66,7 +66,7 @@ By participating in this project, you agree to abide by our code of conduct. Ple
 
 ### Typography
 
-- Always use classes from `styles/font.css` (`font-header` … `font-caption-2`).
+- Always use classes from `styles/font.css` (`typo-header` … `typo-caption-2`).
 - Avoid inline font styles unless absolutely unavoidable.
 - All headings, labels, captions, and body text must use predefined classes.
 

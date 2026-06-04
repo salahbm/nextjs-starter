@@ -2,11 +2,10 @@ import * as React from 'react';
 
 import { cn } from '@/lib/utils';
 
-interface TimeInputProps
-  extends Omit<
-    React.InputHTMLAttributes<HTMLInputElement>,
-    'type' | 'onChange'
-  > {
+interface TimeInputProps extends Omit<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  'type' | 'onChange'
+> {
   value?: string;
   onChange?: (value: string) => void;
   onValueChange?: (value: Date) => void;
@@ -50,7 +49,7 @@ const TimeInput = React.forwardRef<HTMLInputElement, TimeInputProps>(
           onChange={handleChange}
           step={60} // seconds step: 60 = 1 minute increments
           className={cn(
-            'border-input placeholder:text-muted-foreground focus-visible:ring-ring font-caption-1 w-full rounded border bg-transparent px-3 py-2 text-sm shadow-sm transition-colors focus-visible:ring-1 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50',
+            'typo-caption-1 w-full rounded border border-input bg-transparent px-3 py-2 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:ring-1 focus-visible:ring-ring focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50',
             className,
           )}
           ref={ref}
