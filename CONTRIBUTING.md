@@ -1,6 +1,6 @@
-# Contributing to Vizamaster Admin
+# Contributing to Next JS Starter
 
-Thank you for considering contributing to Vizamaster Admin! This document outlines the process and guidelines for contributing to this project.
+Thank you for considering contributing to Next JS Starter! This document outlines the process and guidelines for contributing to this project.
 
 ## Code of Conduct
 

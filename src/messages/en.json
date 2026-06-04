@@ -1,7 +1,7 @@
 {
   "Metadata": {
-    "title": "Welcome to Vizamaster Admin",
-    "description": "This is the admin panel for Vizamaster"
+    "title": "Welcome to Next JS Starter",
+    "description": "This is the admin panel for Next JS Starter"
   },
   "Header": {
     "language": "Language",
@@ -70,7 +70,7 @@
     },
     "signUp": {
       "title": "Create an account",
-      "subtitle": "Sign up to get started with VizaMaster",
+      "subtitle": "Sign up to get started with Next JS Starter",
       "usernameLabel": "Username",
       "usernamePlaceholder": "Enter your username",
       "emailLabel": "Email",

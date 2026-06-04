@@ -41,7 +41,7 @@ export async function generateMetadata({
       index: true,
       follow: true,
     },
-    keywords: ['vizamaster', 'admin', 'dashboard'],
+    keywords: ['nextjs-starter', 'admin', 'dashboard'],
     icons: {
       icon: '/favicon.ico',
     },

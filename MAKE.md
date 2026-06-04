@@ -1,6 +1,6 @@
 # Build and Development Guide
 
-This document provides instructions for building, testing, and developing the Vizamaster Admin application.
+This document provides instructions for building, testing, and developing the Next JS Starter application.
 
 ## Prerequisites
 
@@ -13,8 +13,8 @@ This document provides instructions for building, testing, and developing the Vi
 Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/your-organization/vizamaster-admin.git
-cd vizamaster-admin
+git clone https://github.com/salahbm/nextjs-starter.git
+cd nextjs-starter
 npm install
 ```
 

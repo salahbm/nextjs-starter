@@ -20,7 +20,7 @@ export default function Header() {
   const { toggle } = useSidebar();
 
   return (
-    <header className="bg-background sticky top-0 z-40 w-full border-b">
+    <header className="sticky top-0 z-40 w-full border-b bg-background">
       <div className="flex h-16 items-center justify-between px-4 sm:px-6">
         <div className="flex items-center gap-1 md:gap-0 lg:gap-4">
           <Button
@@ -32,14 +32,13 @@ export default function Header() {
           >
             <Menu className="size-5" />
           </Button>
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center gap-2">
             <Image
               src={IMAGES.logo}
               alt="Viza Master Logo"
-              width={60}
-              height={60}
+              width={40}
+              height={40}
               priority
-              className="size-12 lg:size-16"
             />
             <h1 className="linear-gradient text-md font-roboto font-bold lg:text-2xl">
               {BRAND.name}
