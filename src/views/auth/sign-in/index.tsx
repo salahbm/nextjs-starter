@@ -13,22 +13,25 @@ import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
 import { Input, PasswordInput } from '@/components/ui/input';
 
+import { required } from '@/utils/zod-locale';
+
 import { COOKIE_KEYS } from '@/constants/cookies';
 
 import { Link, useRouter } from '@/i18n/routing';
+
+// Standard Zod errors (email, min) are handled by the built-in locale.
+// Custom validations use .refine() with customCode for the customError map.
+const signInSchema = z.object({
+  email: required(z.email()),
+  password: required(z.string().min(6)),
+});
+
+type SignInFormValues = z.infer<typeof signInSchema>;
 
 export function SignInView() {
   const router = useRouter();
   const t = useTranslations('auth');
   const [isLoading, setIsLoading] = useState(false);
-
-  // Form validation schema with translations
-  const signInSchema = z.object({
-    email: z.email(t('validation.email.invalid')),
-    password: z.string().min(6, t('validation.password.minLength', { min: 6 })),
-  });
-
-  type SignInFormValues = z.infer<typeof signInSchema>;
 
   const form = useForm<SignInFormValues>({
     resolver: zodResolver(signInSchema),

@@ -2,8 +2,6 @@
 
 import { useState } from 'react';
 
-import Link from 'next/link';
-
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ArrowRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
@@ -15,24 +13,34 @@ import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
 import { Input, PasswordInput } from '@/components/ui/input';
 
+import { required } from '@/utils/zod-locale';
+
+import { Link } from '@/i18n/routing';
+
+// Standard Zod errors (email, min) are handled by the built-in locale.
+// Custom validations use .refine() with customCode for the customError map.
+const signUpSchema = z.object({
+  username: required(z.string().min(3)),
+  email: required(z.email()),
+  password: required(
+    z
+      .string()
+      .min(8)
+      .refine(
+        (v) =>
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
+            v,
+          ),
+        { params: { customCode: 'custom.password_strong' } },
+      ),
+  ),
+});
+
+type SignUpFormValues = z.infer<typeof signUpSchema>;
+
 export function SignUpView() {
   const t = useTranslations('auth');
   const [isLoading, setIsLoading] = useState(false);
-
-  // Form validation schema with translations
-  const signUpSchema = z.object({
-    username: z.string().min(3, t('validation.username.minLength', { min: 3 })),
-    email: z.email(t('validation.email.invalid')),
-    password: z
-      .string()
-      .min(8, t('validation.password.minLength', { min: 8 }))
-      .regex(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-        t('validation.password.containsUppercase'),
-      ),
-  });
-
-  type SignUpFormValues = z.infer<typeof signUpSchema>;
 
   const form = useForm<SignUpFormValues>({
     resolver: zodResolver(signUpSchema),
@@ -109,7 +117,7 @@ export function SignUpView() {
               name="password"
               label={t('signUp.passwordLabel')}
               required
-              message={t('validation.password.containsUppercase')}
+              message={t('signUp.passwordHint')}
               messageClassName="text-muted-foreground text-xs"
               control={form.control}
               render={({ field }) => (

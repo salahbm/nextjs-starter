@@ -5,7 +5,7 @@ import { COOKIE_KEYS } from '@/constants/cookies';
 
 export const routing = defineRouting({
   // A list of all locales that are supported
-  locales: ['en', 'ru'],
+  locales: ['en', 'ru', 'kr'],
 
   // Used when no locale matches
   defaultLocale: 'en',
@@ -19,7 +19,7 @@ export const routing = defineRouting({
   },
 });
 
-export type Locale = 'en' | 'ru';
+export type Locale = 'en' | 'ru' | 'kr';
 
 // Lightweight wrappers around Next.js' navigation APIs
 // that will consider the routing configuration

@@ -1,7 +1,7 @@
 {
   "Metadata": {
     "title": "Добро пожаловать в Next JS Starter",
-    "description": "Это панель администратора для Next JS Starter"
+    "description": "Это административная панель для Next JS Starter"
   },
   "Header": {
     "language": "Язык",
@@ -12,11 +12,12 @@
   "Sidebar": {
     "dashboard": "Панель управления",
     "users": "Пользователи",
-    "documents": "Документы",
     "settings": "Настройки",
     "admins": "Администраторы",
     "profile": "Профиль",
-    "preferences": "Предпочтения"
+    "preferences": "Предпочтения",
+    "table": "Таблица",
+    "forms": "Формы"
   },
   "Common": {
     "save": "Сохранить",
@@ -24,19 +25,45 @@
     "delete": "Удалить",
     "edit": "Редактировать",
     "create": "Создать",
-    "search": "Поиск"
+    "view": "Просмотр",
+    "search": "Поиск",
+    "noData": "Нет данных",
+    "date": "Дата",
+    "time": "Время",
+    "reset": "Сбросить",
+    "hide": "Скрыть",
+    "selectFiles": "Выбрать файлы",
+    "uploadMore": "Загрузить ещё",
+    "removeAllFiles": "Удалить все файлы",
+    "placeholder": {
+      "date": "Выберите дату",
+      "time": "Выберите время",
+      "datetime": "Выберите дату и время",
+      "selectItem": "Выберите элемент",
+      "selectItems": "Выберите элементы",
+      "enterValue": "Введите значение",
+      "selectEndDate": "Выберите конечную дату"
+    },
+    "messages": {
+      "dropYourFilesHere": "Перетащите файлы сюда",
+      "fileSize": "Размер файла должен быть меньше {maxSize}",
+      "fileType": "Тип файла должен быть {accept}",
+      "fileCount": "Количество файлов должно быть меньше {maxFiles}",
+      "fileUpload": "Не удалось загрузить файл",
+      "fileAcceptType": "Тип файла должен быть {accept}"
+    }
   },
   "auth": {
     "signIn": {
       "title": "С возвращением",
-      "subtitle": "Войдите в свой аккаунт, чтобы продолжить",
+      "subtitle": "Войдите в свою учётную запись, чтобы продолжить",
       "emailLabel": "Электронная почта",
-      "emailPlaceholder": "Введите вашу почту",
+      "emailPlaceholder": "Введите адрес электронной почты",
       "passwordLabel": "Пароль",
-      "passwordPlaceholder": "Введите ваш пароль",
+      "passwordPlaceholder": "Введите пароль",
       "forgotPassword": "Забыли пароль?",
       "button": "Войти",
-      "buttonLoading": "Вход...",
+      "buttonLoading": "Выполняется вход...",
       "noAccount": "Нет аккаунта?",
       "signUpLink": "Зарегистрироваться"
     },
@@ -46,163 +73,32 @@
       "usernameLabel": "Имя пользователя",
       "usernamePlaceholder": "Введите имя пользователя",
       "emailLabel": "Электронная почта",
-      "emailPlaceholder": "Введите вашу почту",
+      "emailPlaceholder": "Введите адрес электронной почты",
       "passwordLabel": "Пароль",
-      "passwordPlaceholder": "Введите ваш пароль",
+      "passwordPlaceholder": "Введите пароль",
       "confirmPasswordLabel": "Подтвердите пароль",
-      "confirmPasswordPlaceholder": "Подтвердите ваш пароль",
+      "confirmPasswordPlaceholder": "Подтвердите пароль",
       "button": "Зарегистрироваться",
       "buttonLoading": "Создание аккаунта...",
       "haveAccount": "Уже есть аккаунт?",
-      "signInLink": "Войти"
+      "signInLink": "Войти",
+      "passwordHint": "Пароль должен содержать заглавные и строчные буквы, цифру и специальный символ"
     },
     "forgotPassword": {
-      "title": "Сбросить пароль",
-      "subtitle": "Введите адрес электронной почты, и мы отправим вам ссылку для сброса пароля",
+      "title": "Сброс пароля",
+      "subtitle": "Введите адрес электронной почты, и мы отправим ссылку для сброса пароля",
       "emailLabel": "Электронная почта",
-      "emailPlaceholder": "Введите вашу почту",
-      "button": "Отправить ссылку",
+      "emailPlaceholder": "Введите адрес электронной почты",
+      "button": "Отправить ссылку для сброса",
       "buttonLoading": "Отправка ссылки...",
-      "backToSignIn": "Вернуться к входу"
+      "backToSignIn": "Вернуться ко входу"
     },
     "success": {
       "resetLinkSent": {
-        "title": "Проверьте вашу почту",
+        "title": "Проверьте свою почту",
         "message": "Мы отправили ссылку для сброса пароля на ваш адрес электронной почты",
-        "button": "Вернуться к входу"
-      }
-    },
-    "validation": {
-      "username": {
-        "required": "Имя пользователя обязательно",
-        "minLength": "Имя пользователя должно содержать не менее {min} символов"
-      },
-      "email": {
-        "required": "Электронная почта обязательна",
-        "invalid": "Пожалуйста, введите действительный адрес электронной почты"
-      },
-      "password": {
-        "required": "Пароль обязателен",
-        "minLength": "Пароль должен содержать не менее {min} символов",
-        "containsNumber": "Пароль должен содержать хотя бы одну цифру",
-        "containsUppercase": "Пароль должен содержать хотя бы одну заглавную букву"
-      },
-      "confirmPassword": {
-        "required": "Пожалуйста, подтвердите ваш пароль",
-        "match": "Пароли не совпадают"
+        "button": "Вернуться ко входу"
       }
     }
-  },
-  "zod": {
-    "required": "Обязательное поле",
-    "invalid_type": "Ожидался тип - {{expected}}, получено - {{received}}",
-    "invalid_type_received_undefined": "Обязательное поле",
-    "invalid_type_received_null": "Обязательное поле",
-    "invalid_literal": "Неверное значение литерала, ожидалось {{expected}}",
-    "unrecognized_keys": "Неверные ключи в объекте: {{- keys}}",
-    "invalid_union": "Результаты пересечения не могут быть объединены",
-    "invalid_union_discriminator": "Неверное значение дискриминатора. Ожидалось {{- options}}",
-    "invalid_enum_value": "Неверное значение перечисления. Ожидалось {{- options}}, получено '{{received}}'",
-    "invalid_arguments": "Неверный тип аргументов функции",
-    "invalid_return_type": "Неверный тип возвращаемого значения функции",
-    "invalid_date": "Неверный формат даты",
-    "custom": "Неверный ввод",
-    "invalid_intersection_types": "Результаты пересечения не могут быть объединены",
-    "not_multiple_of": "Число должно быть кратно {{multipleOf}}",
-    "not_finite": "Число должно быть конечным",
-    "invalid_string": {
-      "email": "Неверный {{validation}}",
-      "url": "Неверный {{validation}}",
-      "uuid": "Неверный {{validation}}",
-      "cuid": "Неверный {{validation}}",
-      "regex": "Неверное {{validation}}",
-      "datetime": "Неверная {{validation}}",
-      "startsWith": "Неверный формат, должен начинаться с \"{{startsWith}}\"",
-      "endsWith": "Неверный формат, должен заканчиваться на \"{{endsWith}}\""
-    },
-    "too_small": {
-      "array": {
-        "exact": "Массив должен содержать ровно {{minimum}} элемента(ов)",
-        "inclusive": "Массив должен содержать не менее {{minimum}} элемента(ов)",
-        "not_inclusive": "Массив должен содержать более {{minimum}} элемента(ов)"
-      },
-      "string": {
-        "exact": "Строка должна содержать ровно {{minimum}} символа(ов)",
-        "inclusive": "Строка должна содержать не менее {{minimum}} символа(ов)",
-        "not_inclusive": "Строка должна содержать более {{minimum}} символа(ов)"
-      },
-      "number": {
-        "exact": "Число должно быть ровно {{minimum}}",
-        "inclusive": "Число должно быть больше или равно {{minimum}}",
-        "not_inclusive": "Число должно быть больше {{minimum}}"
-      },
-      "set": {
-        "exact": "Неверный ввод",
-        "inclusive": "Неверный ввод",
-        "not_inclusive": "Неверный ввод"
-      },
-      "date": {
-        "exact": "Дата должна быть {{- minimum, datetime}}",
-        "inclusive": "Дата должна быть больше или равна {{- minimum, datetime}}",
-        "not_inclusive": "Дата должна быть больше {{- minimum, datetime}}"
-      }
-    },
-    "too_big": {
-      "array": {
-        "exact": "Массив должен содержать ровно {{maximum}} элемента(ов)",
-        "inclusive": "Массив должен содержать не более {{maximum}} элемента(ов)",
-        "not_inclusive": "Массив должен содержать менее {{maximum}} элемента(ов)"
-      },
-      "string": {
-        "exact": "Строка должна содержать ровно {{maximum}} символа(ов)",
-        "inclusive": "Строка должна содержать не более {{maximum}} символа(ов)",
-        "not_inclusive": "Строка должна содержать менее {{maximum}} символа(ов)"
-      },
-      "number": {
-        "exact": "Число должно быть ровно {{maximum}}",
-        "inclusive": "Число должно быть меньше или равно {{maximum}}",
-        "not_inclusive": "Число должно быть меньше {{maximum}}"
-      },
-      "set": {
-        "exact": "Неверный ввод",
-        "inclusive": "Неверный ввод",
-        "not_inclusive": "Неверный ввод"
-      },
-      "date": {
-        "exact": "Дата должна быть {{- maximum, datetime}}",
-        "inclusive": "Дата должна быть меньше или равна {{- maximum, datetime}}",
-        "not_inclusive": "Дата должна быть меньше {{- maximum, datetime}}"
-      }
-    }
-  },
-  "validations": {
-    "email": "Email",
-    "url": "URL",
-    "uuid": "UUID",
-    "cuid": "CUID",
-    "regex": "регулярное выражение",
-    "datetime": "дата и время"
-  },
-  "types": {
-    "function": "функция",
-    "number": "число",
-    "string": "строка",
-    "nan": "NaN",
-    "integer": "целое число",
-    "float": "число с плавающей точкой",
-    "boolean": "булево значение",
-    "date": "дата",
-    "bigint": "bigint",
-    "undefined": "undefined",
-    "symbol": "символ",
-    "null": "null",
-    "array": "массив",
-    "object": "объект",
-    "unknown": "unknown",
-    "promise": "promise",
-    "void": "void",
-    "never": "never",
-    "map": "хеш-таблица",
-    "set": "множество"
   }
 }

@@ -16,18 +16,15 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Textarea } from '@/components/ui/textarea';
 import { Uploader } from '@/components/ui/uploader';
 
+import { required } from '@/utils/zod-locale';
+
 import { FileMetadataSchema } from '@/hooks/common/use-file-upload';
 
 const schema = z.object({
   // Basic Information
-  username: z.string().refine((value) => value.trim() !== '', {
-    params: { i18nKey: 'required' },
-    message: 'Username is required',
-  }),
-  email: z.string().email({ message: 'Please enter a valid email address' }),
-  password: z
-    .string()
-    .min(6, { message: 'Password must be at least 6 characters' }),
+  username: required(z.string()),
+  email: required(z.email()),
+  password: z.string().min(6),
   description: z.string().optional(),
   telephone: z.string().optional(),
 
@@ -101,10 +98,10 @@ export default function FormsPage() {
     <div className="container mx-auto pb-8">
       <h1 className="mb-6 text-3xl font-bold">Forms Demo</h1>
 
-      <h2 className="text-primary text-xl font-semibold">
+      <h2 className="text-xl font-semibold text-primary">
         {t('Metadata.title')}
       </h2>
-      <p className="text-muted-foreground mb-8">{t('Metadata.description')}</p>
+      <p className="mb-8 text-muted-foreground">{t('Metadata.description')}</p>
 
       <Form {...form}>
         <form
@@ -382,40 +379,40 @@ export default function FormsPage() {
                       className="grid grid-cols-1 gap-4 md:grid-cols-3"
                       {...field}
                     >
-                      <div className="hover:bg-accent rounded-lg border p-4">
+                      <div className="rounded-lg border p-4 hover:bg-accent">
                         <div className="flex items-start space-x-3">
                           <RadioGroupItem value="free" id="free" />
                           <div>
                             <label htmlFor="free" className="font-medium">
                               Free
                             </label>
-                            <p className="text-muted-foreground text-sm">
+                            <p className="text-sm text-muted-foreground">
                               Basic features for personal use
                             </p>
                           </div>
                         </div>
                       </div>
-                      <div className="hover:bg-accent rounded-lg border p-4">
+                      <div className="rounded-lg border p-4 hover:bg-accent">
                         <div className="flex items-start space-x-3">
                           <RadioGroupItem value="pro" id="pro" />
                           <div>
                             <label htmlFor="pro" className="font-medium">
                               Pro
                             </label>
-                            <p className="text-muted-foreground text-sm">
+                            <p className="text-sm text-muted-foreground">
                               Advanced features for professionals
                             </p>
                           </div>
                         </div>
                       </div>
-                      <div className="hover:bg-accent rounded-lg border p-4">
+                      <div className="rounded-lg border p-4 hover:bg-accent">
                         <div className="flex items-start space-x-3">
                           <RadioGroupItem value="enterprise" id="enterprise" />
                           <div>
                             <label htmlFor="enterprise" className="font-medium">
                               Enterprise
                             </label>
-                            <p className="text-muted-foreground text-sm">
+                            <p className="text-sm text-muted-foreground">
                               Custom solutions for organizations
                             </p>
                           </div>

@@ -28,15 +28,21 @@ export function LanguageToggle() {
       <DropdownMenuContent align="end">
         <DropdownMenuItem onClick={() => handleLocale('en')}>
           {currentLocale === 'en' && (
-            <Check className="text-primary mr-2 h-4 w-4" />
+            <Check className="mr-2 h-4 w-4 text-primary" />
           )}{' '}
           English
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => handleLocale('ru')}>
           {currentLocale === 'ru' && (
-            <Check className="text-primary mr-2 h-4 w-4" />
+            <Check className="mr-2 h-4 w-4 text-primary" />
           )}{' '}
           Русский
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => handleLocale('kr')}>
+          {currentLocale === 'kr' && (
+            <Check className="mr-2 h-4 w-4 text-primary" />
+          )}{' '}
+          한국어
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

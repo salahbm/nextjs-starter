@@ -2,8 +2,6 @@
 
 import { useState } from 'react';
 
-import Link from 'next/link';
-
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
@@ -15,16 +13,20 @@ import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 
+import { required } from '@/utils/zod-locale';
+
+import { Link } from '@/i18n/routing';
+
+// Standard Zod errors (email) are handled by the built-in locale.
+const forgotPasswordSchema = z.object({
+  email: required(z.email()),
+});
+
+type ForgotPasswordFormValues = z.infer<typeof forgotPasswordSchema>;
+
 export function ForgotPasswordView() {
   const t = useTranslations('auth');
   const [isLoading, setIsLoading] = useState(false);
-
-  // Form validation schema with translations
-  const forgotPasswordSchema = z.object({
-    email: z.email(t('validation.email.invalid')),
-  });
-
-  type ForgotPasswordFormValues = z.infer<typeof forgotPasswordSchema>;
 
   const form = useForm<ForgotPasswordFormValues>({
     resolver: zodResolver(forgotPasswordSchema),
