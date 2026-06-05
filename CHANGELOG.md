@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.1](https://github.com/salahbm/nextjs-starter/compare/v0.3.0...v0.3.1) (2026-06-05)
+
+### Chores
+
+- add testing, observability, and CI infrastructure ([bef4bb5](https://github.com/salahbm/nextjs-starter/commit/bef4bb5512437b6d33da17b6676779ba4cf18581))
+- **release:** 0.2.1 ([661f96d](https://github.com/salahbm/nextjs-starter/commit/661f96d211d26d17dd6ddcc3bdf15d91aa4b2558))
+- simplify husky hook scripts ([f6c1769](https://github.com/salahbm/nextjs-starter/commit/f6c1769793d004d86835a3478fe601be24d60c03))
+
+### Documentation
+
+- project explanation added ([838a6f4](https://github.com/salahbm/nextjs-starter/commit/838a6f4fa2a49b935a83629bd67b3b50d306d8b6))
+- rewrite README with stack overview and project structure ([4ed6328](https://github.com/salahbm/nextjs-starter/commit/4ed632816b3aec00a3ea80528e1da8a0f4a52b3b))
+
 ## 0.3.0 (2026-06-04)
 
 ### Features
