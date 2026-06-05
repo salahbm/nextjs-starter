@@ -19,8 +19,10 @@ import {
 
 import { cn } from '@/lib/utils';
 
-interface DataTableColumnHeaderProps<TData, TValue>
-  extends React.ComponentProps<typeof DropdownMenuTrigger> {
+interface DataTableColumnHeaderProps<
+  TData,
+  TValue,
+> extends React.ComponentProps<typeof DropdownMenuTrigger> {
   column: Column<TData, TValue>;
   title: string;
 }
@@ -41,7 +43,7 @@ export function DataTableColumnHeader<TData, TValue>({
     <DropdownMenu>
       <DropdownMenuTrigger
         className={cn(
-          'hover:bg-accent focus:ring-ring data-[state=open]:bg-accent [&_svg]:text-muted-foreground -ml-1.5 flex h-8 items-center gap-1.5 rounded-md px-2 py-1.5 focus:ring-1 focus:outline-none [&_svg]:size-4 [&_svg]:shrink-0',
+          '-ml-1.5 flex h-8 items-center gap-1.5 rounded-md px-2 py-1.5 hover:bg-accent focus:ring-1 focus:ring-ring focus:outline-none data-[state=open]:bg-accent [&_svg]:size-4 [&_svg]:shrink-0 [&_svg]:text-muted-foreground',
           className,
         )}
         {...props}
@@ -60,7 +62,7 @@ export function DataTableColumnHeader<TData, TValue>({
         {column.getCanSort() && (
           <>
             <DropdownMenuItem
-              className="text-accent-foreground gap-1.5"
+              className="gap-1.5 text-accent-foreground"
               disabled={column.getIsSorted() === 'asc'}
               onClick={() => column.toggleSorting(false)}
             >
@@ -68,7 +70,7 @@ export function DataTableColumnHeader<TData, TValue>({
               Asc
             </DropdownMenuItem>
             <DropdownMenuItem
-              className="text-accent-foreground gap-1.5"
+              className="gap-1.5 text-accent-foreground"
               disabled={column.getIsSorted() === 'desc'}
               onClick={() => column.toggleSorting(true)}
             >
@@ -77,7 +79,7 @@ export function DataTableColumnHeader<TData, TValue>({
             </DropdownMenuItem>
             {column.getIsSorted() && (
               <DropdownMenuItem
-                className="text-accent-foreground gap-1.5"
+                className="gap-1.5 text-accent-foreground"
                 onClick={() => column.clearSorting()}
               >
                 <X className="size-5" />
@@ -88,7 +90,7 @@ export function DataTableColumnHeader<TData, TValue>({
         )}
         {column.getCanHide() && (
           <DropdownMenuItem
-            className="text-accent-foreground gap-1.5"
+            className="gap-1.5 text-accent-foreground"
             disabled={!column.getIsVisible()}
             onClick={() => column.toggleVisibility(false)}
           >

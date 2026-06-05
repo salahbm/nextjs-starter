@@ -40,7 +40,7 @@ export default function Header() {
               height={40}
               priority
             />
-            <h1 className="linear-gradient text-md font-roboto font-bold lg:text-2xl">
+            <h1 className="text-md font-roboto linear-gradient font-bold lg:text-2xl">
               {BRAND.name}
             </h1>
           </Link>

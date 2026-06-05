@@ -10,8 +10,10 @@ import { TFieldValues } from '@/types/global';
 
 import { Input } from './input';
 
-interface PasswordInputProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'value'> {
+interface PasswordInputProps extends Omit<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  'value'
+> {
   showToggle?: boolean;
   value?: TFieldValues;
 }
@@ -34,7 +36,7 @@ export function PasswordInput({
         <button
           type="button"
           onClick={() => setShowPassword(!showPassword)}
-          className="text-muted-foreground hover:text-foreground absolute top-1/2 right-3 -translate-y-1/2"
+          className="absolute top-1/2 right-3 -translate-y-1/2 text-muted-foreground hover:text-foreground"
           tabIndex={-1}
           aria-label={showPassword ? 'Hide password' : 'Show password'}
         >

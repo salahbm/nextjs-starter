@@ -11,8 +11,25 @@ const statusOptions = [
 // Define possible roles
 const roles = ['Admin', 'User', 'Editor', 'Viewer', 'Moderator'];
 
+type TableRow = {
+  id: string;
+  username: string;
+  fullName: string;
+  email: string;
+  role: string;
+  status: string;
+  createdAt: Date;
+  lastLogin: Date;
+  loginCount: number;
+};
+
+type SortOption = {
+  id: keyof TableRow;
+  desc?: boolean;
+};
+
 // Generate all data (this would typically come from a database)
-const allData = Array.from({ length: 11 }, (_, i) => {
+const allData: TableRow[] = Array.from({ length: 11 }, (_, i) => {
   // Generate random date within the last 2 years
   const randomDaysAgo = Math.floor(Math.random() * 730); // 2 years in days
   const createdAt = new Date();
@@ -59,12 +76,12 @@ export async function GET(request: NextRequest) {
   if (sortParam) {
     try {
       // Try to parse the sort parameter as JSON
-      let sortOptions;
+      let sortOptions: unknown;
 
       try {
         // First attempt: direct JSON parsing
         sortOptions = JSON.parse(sortParam);
-      } catch (error) {
+      } catch {
         // Ignore first parsing error and try second method
         // Second attempt: try decoding URI component first
         try {
@@ -76,9 +93,9 @@ export async function GET(request: NextRequest) {
         }
       }
 
-      if (Array.isArray(sortOptions) && sortOptions.length > 0) {
+      if (isSortOptions(sortOptions)) {
         // Apply each sort option in order
-        sortedData.sort((a: any, b: any) => {
+        sortedData.sort((a, b) => {
           // Loop through each sort option
           for (const { id, desc } of sortOptions) {
             if (a[id] !== b[id]) {
@@ -101,11 +118,11 @@ export async function GET(request: NextRequest) {
     }
   } else {
     // Default sorting by ID if no sort parameter
-    sortedData.sort((a: any, b: any) => (a.id > b.id ? 1 : -1));
+    sortedData.sort((a, b) => (a.id > b.id ? 1 : -1));
   }
 
   if (search) {
-    sortedData = sortedData.filter((item: any) => {
+    sortedData = sortedData.filter((item) => {
       return (
         item.username.toLowerCase().includes(search.toLowerCase()) ||
         item.fullName.toLowerCase().includes(search.toLowerCase()) ||
@@ -137,4 +154,34 @@ export async function GET(request: NextRequest) {
       totalElements,
     },
   });
+}
+
+function isSortOptions(value: unknown): value is SortOption[] {
+  const sortKeys = new Set<keyof TableRow>([
+    'id',
+    'username',
+    'fullName',
+    'email',
+    'role',
+    'status',
+    'createdAt',
+    'lastLogin',
+    'loginCount',
+  ]);
+
+  return (
+    Array.isArray(value) &&
+    value.length > 0 &&
+    value.every((item) => {
+      if (typeof item !== 'object' || item === null) return false;
+
+      const option = item as Partial<Record<keyof SortOption, unknown>>;
+
+      return (
+        typeof option.id === 'string' &&
+        sortKeys.has(option.id as keyof TableRow) &&
+        (option.desc === undefined || typeof option.desc === 'boolean')
+      );
+    })
+  );
 }

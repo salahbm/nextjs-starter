@@ -20,6 +20,7 @@ export default [
       '**/*.config.{js,ts,mjs}',
       '**/coverage',
       '.lintstagedrc.js',
+      'next-env.d.ts',
     ],
   },
   {
