@@ -236,6 +236,7 @@ SENTRY_PROJECT
 - `MAKE.md`: build and development workflow notes
 - `CONTRIBUTING.md`: contribution guidelines
 - `docs/architecture.md`: architecture notes and runtime boundaries
+- `docs/production-tooling.md`: explanation of production tooling choices
 - `SECURITY.md`: security policy
 - `LICENSE`: project license
 - `VERSION`: current project version marker
