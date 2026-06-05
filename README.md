@@ -1,227 +1,151 @@
-# Next JS Starter
+# Next.js Starter
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app) and using [Bun](https://bun.sh/) as the JavaScript runtime.
+A modern admin starter built with Next.js, React, Bun, Tailwind CSS, and a small set of production-minded defaults.
+
+## Stack
+
+- [Next.js 16](https://nextjs.org/) App Router
+- [React 19](https://react.dev/)
+- [Bun](https://bun.sh/) for package management and scripts
+- [Tailwind CSS 4](https://tailwindcss.com/) with CSS-first configuration
+- [TypeScript 6](https://www.typescriptlang.org/)
+- [next-intl](https://next-intl.dev/) for locale routing and translations
+- [t3-env](https://env.t3.gg/) for typed environment variables
+- [TanStack Query](https://tanstack.com/query/latest) and [TanStack Table](https://tanstack.com/table/latest)
+- [React Hook Form](https://react-hook-form.com/) and [Zod](https://zod.dev/)
+- [Radix UI](https://www.radix-ui.com/) primitives with local UI wrappers
+- [Zustand](https://github.com/pmndrs/zustand) for state management
+- [shadcn/ui](https://ui.shadcn.com/) for UI components
+- [Zod](https://zod.dev/) for validation
+- [Nuqs](https://nuqs.47ng.com/) for URL state management
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies:
 
 ```bash
-bun dev
+bun install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Code Quality and Standards
-
-This project uses the following tools to ensure code quality and consistency:
-
-### Linting and Formatting
-
-- **ESLint**: For code linting
-- **Prettier**: For code formatting
-
-Run the following commands:
+Start the development server:
 
 ```bash
-# Lint code
-bun run lint
-
-# Format code
-bun run format
-
-# Check formatting without making changes
-bun run format:check
-
-# Type checking
-bun run type-check
+bun run dev
 ```
 
-### Git Hooks and Commit Standards
+Open [http://localhost:3000](http://localhost:3000). Routes are locale-prefixed, so the app will serve pages such as `/en`, `/ru`, and `/kr`.
 
-This project uses:
+## Scripts
 
-- **Husky**: For Git hooks
-- **lint-staged**: For running linters on staged files
-- **commitlint**: For enforcing commit message conventions
-- **Commitizen**: For standardized commit messages
-- **Standard Version**: For automated versioning and changelog generation
+```bash
+bun run dev           # Start Next.js dev server
+bun run build         # Create a production build
+bun run start         # Start the production server
+bun run lint          # Run ESLint with auto-fix
+bun run format        # Format files with Prettier
+bun run format:check  # Check formatting
+bun run type-check    # Run TypeScript without emitting files
+bun run pre-commit    # Run lint-staged tasks
+```
 
-### Commit Process
-
-To create a standardized commit, use:
+Release helpers:
 
 ```bash
 bun run commit
+bun run release
+bun run release:patch
+bun run release:minor
+bun run release:major
 ```
 
-This will launch an interactive prompt to help you create a properly formatted commit message.
+## Project Structure
 
-Commit messages follow the [Conventional Commits](https://www.conventionalcommits.org/) format:
-
+```text
+src/app/              App Router routes and route handlers
+src/components/       Shared and feature-level React components
+src/components/ui/    Local UI primitives
+src/constants/        App routes, cookies, brand, fonts, and static constants
+src/hooks/            Reusable React hooks
+src/i18n/             next-intl routing and request config
+src/lib/              Shared utilities and data helpers
+src/messages/         Translation messages for en, ru, and kr
+src/providers/        Root app providers
+src/styles/           Tailwind CSS entrypoint and global styles
+src/types/            Shared TypeScript types
+src/env.ts            Typed environment schema
+src/proxy.ts          Next.js proxy for auth and locale routing
 ```
-<type>[optional scope]: <description>
 
-[optional body]
+## Environment Variables
 
-[optional footer(s)]
+Environment variables are defined and validated in `src/env.ts` with `@t3-oss/env-nextjs`.
+
+The current schema only validates the shared `NODE_ENV` value:
+
+```ts
+NODE_ENV: 'development' | 'test' | 'production';
 ```
 
-Types include:
+When adding a new variable:
 
-- `feat`: A new feature
-- `improve`: Improvements to existing features
-- `fix`: A bug fix
-- `deploy`: Deployment changes
-- `docs`: Documentation changes
-- `style`: Code style changes (formatting, etc.)
-- `refactor`: Code changes that neither fix bugs nor add features
-- `perf`: Performance improvements
-- `test`: Adding or fixing tests
-- `build`: Build system or dependency changes
-- `ci`: CI configuration changes
-- `chore`: Other changes that don't modify src or test files
-- `revert`: Reverting previous changes
-- `merge`: Merging branches
+1. Add it to `src/env.ts`.
+2. Include it in `runtimeEnv` or `experimental__runtimeEnv`.
+3. Import `env` from `@/env` instead of reading `process.env` directly.
 
-Example: `feat: add user authentication`
+`next.config.ts` imports `src/env.ts`, so environment validation runs during Next.js config loading and production builds.
 
-### Versioning
+## Styling
 
-This project uses semantic versioning. To create a new version:
+Tailwind CSS 4 is configured through `src/styles/globals.css`.
+
+Important notes:
+
+- `postcss.config.mjs` uses `@tailwindcss/postcss`.
+- `.prettierrc` uses `tailwindStylesheet` and points to `src/styles/globals.css`.
+- There is no `tailwind.config.js` or `tailwind.config.ts`; app-specific theme tokens and utilities live in CSS.
+- `tw-animate-css` is imported from the global stylesheet.
+
+## Internationalization
+
+`next-intl` is configured in `src/i18n/routing.ts`.
+
+Supported locales:
+
+- `en`
+- `ru`
+- `kr`
+
+Locale prefixes are always included in URLs, and the selected language is stored with the configured language cookie.
+
+## Code Quality
+
+This project uses:
+
+- ESLint
+- Prettier
+- TypeScript strict mode
+- Husky
+- lint-staged
+- commitlint
+- Commitizen
+- standard-version
+
+Use `bun run commit` for an interactive Conventional Commits flow.
+
+## Documentation Files
+
+- `MAKE.md`: build and development workflow notes
+- `CONTRIBUTING.md`: contribution guidelines
+- `SECURITY.md`: security policy
+- `LICENSE`: project license
+- `VERSION`: current project version marker
+
+## Deployment
+
+Build the app before deploying:
 
 ```bash
-# Automatic versioning based on commits
-bun run release
-
-# Specific version bumps
-bun run release:patch  # 0.0.x
-bun run release:minor  # 0.x.0
-bun run release:major  # x.0.0
+bun run build
 ```
 
-This will:
-
-1. Update the version in package.json
-2. Update the VERSION file
-3. Generate/update the CHANGELOG.md file
-4. Create a git tag
-5. Create a version commit
-
-## Project Documentation
-
-This project includes several documentation files:
-
-### `MAKE.md`
-
-Contains build and development instructions, including:
-
-- Prerequisites and dependencies
-- Installation steps
-- Development workflow
-- Production build process
-- Testing procedures
-- Project structure overview
-- Environment variables
-- Deployment information
-
-### `CONTRIBUTING.md`
-
-Guidelines for contributing to the project, including:
-
-- Code of conduct
-- Contribution process
-- Development guidelines and standards
-- Pull request process
-- Testing requirements
-- Bug reporting guidelines
-- Feature request guidelines
-
-### `LICENSE`
-
-MIT License for the project, which allows for:
-
-- Free use, modification, and distribution
-- Limited liability protection
-- Requirements to include the license notice
-
-### `SECURITY.md`
-
-Security policy for the project, including:
-
-- Supported versions
-- Vulnerability reporting process
-- Security best practices
-- Update procedures
-
-## Configuration Files
-
-This project includes several configuration files for development and versioning:
-
-### `.czrc`
-
-Configures Commitizen to use the conventional changelog adapter. This enables the interactive commit prompt.
-
-### `.versionrc`
-
-Configures Standard Version for changelog generation and versioning. It defines:
-
-- Which commit types appear in which changelog sections
-- URL formats for commits, comparisons, and issues
-- Release commit message format
-
-### `commitlint.config.js`
-
-Defines rules for commit message validation, including:
-
-- Required format and structure
-- Allowed types and their descriptions
-- Interactive prompt configuration
-
-### `.husky/`
-
-Contains Git hooks:
-
-- `pre-commit`: Runs linting and formatting on staged files before commits
-- `commit-msg`: Validates commit messages against commitlint rules
-
-### `bunfig.toml`
-
-Configures Bun behavior for the project, including:
-
-- Installation settings
-- Cache directory
-- Test coverage
-- Debug options
-
-### `.npmrc`
-
-Configures npm/Bun package management behavior:
-
-- `save-exact=true`: Saves exact versions of dependencies
-- `engine-strict=true`: Enforces Node.js version requirements
-- `legacy-peer-deps=false`: Uses modern peer dependency resolution
-- `node-linker=hoisted`: Controls how dependencies are linked
-
-### `VERSION`
-
-Stores the current project version as a simple text file.
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The project is compatible with Vercel and other Next.js hosting targets. See the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for platform-specific details.

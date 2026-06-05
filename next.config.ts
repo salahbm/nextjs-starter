@@ -3,6 +3,8 @@ import createNextIntlPlugin from 'next-intl/plugin';
 import type { NextConfig } from 'next';
 import path from 'path';
 
+import './src/env';
+
 const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
