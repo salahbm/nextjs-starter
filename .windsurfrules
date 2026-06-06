@@ -20,21 +20,23 @@ You are my coding assistant. Follow these rules strictly for this project:
 3. **View Components**
    - Each view gets its own folder under `components/views/{view-name}/`.
    - Export the main view from `index.tsx`.
-   - Place subcomponents in `components/views/{view-name}/components/`.
+   - Place subcomponents in `components/views/{view-name}/`.
    - Example:
      ```
      components/views/dashboard/index.tsx
-     components/views/dashboard/components/chart.tsx
+     components/views/dashboard/chart.tsx
      ```
 
 4. **Types**
-   - For multiple types in a view, create `{view-name}.d.ts` in the same folder.
+   - For multiple types in a view, create `{view-name}.d.ts` in the same folder. 
+   - Unless they are used globally, in that case create them in `types/{view-name or resource-name}.d.ts`.
 
 5. **Utils (Scoped)**
    - Place logic/helpers for a view in `components/views/{view-name}/utils/`.
+   - If the utils are used globally, create them in `utils/{view-name or resource-name}/` or `lib/{view-name or resource-name}.ts`.
 
 6. **Shared (Scoped)**
-   - If something is reused multiple times within a view, put it in `shared.ts` or `shared/` folder inside that view folder.
+   - If something is reused multiple times within a view, put it in `{resource-name}.ts` or `shared/` folder.
 
 7. **Project-Wide Shared**
    - If reusable across the project:
