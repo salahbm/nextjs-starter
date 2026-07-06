@@ -90,8 +90,8 @@ By participating in this project, you agree to abide by our code of conduct. Ple
 ### Internationalization
 
 - Use `next-intl` for all translations.
-- Supported locales: `en` (default) and `ru`.
-- Always create translation files in `messages/{namespace}.json`.
+- Supported locales: `en` (default), `ru`, and `kr`.
+- Translations live in `src/messages/{locale}.json`; add every new key to all locales.
 - Use descriptive keys with dot-notation.
 
 ## Pull Request Process

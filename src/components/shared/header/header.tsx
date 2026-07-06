@@ -3,6 +3,7 @@
 import Image from 'next/image';
 
 import { Menu } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 import { Button } from '@/components/ui/button';
 
@@ -18,6 +19,7 @@ import { ThemeToggle } from './theme-toggle';
 
 export default function Header() {
   const { toggle } = useSidebar();
+  const t = useTranslations('Header');
 
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background">
@@ -28,14 +30,14 @@ export default function Header() {
             size="icon"
             onClick={() => toggle()}
             className="lg:hidden"
-            aria-label="toggleSidebar"
+            aria-label={t('toggleSidebar')}
           >
             <Menu className="size-5" />
           </Button>
           <Link href="/" className="flex items-center gap-2">
             <Image
               src={IMAGES.logo}
-              alt="Viza Master Logo"
+              alt={`${BRAND.name} logo`}
               width={40}
               height={40}
               priority

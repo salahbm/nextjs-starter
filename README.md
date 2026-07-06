@@ -226,7 +226,7 @@ SENTRY_PROJECT
 
 ## Observability and Health
 
-- Sentry is initialized through `sentry.client.config.ts`, `sentry.server.config.ts`, `sentry.edge.config.ts`, and `src/instrumentation.ts`.
+- Sentry is initialized through `src/instrumentation-client.ts` (browser), `sentry.server.config.ts`, `sentry.edge.config.ts`, and `src/instrumentation.ts`.
 - `/api/health` returns a simple JSON health response for runtime checks.
 - `robots.txt` and `sitemap.xml` are generated through App Router metadata routes.
 - Security headers are configured in `next.config.ts`.

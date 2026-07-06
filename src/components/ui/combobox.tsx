@@ -120,11 +120,7 @@ export const Combobox = React.forwardRef<HTMLButtonElement, ComboboxProps>(
     // Display text for the trigger button
     const localLabel = React.useMemo(() => {
       if (selectedValues.length === 0) {
-        return (
-          <span className="typo-caption-1:typo-body-2 text-muted-foreground">
-            {placeholder}
-          </span>
-        );
+        return <span className="text-muted-foreground">{placeholder}</span>;
       }
 
       if (!multiple) {
@@ -143,11 +139,11 @@ export const Combobox = React.forwardRef<HTMLButtonElement, ComboboxProps>(
         <PopoverTrigger
           ref={ref}
           className={cn(
-            'typo-caption-1 md:typo-body-1 group flex h-11 w-full min-w-0 items-center justify-between rounded border border-input bg-transparent px-4 py-3 transition-[color,box-shadow] outline-none selection:bg-primary selection:text-primary-foreground hover:border-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 dark:bg-input/30',
+            'typo-caption-1 group flex h-11 w-full min-w-0 items-center justify-between rounded border border-input bg-transparent px-4 py-3 transition-[color,box-shadow] outline-none selection:bg-primary selection:text-primary-foreground hover:border-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 dark:bg-input/30',
             'focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50',
             'aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40',
             'cursor-pointer',
-            error && 'border-red',
+            error && 'border-destructive',
             className,
           )}
           {...props}

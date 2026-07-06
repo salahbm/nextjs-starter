@@ -1,9 +1,10 @@
 import * as React from 'react';
 
-import { format } from 'date-fns';
-import { ru } from 'date-fns/locale';
+import { format, setMonth, setYear } from 'date-fns';
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
-import { useLocale } from 'next-intl';
+import { useTranslations } from 'next-intl';
+
+import { useDateLocale } from '@/components/shared/date-pickers/utils';
 
 import { cn } from '@/lib/utils';
 
@@ -15,36 +16,44 @@ interface MonthPickerProps {
   className?: string;
 }
 
+const navButtonClass = (isDisabled: boolean) =>
+  cn(
+    'rounded p-2 transition-colors outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50',
+    isDisabled
+      ? 'cursor-not-allowed opacity-50'
+      : 'hover:bg-accent hover:text-accent-foreground',
+  );
+
 export function MonthPicker({
   value,
   onValueChange,
-  minDate = new Date('1900-01-01'),
-  maxDate = new Date('2100-12-31'),
+  // Local-time constructors — string dates parse as UTC and shift by timezone
+  minDate = new Date(1900, 0, 1),
+  maxDate = new Date(2100, 11, 31),
   className,
 }: MonthPickerProps) {
-  // Get current locale
-  const locale = useLocale();
-  const dateLocale = locale === 'ru' ? ru : undefined;
+  const t = useTranslations('Common');
+  const dateLocale = useDateLocale();
 
   // Use current date if no value is provided
   const currentDate = React.useMemo(() => value || new Date(), [value]);
-  const [year, setYear] = React.useState(() => currentDate.getFullYear());
+  const [year, setYearView] = React.useState(() => currentDate.getFullYear());
 
   // Update year when value changes
   React.useEffect(() => {
     if (value) {
-      setYear(value.getFullYear());
+      setYearView(value.getFullYear());
     }
   }, [value]);
 
   // Navigate to previous year
   const handlePrevYear = React.useCallback(() => {
-    setYear((prevYear) => Math.max(minDate.getFullYear(), prevYear - 1));
+    setYearView((prevYear) => Math.max(minDate.getFullYear(), prevYear - 1));
   }, [minDate]);
 
   // Navigate to next year
   const handleNextYear = React.useCallback(() => {
-    setYear((prevYear) => Math.min(maxDate.getFullYear(), prevYear + 1));
+    setYearView((prevYear) => Math.min(maxDate.getFullYear(), prevYear + 1));
   }, [maxDate]);
 
   // Select a month
@@ -52,9 +61,9 @@ export function MonthPicker({
     (monthIndex: number) => {
       if (!onValueChange) return;
 
-      const newDate = new Date(currentDate);
-      newDate.setFullYear(year);
-      newDate.setMonth(monthIndex);
+      // date-fns setYear/setMonth clamp day overflow (Jan 31 -> Feb 28)
+      // instead of rolling into the next month like Date#setMonth does
+      const newDate = setMonth(setYear(currentDate, year), monthIndex);
 
       // Ensure date is within min/max range
       if (newDate < minDate) {
@@ -78,32 +87,22 @@ export function MonthPicker({
               type="button"
               onClick={handlePrevYear}
               disabled={year <= minDate.getFullYear()}
-              className={cn(
-                'rounded p-2',
-                year <= minDate.getFullYear()
-                  ? 'cursor-not-allowed opacity-50'
-                  : 'hover:bg-accent hover:text-accent-foreground',
-              )}
-              aria-label="Previous year"
+              className={navButtonClass(year <= minDate.getFullYear())}
+              aria-label={t('previousYear')}
             >
-              <ChevronLeftIcon className="h-4 w-4" />
+              <ChevronLeftIcon className="size-4" />
             </button>
-            <div className="min-w-[60px] text-center text-sm font-medium">
+            <div className="typo-caption-1 min-w-[60px] text-center">
               {year}
             </div>
             <button
               type="button"
               onClick={handleNextYear}
               disabled={year >= maxDate.getFullYear()}
-              className={cn(
-                'rounded p-2',
-                year >= maxDate.getFullYear()
-                  ? 'cursor-not-allowed opacity-50'
-                  : 'hover:bg-accent hover:text-accent-foreground',
-              )}
-              aria-label="Next year"
+              className={navButtonClass(year >= maxDate.getFullYear())}
+              aria-label={t('nextYear')}
             >
-              <ChevronRightIcon className="h-4 w-4" />
+              <ChevronRightIcon className="size-4" />
             </button>
           </div>
         </div>
@@ -111,8 +110,9 @@ export function MonthPicker({
         {/* Month grid */}
         <div className="grid grid-cols-4 gap-2">
           {Array.from({ length: 12 }, (_, i) => {
-            const monthDate = new Date(year, i, 1);
-            const monthName = format(monthDate, 'MMM', { locale: dateLocale });
+            const monthName = format(new Date(year, i, 1), 'MMM', {
+              locale: dateLocale,
+            });
             const isSelected =
               value instanceof Date &&
               value.getMonth() === i &&
@@ -128,8 +128,9 @@ export function MonthPicker({
                 type="button"
                 onClick={() => handleSelectMonth(i)}
                 disabled={isDisabled}
+                aria-pressed={isSelected}
                 className={cn(
-                  'cursor-pointer rounded p-4 text-sm font-medium capitalize',
+                  'typo-caption-1 cursor-pointer rounded p-4 capitalize transition-colors outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50',
                   isDisabled && 'cursor-not-allowed opacity-50',
                   isSelected
                     ? 'bg-primary text-primary-foreground'

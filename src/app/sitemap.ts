@@ -1,13 +1,12 @@
 import type { MetadataRoute } from 'next';
 
-import { env } from '@/env';
-import { routing } from '@/i18n/routing';
+import { SITE_URL } from '@/constants/brand';
 
-const baseUrl = env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
+import { routing } from '@/i18n/routing';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return routing.locales.map((locale) => ({
-    url: `${baseUrl}/${locale}`,
+    url: `${SITE_URL}/${locale}`,
     lastModified: new Date(),
   }));
 }

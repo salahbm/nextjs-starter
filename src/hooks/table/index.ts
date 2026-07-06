@@ -1,1 +1,1 @@
-export * from './useGetData';
+export * from './use-get-data';

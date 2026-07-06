@@ -1,15 +1,16 @@
 import React from 'react';
 
 import { Locale, format } from 'date-fns';
-import { ru } from 'date-fns/locale';
 import { useLocale } from 'next-intl';
+
+import { dateLocales } from '@/utils/date';
 
 import { TFieldValues } from '@/types/global';
 
-// Custom hook to get date locale
-export const useDateLocale = () => {
+// Custom hook to get the date-fns locale for the active app locale
+export const useDateLocale = (): Locale | undefined => {
   const locale = useLocale();
-  return locale === 'ru' ? ru : undefined;
+  return dateLocales[locale as keyof typeof dateLocales];
 };
 
 /**
@@ -72,7 +73,11 @@ export const handleDateTimeChange = (
 
   if (variant === 'date-time' && selectedTime) {
     const [hours, minutes] = selectedTime.split(':').map(Number);
-    newDate.setHours(hours || 0, minutes || 0);
+    // Clone — the calendar owns the original Date object
+    const withTime = new Date(newDate);
+    withTime.setHours(hours || 0, minutes || 0, 0, 0);
+    onValueChange(withTime);
+    return;
   }
 
   onValueChange(newDate);
@@ -129,8 +134,10 @@ export const getSelectedRange = (value: TFieldValues | undefined) => {
  */
 export const isDateDisabled = (
   date: Date,
-  minDate: Date = new Date('1900-01-01'),
-  maxDate: Date = new Date('2100-12-31'),
+  // Local-time constructors — 'new Date("1900-01-01")' parses as UTC midnight,
+  // which lands on Dec 31 1899 in timezones east of UTC
+  minDate: Date = new Date(1900, 0, 1),
+  maxDate: Date = new Date(2100, 11, 31),
 ): boolean => {
   return date > maxDate || date < minDate;
 };

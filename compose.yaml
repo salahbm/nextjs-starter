@@ -1,0 +1,10 @@
+services:
+  web:
+    build: .
+    ports:
+      - '3000:3000'
+    env_file:
+      # .env is dockerignored, so runtime env comes from the host at `up` time
+      - path: .env
+        required: false
+    restart: unless-stopped

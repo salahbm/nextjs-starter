@@ -7,3 +7,5 @@ Sentry.init({
   enabled: Boolean(env.NEXT_PUBLIC_SENTRY_DSN),
   tracesSampleRate: env.NODE_ENV === 'production' ? 0.1 : 1,
 });
+
+export const onRouterTransitionStart = Sentry.captureRouterTransitionStart;

@@ -2,19 +2,19 @@
 
 ## Supported Versions
 
-Use this section to tell people about which versions of your project are currently being supported with security updates.
+Only the latest release receives security updates.
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 1.0.x   | :white_check_mark: |
-| < 1.0   | :x:                |
+| Version        | Supported          |
+| -------------- | ------------------ |
+| latest (0.3.x) | :white_check_mark: |
+| older releases | :x:                |
 
 ## Reporting a Vulnerability
 
 We take the security of Next JS Starter seriously. If you believe you've found a security vulnerability, please follow these steps:
 
 1. **Do not disclose the vulnerability publicly**
-2. **Email us** at security@nextjsstarter.com with details about the vulnerability
+2. **Report it privately** via GitHub Security Advisories on this repository, or email the maintainer at salahbm.001@gmail.com
 3. Include the following information:
    - Type of vulnerability
    - Full path of source file(s) related to the vulnerability
@@ -36,7 +36,7 @@ We take the security of Next JS Starter seriously. If you believe you've found a
 
 1. **Keep dependencies updated**
    - Regularly update project dependencies to patch known vulnerabilities
-   - Use `npm audit` to check for vulnerable dependencies
+   - Use `bun audit` to check for vulnerable dependencies
 
 2. **Authentication & Authorization**
    - Always use secure authentication methods

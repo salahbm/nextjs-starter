@@ -58,21 +58,29 @@ export interface DatePickerProps {
   variant?: 'default' | 'date-time' | 'time' | 'range' | 'month' | 'year';
 }
 
+const DEFAULT_PLACEHOLDERS: Record<string, string> = {
+  time: 'placeholder.time',
+  'date-time': 'placeholder.datetime',
+};
+
 export const DatePicker: React.FC<DatePickerProps> = ({
   value,
   onChange,
-  placeholder = 'placeholder.date',
+  placeholder,
   disabled = false,
   className,
   dateFormat = 'PPP',
-  minDate = new Date('1900-01-01'),
-  maxDate = new Date('2100-12-31'),
+  // Local-time constructors — string dates parse as UTC and shift by timezone
+  minDate = new Date(1900, 0, 1),
+  maxDate = new Date(2100, 11, 31),
   dropdownCalendar = true,
   error,
   variant = 'default',
 }) => {
   const t = useTranslations('Common');
   const [selectedTime, setSelectedTime] = useState<string>('12:00');
+  const resolvedPlaceholder =
+    placeholder ?? DEFAULT_PLACEHOLDERS[variant] ?? 'placeholder.date';
 
   // Handle combined date and time changes
   const handleDateChange = (newDate: Date | undefined) => {
@@ -113,11 +121,11 @@ export const DatePicker: React.FC<DatePickerProps> = ({
       value,
       variant,
       dateFormat,
-      placeholder,
+      resolvedPlaceholder,
       t,
       dateLocale,
     );
-  }, [value, variant, dateFormat, placeholder, t, dateLocale]);
+  }, [value, variant, dateFormat, resolvedPlaceholder, t, dateLocale]);
 
   // Initialize date with current time when in time-related variants
   React.useEffect(() => {
@@ -207,10 +215,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
             mode="range"
             selected={getSelectedRange(value)}
             onSelect={(range) => handleRangeSelection(range, onChange)}
-            disabled={(date) =>
-              date > (maxDate || new Date()) ||
-              date < (minDate || new Date('1900-01-01'))
-            }
+            disabled={(date) => isDateDisabled(date, minDate, maxDate)}
             captionLayout={dropdownCalendar ? 'dropdown' : 'label'}
             numberOfMonths={2}
           />
@@ -221,10 +226,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
             mode="single"
             selected={value as Date}
             onSelect={onChange}
-            disabled={(date) =>
-              date > (maxDate || new Date()) ||
-              date < (minDate || new Date('1900-01-01'))
-            }
+            disabled={(date) => isDateDisabled(date, minDate, maxDate)}
             captionLayout={dropdownCalendar ? 'dropdown' : 'label'}
           />
         );
@@ -245,7 +247,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
     <Popover>
       <PopoverTrigger
         className={cn(
-          'typo-caption-1 md:typo-body-1 flex h-11 w-full min-w-0 cursor-pointer justify-between rounded border border-input bg-transparent px-4 py-3 shadow-xs transition-[color,box-shadow] outline-none selection:bg-primary selection:text-primary-foreground hover:border-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 dark:bg-input/30',
+          'typo-caption-1 flex h-11 w-full min-w-0 cursor-pointer items-center justify-between rounded border border-input bg-transparent px-4 py-3 transition-[color,box-shadow] outline-none selection:bg-primary selection:text-primary-foreground hover:border-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 dark:bg-input/30',
           'focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50',
           'aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40',
           !value && 'text-muted-foreground',

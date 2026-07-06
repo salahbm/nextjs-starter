@@ -11,6 +11,7 @@ import Loader from '@/components/ui/loader';
 
 import { cn } from '@/lib/utils';
 
+import { SITE_URL } from '@/constants/brand';
 import { manrope } from '@/constants/fonts';
 
 import { routing } from '@/i18n/routing';
@@ -28,7 +29,7 @@ export async function generateMetadata({
   return {
     title: t('title'),
     description: t('description'),
-    metadataBase: new URL(`http://localhost:3000`),
+    metadataBase: new URL(SITE_URL),
     openGraph: {
       title: t('title'),
       description: t('description'),

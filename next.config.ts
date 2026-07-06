@@ -8,12 +8,16 @@ import { env } from './src/env';
 
 const withNextIntl = createNextIntlPlugin();
 
+const isDev = process.env.NODE_ENV === 'development';
+
 const contentSecurityPolicy = [
   "default-src 'self'",
   "base-uri 'self'",
   "form-action 'self'",
   "frame-ancestors 'none'",
-  "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+  // 'unsafe-eval' is required by Fast Refresh in dev only. 'unsafe-inline'
+  // stays until nonce-based CSP is adopted (Next emits inline bootstrap scripts).
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''}`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' blob: data:",
   "font-src 'self' data:",
@@ -22,6 +26,7 @@ const contentSecurityPolicy = [
 
 const nextConfig: NextConfig = {
   /* config options here */
+  output: 'standalone',
   allowedDevOrigins: ['127.0.0.1'],
   // Explicitly set the root directory to resolve the lockfile warning
   turbopack: {

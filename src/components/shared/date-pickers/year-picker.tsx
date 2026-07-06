@@ -1,6 +1,8 @@
 import * as React from 'react';
 
+import { setYear as setYearOnDate } from 'date-fns';
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 import { cn } from '@/lib/utils';
 
@@ -16,11 +18,13 @@ interface YearPickerProps {
 export function YearPicker({
   value,
   onValueChange,
-  minDate = new Date('1900-01-01'),
-  maxDate = new Date('2100-12-31'),
+  // Local-time constructors — string dates parse as UTC and shift by timezone
+  minDate = new Date(1900, 0, 1),
+  maxDate = new Date(2100, 11, 31),
   className,
   yearsPerPage = 12,
 }: YearPickerProps) {
+  const t = useTranslations('Common');
   // Use current date if no value is provided
   const currentDate = React.useMemo(() => value || new Date(), [value]);
 
@@ -58,8 +62,8 @@ export function YearPicker({
     (year: number) => {
       if (!onValueChange) return;
 
-      const newDate = new Date(currentDate);
-      newDate.setFullYear(year);
+      // date-fns setYear clamps Feb 29 -> Feb 28 on non-leap years
+      const newDate = setYearOnDate(currentDate, year);
 
       // Ensure date is within min/max range
       if (newDate < minDate) {
@@ -91,16 +95,16 @@ export function YearPicker({
               onClick={handlePrevYearRange}
               disabled={isPrevDisabled}
               className={cn(
-                'rounded p-2',
+                'rounded p-2 transition-colors outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50',
                 isPrevDisabled
                   ? 'cursor-not-allowed opacity-50'
                   : 'hover:bg-accent hover:text-accent-foreground',
               )}
-              aria-label="Previous year range"
+              aria-label={t('previousYears')}
             >
-              <ChevronLeftIcon className="h-4 w-4" />
+              <ChevronLeftIcon className="size-4" />
             </button>
-            <div className="min-w-[100px] text-center text-sm font-medium">
+            <div className="typo-caption-1 min-w-[100px] text-center">
               {startYear} - {endYear}
             </div>
             <button
@@ -108,14 +112,14 @@ export function YearPicker({
               onClick={handleNextYearRange}
               disabled={isNextDisabled}
               className={cn(
-                'rounded p-2',
+                'rounded p-2 transition-colors outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50',
                 isNextDisabled
                   ? 'cursor-not-allowed opacity-50'
                   : 'hover:bg-accent hover:text-accent-foreground',
               )}
-              aria-label="Next year range"
+              aria-label={t('nextYears')}
             >
-              <ChevronRightIcon className="h-4 w-4" />
+              <ChevronRightIcon className="size-4" />
             </button>
           </div>
         </div>
@@ -137,8 +141,9 @@ export function YearPicker({
                 type="button"
                 onClick={() => handleSelectYear(year)}
                 disabled={isDisabled}
+                aria-pressed={isSelected}
                 className={cn(
-                  'cursor-pointer rounded p-4 text-sm font-medium',
+                  'typo-caption-1 cursor-pointer rounded p-4 transition-colors outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50',
                   isDisabled && 'cursor-not-allowed opacity-50',
                   isSelected
                     ? 'bg-primary text-primary-foreground'

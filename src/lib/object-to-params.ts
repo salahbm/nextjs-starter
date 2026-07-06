@@ -1,4 +1,4 @@
-import { isEmptyValue } from '@/lib/interceptor';
+import { isEmptyValue } from '@/lib/is-empty-value';
 
 import { formatDate } from '@/utils/date';
 

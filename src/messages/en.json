@@ -18,6 +18,13 @@
     "forms": "Forms"
   },
 
+  "Error": {
+    "title": "Something went wrong",
+    "description": "An unexpected error occurred. Please try again.",
+    "retry": "Try again",
+    "notFoundTitle": "404 - Page Not Found"
+  },
+
   "Common": {
     "save": "Save",
     "cancel": "Cancel",
@@ -34,6 +41,10 @@
     "selectFiles": "Select files",
     "uploadMore": "Upload more",
     "removeAllFiles": "Remove all files",
+    "previousYear": "Previous year",
+    "nextYear": "Next year",
+    "previousYears": "Previous years",
+    "nextYears": "Next years",
     "placeholder": {
       "date": "Select date",
       "time": "Select time",

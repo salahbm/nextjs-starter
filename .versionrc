@@ -1,4 +1,14 @@
 {
+  "bumpFiles": [
+    {
+      "filename": "package.json",
+      "type": "json"
+    },
+    {
+      "filename": "VERSION",
+      "type": "plain-text"
+    }
+  ],
   "types": [
     {
       "type": "feat",

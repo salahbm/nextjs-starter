@@ -49,7 +49,7 @@ const TimeInput = React.forwardRef<HTMLInputElement, TimeInputProps>(
           onChange={handleChange}
           step={60} // seconds step: 60 = 1 minute increments
           className={cn(
-            'typo-caption-1 w-full rounded border border-input bg-transparent px-3 py-2 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:ring-1 focus-visible:ring-ring focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50',
+            'typo-caption-1 w-full rounded border border-input bg-transparent px-3 py-2 transition-[color,box-shadow] outline-none placeholder:text-muted-foreground hover:border-muted-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-input/30',
             className,
           )}
           ref={ref}
@@ -71,8 +71,9 @@ const TimeInput = React.forwardRef<HTMLInputElement, TimeInputProps>(
               key={time}
               type="button"
               onClick={() => handleTimeButtonClick(time)}
+              aria-pressed={value === time}
               className={cn(
-                'cursor-pointer rounded p-2 text-sm font-medium',
+                'typo-caption-1 cursor-pointer rounded p-2 transition-colors outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50',
                 value === time
                   ? 'bg-primary text-primary-foreground'
                   : 'hover:bg-accent hover:text-accent-foreground',
