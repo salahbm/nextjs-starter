@@ -7,6 +7,8 @@ import { useTranslations } from 'next-intl';
 
 import { Button } from '@/components/ui/button';
 
+import { AuthHeader } from '@/views/auth/header';
+
 interface SuccessViewProps {
   type?: 'resetLinkSent' | 'generic';
   title?: string;
@@ -40,6 +42,7 @@ export function SuccessView({
       : t('signIn.button'));
   return (
     <div className="flex min-h-screen flex-col items-center justify-center p-4">
+      <AuthHeader />
       <div className="w-full max-w-md space-y-8 text-center">
         <div className="flex justify-center">
           <CheckCircle className="h-16 w-16 text-primary" />

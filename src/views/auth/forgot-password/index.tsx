@@ -16,6 +16,7 @@ import { Input } from '@/components/ui/input';
 import { required } from '@/utils/zod-locale';
 
 import { Link } from '@/i18n/routing';
+import { AuthHeader } from '@/views/auth/header';
 
 // Standard Zod errors (email) are handled by the built-in locale.
 const forgotPasswordSchema = z.object({
@@ -56,6 +57,7 @@ export function ForgotPasswordView() {
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center p-4">
+      <AuthHeader />
       <div className="w-full max-w-md space-y-8">
         <div className="text-center">
           <h1 className="typo-header">{t('forgotPassword.title')}</h1>

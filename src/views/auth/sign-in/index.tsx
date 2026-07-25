@@ -19,6 +19,7 @@ import { COOKIE_KEYS } from '@/constants/cookies';
 import { routes } from '@/constants/routes';
 
 import { Link, useRouter } from '@/i18n/routing';
+import { AuthHeader } from '@/views/auth/header';
 
 // Standard Zod errors (email, min) are handled by the built-in locale.
 // Custom validations use .refine() with customCode for the customError map.
@@ -68,6 +69,7 @@ export function SignInView() {
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center p-4">
+      <AuthHeader />
       <div className="w-full max-w-md space-y-8">
         <div className="text-center">
           <h1 className="typo-header">{t('signIn.title')}</h1>
@@ -125,7 +127,10 @@ export function SignInView() {
 
             <div className="typo-caption-1 text-center">
               {t('signIn.noAccount')}{' '}
-              <Link href="/sign-up" className="text-primary hover:underline">
+              <Link
+                href="/sign-up"
+                className="text-primary underline underline-offset-2 hover:font-semibold"
+              >
                 {t('signIn.signUpLink')}
               </Link>
             </div>

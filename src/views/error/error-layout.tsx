@@ -68,10 +68,18 @@ export function ErrorLayout({
               </Link>
             </Button>
           ) : (
-            <Button size="lg" onClick={onRetry} className="px-4">
-              <RefreshCw data-icon="inline-start" />
-              {actionLabel}
-            </Button>
+            <div className="flex gap-4">
+              <Button asChild size="lg" className="px-4">
+                <Link href={routes.home}>
+                  <ArrowLeft data-icon="inline-start" />
+                  {actionLabel}
+                </Link>
+              </Button>
+              <Button size="lg" onClick={onRetry} className="px-4">
+                <RefreshCw data-icon="inline-start" />
+                {actionLabel}
+              </Button>
+            </div>
           )}
         </div>
       </div>
