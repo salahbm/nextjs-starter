@@ -89,36 +89,36 @@ export const ruLocale = (): z.ZodErrorMap => {
   };
 };
 
-/** Korean custom error map */
-export const krLocale = (): z.ZodErrorMap => {
+/** Uzbek custom error map */
+export const uzLocale = (): z.ZodErrorMap => {
   return (issue) => {
     // App-specific custom codes
     if (issue.code === 'custom') {
       switch (issue.params?.customCode) {
         case 'custom.required':
-          return '필수 필드입니다';
+          return 'Bu maydon majburiy';
         case 'custom.email_invalid':
-          return '유효한 이메일 주소를 입력해주세요';
+          return 'Iltimos, toʻgʻri elektron pochta manzilini kiriting';
         case 'custom.password_min':
-          return '비밀번호는 최소 6자 이상이어야 합니다';
+          return 'Parol kamida 6 ta belgidan iborat boʻlishi kerak';
         case 'custom.password_strong':
-          return '비밀번호는 대문자, 소문자, 숫자, 특수문자를 포함해야 합니다';
+          return 'Parol katta harf, kichik harf, raqam va maxsus belgidan iborat boʻlishi kerak';
         case 'custom.password_match':
-          return '비밀번호가 일치하지 않습니다';
+          return 'Parollar mos kelmadi';
         case 'custom.username_min':
-          return '사용자 이름은 최소 3자 이상이어야 합니다';
+          return 'Foydalanuvchi nomi kamida 3 ta belgidan iborat boʻlishi kerak';
       }
     }
 
-    // Override standard Zod messages for natural Korean
+    // Override standard Zod messages for natural Uzbek
     if (issue.code === 'invalid_format' && issue.format === 'email') {
-      return '유효한 이메일 주소를 입력해주세요';
+      return 'Iltimos, toʻgʻri elektron pochta manzilini kiriting';
     }
     if (issue.code === 'too_small' && issue.origin === 'string') {
-      return `최소 ${issue.minimum}자 이상이어야 합니다`;
+      return `Kamida ${issue.minimum} ta belgi boʻlishi kerak`;
     }
     if (issue.code === 'invalid_type' && issue.input === undefined) {
-      return '필수 필드입니다';
+      return 'Bu maydon majburiy';
     }
 
     return undefined;
@@ -131,7 +131,7 @@ export const krLocale = (): z.ZodErrorMap => {
 const customErrorMaps: Record<Locale, () => z.ZodErrorMap> = {
   en: enLocale,
   ru: ruLocale,
-  kr: krLocale,
+  uz: uzLocale,
 };
 
 // ---------------------------------------------------------------------------

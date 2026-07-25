@@ -1,20 +1,20 @@
 import { Locale, format, formatDistance, formatRelative } from 'date-fns';
-import { enUS, ko, ru } from 'date-fns/locale';
+import { enUS, ru, uz } from 'date-fns/locale';
 
-type SupportedLocale = 'en' | 'ru' | 'kr';
+type SupportedLocale = 'en' | 'ru' | 'uz';
 
 // Map app locale codes to date-fns locale objects
 export const dateLocales: Record<SupportedLocale, Locale> = {
   en: enUS,
   ru: ru,
-  kr: ko,
+  uz: uz,
 };
 
 /**
  * Format a date using date-fns with the appropriate locale
  * @param date The date to format
  * @param formatStr The format string to use
- * @param locale The locale code (e.g., 'en', 'ru', 'kr')
+ * @param locale The locale code (e.g., 'en', 'ru', 'uz')
  * @returns The formatted date string
  */
 export function formatDate(
@@ -29,7 +29,7 @@ export function formatDate(
  * Format the distance between two dates with the appropriate locale
  * @param date The date to compare to baseDate
  * @param baseDate The base date to compare from
- * @param locale The locale code (e.g., 'en', 'ru', 'kr')
+ * @param locale The locale code (e.g., 'en', 'ru', 'uz')
  * @returns The formatted distance string
  */
 export function formatDateDistance(
@@ -44,7 +44,7 @@ export function formatDateDistance(
  * Format a date relative to the current date with the appropriate locale
  * @param date The date to format
  * @param baseDate The base date to compare from
- * @param locale The locale code (e.g., 'en', 'ru', 'kr')
+ * @param locale The locale code (e.g., 'en', 'ru', 'uz')
  * @returns The formatted relative date string
  */
 export function formatDateRelative(

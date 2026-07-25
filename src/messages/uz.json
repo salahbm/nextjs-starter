@@ -1,0 +1,119 @@
+{
+  "Metadata": {
+    "title": "Next JS Starter-ga xush kelibsiz",
+    "description": "Bu Next JS Starter uchun admin paneli"
+  },
+  "Header": {
+    "language": "Til",
+    "profile": "Profil",
+    "theme": "Mavzu",
+    "toggleSidebar": "Yon panelni almashtirish",
+    "accountSettings": "Hisob sozlamalari",
+    "light": "Yorugʻ",
+    "dark": "Qorongʻi",
+    "system": "Tizim",
+    "logout": "Chiqish"
+  },
+  "Sidebar": {
+    "dashboard": "Boshqaruv paneli",
+    "dev": "Ishlab chiqish",
+    "primitives": "Primitivlar",
+    "preferences": "Sozlamalar",
+    "table": "Jadval",
+    "forms": "Formalar"
+  },
+  "Error": {
+    "title": "Bir narsa notoʻgʻri bajarildi",
+    "description": "Soʻrovingizni bajarishda kutilmagan xato yuz berdi. Iltimos, qayta urinib koʻring.",
+    "retry": "Qayta urinish",
+    "notFoundTitle": "Sahifa topilmadi",
+    "notFoundDescription": "Siz qidirayotgan sahifa mavjud emas yoki koʻchirilgan.",
+    "goHome": "Boshqaruv paneliga oʻtish"
+  },
+  "Common": {
+    "save": "Saqlash",
+    "cancel": "Bekor qilish",
+    "delete": "Oʻchirish",
+    "edit": "Tahrirlash",
+    "create": "Yaratish",
+    "view": "Koʻrish",
+    "search": "Qidirish",
+    "noData": "Maʼlumot yoʻq",
+    "date": "Sana",
+    "time": "Vaqt",
+    "reset": "Tiklash",
+    "hide": "Yashirish",
+    "selectFiles": "Fayllarni tanlash",
+    "uploadMore": "Yana yuklash",
+    "removeAllFiles": "Barcha fayllarni oʻchirish",
+    "previousYear": "Oldingi yil",
+    "nextYear": "Keyingi yil",
+    "previousYears": "Oldingi yillar",
+    "nextYears": "Keyingi yillar",
+    "placeholder": {
+      "date": "Sanani tanlang",
+      "time": "Vaqtini tanlang",
+      "datetime": "Sana va vaqtni tanlang",
+      "selectItem": "Elementni tanlang",
+      "selectItems": "Elementlarni tanlang",
+      "enterValue": "Qiymatni kiriting",
+      "selectEndDate": "Tugash sanasini tanlang"
+    },
+    "messages": {
+      "dropYourFilesHere": "Fayllaringizni shu yerga tashlang",
+      "fileSize": "Fayl hajmi {maxSize} dan kam boʻlishi kerak",
+      "fileType": "Fayl turi {accept} boʻlishi kerak",
+      "fileCount": "Fayllar soni {maxFiles} dan kam boʻlishi kerak",
+      "fileUpload": "Fayl yuklanmadi",
+      "fileAcceptType": "Fayl turi {accept} boʻlishi kerak"
+    }
+  },
+  "auth": {
+    "signIn": {
+      "title": "Qaytganingizdan xursandmiz",
+      "subtitle": "Davom etish uchun hisobingizga kiring",
+      "emailLabel": "Elektron pochta",
+      "emailPlaceholder": "Elektron pochtangizni kiriting",
+      "passwordLabel": "Parol",
+      "passwordPlaceholder": "Parolingizni kiriting",
+      "forgotPassword": "Parolni unutdingizmi?",
+      "button": "Kirish",
+      "buttonLoading": "Kirilmoqda...",
+      "noAccount": "Hisobingiz yoʻqmi?",
+      "signUpLink": "Roʻyxatdan oʻtish"
+    },
+    "signUp": {
+      "title": "Hisob yaratish",
+      "subtitle": "Next JS Starter bilan boshlash uchun roʻyxatdan oʻting",
+      "usernameLabel": "Foydalanuvchi nomi",
+      "usernamePlaceholder": "Foydalanuvchi nomini kiriting",
+      "emailLabel": "Elektron pochta",
+      "emailPlaceholder": "Elektron pochtangizni kiriting",
+      "passwordLabel": "Parol",
+      "passwordPlaceholder": "Parolingizni kiriting",
+      "confirmPasswordLabel": "Parolni tasdiqlash",
+      "confirmPasswordPlaceholder": "Parolni qayta kiriting",
+      "button": "Roʻyxatdan oʻtish",
+      "buttonLoading": "Hisob yaratilmoqda...",
+      "haveAccount": "Hisobingiz bormi?",
+      "signInLink": "Kirish",
+      "passwordHint": "Katta harf, kichik harf, raqam va maxsus belgidan iborat boʻlishi kerak"
+    },
+    "forgotPassword": {
+      "title": "Parolni tiklash",
+      "subtitle": "Elektron pochta manzilingizni kiriting, parolni tiklash havolasini yuboramiz",
+      "emailLabel": "Elektron pochta",
+      "emailPlaceholder": "Elektron pochtangizni kiriting",
+      "button": "Tiklash havolasini yuborish",
+      "buttonLoading": "Havola yuborilmoqda...",
+      "backToSignIn": "Kirishga qaytish"
+    },
+    "success": {
+      "resetLinkSent": {
+        "title": "Elektron pochtangizni tekshiring",
+        "message": "Parolni tiklash havolasini elektron pochtangizga yubordik",
+        "button": "Kirishga qaytish"
+      }
+    }
+  }
+}

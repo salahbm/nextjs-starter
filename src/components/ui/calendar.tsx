@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 
-import { ru } from 'date-fns/locale';
+import { ru, uz } from 'date-fns/locale';
 import {
   ChevronDownIcon,
   ChevronLeftIcon,
@@ -33,7 +33,9 @@ function Calendar({
   const lang = useLocale();
 
   const locale = React.useMemo(() => {
-    return lang === 'ru' ? ru : undefined;
+    if (lang === 'ru') return ru;
+    if (lang === 'uz') return uz;
+    return undefined;
   }, [lang]);
 
   return (

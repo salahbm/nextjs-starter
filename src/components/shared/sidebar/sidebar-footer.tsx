@@ -51,7 +51,7 @@ type ThemeOption = {
 const LOCALE_OPTIONS: LocaleOption[] = [
   { code: 'en', label: 'English' },
   { code: 'ru', label: 'Русский' },
-  { code: 'kr', label: '한국어' },
+  { code: 'uz', label: 'Oʻzbekcha' },
 ];
 
 const THEME_OPTIONS: ThemeOption[] = [
