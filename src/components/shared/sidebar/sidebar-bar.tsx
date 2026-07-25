@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useEffect, useMemo, useState } from 'react';
+import { FC, useMemo, useState } from 'react';
 
 import Link from 'next/link';
 
@@ -20,7 +20,7 @@ import { SIDENAV, SideNavItem } from '@/constants/routes';
 import { usePathname } from '@/i18n/routing';
 import { useSidebar } from '@/store/sidebar';
 
-import { DynamicIcon } from './icon';
+import { DynamicIcon } from './sidebar-icon';
 
 const isPathActive = (pathname: string | null, href: string) => {
   if (!pathname) return false;
@@ -73,18 +73,12 @@ const SidebarNav: FC = () => {
     return { activeParent: parent, activeChild: child };
   }, [pathname]);
 
-  useEffect(() => {
-    if (activeParent?.label && !expanded.includes(activeParent.label)) {
-      setExpanded((prev) => [...prev, activeParent.label]);
-    }
-  }, [activeParent?.label, expanded]);
-
   const onAccordionChange = (value: string | string[]) =>
     setExpanded(value ? (Array.isArray(value) ? value : [value]) : []);
 
   const navItemClasses = (isActive: boolean) =>
     cn(
-      'flex items-center gap-2 rounded px-4 py-3 w-full duration-300 cursor-pointer transition-colors truncate hover:bg-accent hover:text-sidebar-accent-foreground',
+      'flex items-center gap-2 rounded px-4 py-3 w-full duration-300 cursor-pointer transition-colors whitespace-nowrap hover:bg-accent hover:text-sidebar-accent-foreground',
       isActive
         ? 'bg-sidebar-primary/10 text-sidebar-primary font-medium hover:bg-sidebar-primary/20'
         : 'text-sidebar-foreground',
@@ -92,10 +86,10 @@ const SidebarNav: FC = () => {
 
   return (
     <nav
-      aria-label={'Sidebar Navigation'}
+      aria-label="Sidebar Navigation"
       className={cn(
-        'no-scrollbar h-full flex-1 overflow-y-auto px-2 py-5 transition-all duration-300',
-        isMinimized ? 'hidden w-0 lg:block lg:w-16' : 'w-64',
+        'no-scrollbar min-h-0 w-full flex-1 overflow-y-auto px-2 py-5 transition-all duration-300',
+        isMinimized ? 'hidden md:block' : 'block',
       )}
     >
       <div className="space-y-1">

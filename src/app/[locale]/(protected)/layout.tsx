@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 
 import Header from '@/components/shared/header/header';
-import Sidebar from '@/components/shared/sidebar/trigger';
+import Sidebar from '@/components/shared/sidebar/sidebar-trigger';
 import Loader from '@/components/ui/loader';
 
 export default async function ProtectedLayout({
@@ -14,9 +14,7 @@ export default async function ProtectedLayout({
       <Header />
       <div className="flex flex-1 overflow-hidden">
         <Sidebar />
-        <div className="h-[calc(100vh-4rem)] w-full overflow-y-auto">
-          <main className="px-4 py-6 md:px-6">{children}</main>
-        </div>
+        <div className="h-dvh w-full overflow-y-auto">{children}</div>
       </div>
     </Suspense>
   );

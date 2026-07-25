@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 
-import { Menu } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 import { Button } from '@/components/ui/button';
@@ -13,44 +13,39 @@ import { IMAGES } from '@/constants/images';
 import { Link } from '@/i18n/routing';
 import { useSidebar } from '@/store/sidebar';
 
-import Avatar from './avatar';
-import { LanguageToggle } from './language-toggle';
-import { ThemeToggle } from './theme-toggle';
-
 export default function Header() {
-  const { toggle } = useSidebar();
+  const { toggle, isMinimized } = useSidebar();
   const t = useTranslations('Header');
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-background">
-      <div className="flex h-16 items-center justify-between px-4 sm:px-6">
-        <div className="flex items-center gap-1 md:gap-0 lg:gap-4">
+    <header className="sticky top-0 z-40 w-full border-b bg-background md:hidden">
+      <div className="flex h-12 items-center justify-between px-4 sm:px-6">
+        <div className="flex items-center gap-1">
           <Button
             variant="ghost"
             size="icon"
             onClick={() => toggle()}
-            className="lg:hidden"
+            className="md:hidden"
             aria-label={t('toggleSidebar')}
           >
-            <Menu className="size-5" />
+            {isMinimized ? (
+              <Menu className="size-5" />
+            ) : (
+              <X className="size-5" />
+            )}
           </Button>
           <Link href="/" className="flex items-center gap-2">
             <Image
               src={IMAGES.logo}
               alt={`${BRAND.name} logo`}
-              width={40}
-              height={40}
+              width={26}
+              height={26}
               priority
             />
-            <h1 className="text-md font-roboto linear-gradient font-bold lg:text-2xl">
+            <h1 className="text-md font-roboto linear-gradient font-bold">
               {BRAND.name}
             </h1>
           </Link>
-        </div>
-        <div className="flex items-center gap-1 lg:gap-3">
-          <LanguageToggle />
-          <ThemeToggle />
-          <Avatar />
         </div>
       </div>
     </header>

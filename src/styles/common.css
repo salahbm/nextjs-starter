@@ -1,9 +1,3 @@
-/* Break words */
-.break-words {
-  overflow-wrap: break-word;
-  word-break: break-word;
-}
-
 /* LOADER */
 .loader {
   width: 56px;
