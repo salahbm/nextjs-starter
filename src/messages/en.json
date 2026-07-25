@@ -7,7 +7,12 @@
     "language": "Language",
     "profile": "Profile",
     "theme": "Theme",
-    "toggleSidebar": "Toggle sidebar"
+    "toggleSidebar": "Toggle sidebar",
+    "accountSettings": "Account settings",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "logout": "Logout"
   },
   "Sidebar": {
     "dashboard": "Dashboard",
@@ -20,9 +25,11 @@
 
   "Error": {
     "title": "Something went wrong",
-    "description": "An unexpected error occurred. Please try again.",
+    "description": "An unexpected error occurred while processing your request. Please try again.",
     "retry": "Try again",
-    "notFoundTitle": "404 - Page Not Found"
+    "notFoundTitle": "Page Not Found",
+    "notFoundDescription": "The page you are looking for doesn't exist or has been moved.",
+    "goHome": "Go to dashboard"
   },
 
   "Common": {

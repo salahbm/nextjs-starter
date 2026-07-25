@@ -84,6 +84,11 @@ const SidebarNav: FC = () => {
         : 'text-sidebar-foreground',
     );
 
+  const labelClasses = cn(
+    'overflow-hidden whitespace-nowrap transition-all duration-300',
+    isMinimized ? 'max-w-0 opacity-0 blur-sm' : 'max-w-xs opacity-100 blur-0',
+  );
+
   return (
     <nav
       aria-label="Sidebar Navigation"
@@ -123,7 +128,9 @@ const SidebarNav: FC = () => {
                         className="size-5 text-current"
                         aria-hidden
                       />
-                      {!isMinimized && t(`Sidebar.${item.label}`)}
+                      <span className={labelClasses}>
+                        {t(`Sidebar.${item.label}`)}
+                      </span>
                     </span>
                   </AccordionTrigger>
                   {!isMinimized && (
@@ -171,7 +178,7 @@ const SidebarNav: FC = () => {
               title={item.label}
             >
               <DynamicIcon name={item.icon} className="size-5 text-current" />
-              {!isMinimized && t(`Sidebar.${item.label}`)}
+              <span className={labelClasses}>{t(`Sidebar.${item.label}`)}</span>
             </Link>
           );
         })}

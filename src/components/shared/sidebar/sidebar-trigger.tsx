@@ -65,11 +65,16 @@ export default function Sidebar() {
             height={24}
             priority
           />
-          {!isMinimized && (
-            <h1 className="typo-title linear-gradient whitespace-nowrap">
-              {BRAND.name}
-            </h1>
-          )}
+          <h1
+            className={cn(
+              'typo-title overflow-hidden linear-gradient whitespace-nowrap transition-all duration-300',
+              isMinimized
+                ? 'max-w-0 opacity-0 blur-sm'
+                : 'blur-0 max-w-xs opacity-100',
+            )}
+          >
+            {BRAND.name}
+          </h1>
         </Link>
         <SidebarNav />
         <SidebarFooter isMinimized={isMinimized} />

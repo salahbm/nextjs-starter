@@ -7,7 +7,12 @@
     "language": "언어",
     "profile": "프로필",
     "theme": "테마",
-    "toggleSidebar": "사이드바 토글"
+    "toggleSidebar": "사이드바 토글",
+    "accountSettings": "계정 설정",
+    "light": "라이트",
+    "dark": "다크",
+    "system": "시스템",
+    "logout": "로그아웃"
   },
   "Sidebar": {
     "dashboard": "대시보드",
@@ -19,9 +24,11 @@
   },
   "Error": {
     "title": "문제가 발생했습니다",
-    "description": "예기치 않은 오류가 발생했습니다. 다시 시도해 주세요.",
+    "description": "요청을 처리하는 중 예기치 않은 오류가 발생했습니다. 다시 시도해 주세요.",
     "retry": "다시 시도",
-    "notFoundTitle": "404 - 페이지를 찾을 수 없습니다"
+    "notFoundTitle": "페이지를 찾을 수 없습니다",
+    "notFoundDescription": "찾으시는 페이지가 존재하지 않거나 이동되었습니다.",
+    "goHome": "대시보드로 이동"
   },
   "Common": {
     "save": "저장",
