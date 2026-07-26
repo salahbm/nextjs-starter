@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.3](https://github.com/salahbm/nextjs-starter/compare/v0.3.2...v0.3.3) (2026-07-26)
+
+
+### Chores
+
+* adjust sidebar & command list spacing and styling ([b009626](https://github.com/salahbm/nextjs-starter/commit/b00962663a2a14335ac28931f40477ece1afd28d))
+
 ### 0.3.2 (2026-07-26)
 
 
