@@ -5,8 +5,9 @@ import { type PropsWithChildren, useEffect } from 'react';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
-import { ApiError } from '@/lib/api-error';
 import { queryClient } from '@/lib/query-client';
+
+import { ApiClientError } from '@/contracts';
 
 /**
  * Determines if an error should be retried.
@@ -15,7 +16,7 @@ import { queryClient } from '@/lib/query-client';
  * - Client errors (4xx) except 408 (Request Timeout) and 429 (Too Many Requests)
  */
 const shouldRetry = (failureCount: number, error: unknown): boolean => {
-  if (error instanceof ApiError) {
+  if (error instanceof ApiClientError) {
     // Don't retry network errors — user needs to fix connection first
     if (error.isNetworkError) return false;
 

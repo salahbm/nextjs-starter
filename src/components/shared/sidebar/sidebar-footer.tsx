@@ -114,7 +114,10 @@ const SidebarFooter = ({ isMinimized }: SidebarFooterProps) => {
           <DropdownMenuSub>
             <DropdownMenuSubTrigger>
               <Globe className="mr-2 size-4" />
-              {t('language')}
+              {
+                LOCALE_OPTIONS.find((option) => option.code === currentLocale)
+                  ?.label
+              }
             </DropdownMenuSubTrigger>
             <DropdownMenuSubContent>
               {LOCALE_OPTIONS.map((option) => (

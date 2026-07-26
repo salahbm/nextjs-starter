@@ -71,7 +71,7 @@ export function SignInView() {
 
   return (
     <div className="flex h-dvh flex-row items-stretch">
-      <main className="flex min-h-0 flex-1 flex-col items-center justify-center p-4">
+      <main className="relative flex min-h-0 flex-1 flex-col items-center justify-center p-4">
         <AuthHeader />
         <div className="w-full max-w-md space-y-8">
           <div className="text-center">

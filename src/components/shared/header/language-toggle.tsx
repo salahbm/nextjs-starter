@@ -31,8 +31,12 @@ export function LanguageToggle() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon" aria-label={t('language')}>
+        <Button variant="ghost" size="sm" aria-label={t('language')}>
           <Globe className="size-5" />
+          {
+            LOCALE_OPTIONS.find((option) => option.code === currentLocale)
+              ?.label
+          }
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
