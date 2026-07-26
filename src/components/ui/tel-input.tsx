@@ -7,10 +7,8 @@ import { TFieldValues } from '@/types/global';
 
 import { Input } from './input';
 
-interface TelephoneInputProps extends Omit<
-  React.InputHTMLAttributes<HTMLInputElement>,
-  'value'
-> {
+interface TelephoneInputProps
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'value'> {
   showIcon?: boolean;
   formatPhoneNumber?: boolean;
   value?: TFieldValues;

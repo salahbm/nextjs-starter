@@ -3,8 +3,8 @@
 import type { Column } from '@tanstack/react-table';
 import {
   ChevronDown,
-  ChevronUp,
   ChevronsUpDown,
+  ChevronUp,
   EyeOff,
   X,
 } from 'lucide-react';
@@ -19,10 +19,8 @@ import {
 
 import { cn } from '@/lib/utils';
 
-interface DataTableColumnHeaderProps<
-  TData,
-  TValue,
-> extends React.ComponentProps<typeof DropdownMenuTrigger> {
+interface DataTableColumnHeaderProps<TData, TValue>
+  extends React.ComponentProps<typeof DropdownMenuTrigger> {
   column: Column<TData, TValue>;
   title: string;
 }

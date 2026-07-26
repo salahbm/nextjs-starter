@@ -13,10 +13,8 @@ import { ChartTooltip, ChartTooltipContent } from './chart-tooltip';
 import { type CartesianChartProps, type TooltipIndicator } from './types';
 import { getSeriesKeys } from './utils';
 
-export interface RadarChartProps extends Omit<
-  CartesianChartProps,
-  'showGrid' | 'showYAxis'
-> {
+export interface RadarChartProps
+  extends Omit<CartesianChartProps, 'showGrid' | 'showYAxis'> {
   gridType?: 'circle' | 'polygon';
   tooltipIndicator?: TooltipIndicator;
 }

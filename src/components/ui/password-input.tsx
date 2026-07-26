@@ -10,10 +10,8 @@ import { TFieldValues } from '@/types/global';
 
 import { Input } from './input';
 
-interface PasswordInputProps extends Omit<
-  React.InputHTMLAttributes<HTMLInputElement>,
-  'value'
-> {
+interface PasswordInputProps
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'value'> {
   showToggle?: boolean;
   value?: TFieldValues;
 }

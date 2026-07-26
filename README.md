@@ -43,10 +43,12 @@ bun run dev           # Start Next.js dev server
 bun run build         # Create a production build
 bun run build:analyze # Generate Turbopack bundle analysis files
 bun run start         # Start the production server
-bun run lint          # Run ESLint with auto-fix
-bun run lint:check    # Run ESLint without auto-fix
-bun run format        # Format files with Prettier
-bun run format:check  # Check formatting
+bun run check         # Run Biome checks and apply safe fixes
+bun run check:ci      # Run Biome checks in CI mode
+bun run lint          # Run the Biome linter with auto-fix
+bun run lint:check    # Run the Biome linter without auto-fix
+bun run format        # Format supported files with Biome
+bun run format:check  # Check Biome formatting
 bun run test          # Run unit/component tests
 bun run test:watch    # Run unit/component tests in watch mode
 bun run test:e2e      # Run Playwright smoke tests
@@ -126,7 +128,7 @@ Tailwind CSS 4 is configured through `src/styles/globals.css`.
 Important notes:
 
 - `postcss.config.mjs` uses `@tailwindcss/postcss`.
-- `.prettierrc` uses `tailwindStylesheet` and points to `src/styles/globals.css`.
+- `biome.json` enables parsing for Tailwind CSS 4 directives.
 - There is no `tailwind.config.js` or `tailwind.config.ts`; app-specific theme tokens and utilities live in CSS.
 - `tw-animate-css` is imported from the global stylesheet.
 
@@ -182,8 +184,7 @@ Locale prefixes are always included in URLs, and the selected language is stored
 
 This project uses:
 
-- ESLint
-- Prettier
+- Biome
 - TypeScript strict mode
 - Husky
 - lint-staged

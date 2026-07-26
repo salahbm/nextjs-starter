@@ -1,9 +1,9 @@
 import {
-  Locale,
   format,
   formatDistance,
   formatRelative,
   isValid,
+  Locale,
   setHours,
   setMilliseconds,
   setMinutes,

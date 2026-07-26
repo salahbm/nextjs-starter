@@ -84,7 +84,7 @@ By participating in this project, you agree to abide by our code of conduct. Ple
 ### Code Quality
 
 - Small, focused components.
-- Strict ESLint/Prettier rules.
+- Biome linting and formatting rules.
 - Separate concerns: SSR (pages) vs CSR (views).
 
 ### Internationalization

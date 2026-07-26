@@ -6,10 +6,8 @@ import { TFieldValues } from '@/types/global';
 
 // Create a new interface that extends the HTML textarea attributes
 // but modifies the value prop to accept our custom TFieldValues type
-interface TextareaProps extends Omit<
-  React.TextareaHTMLAttributes<HTMLTextAreaElement>,
-  'value'
-> {
+interface TextareaProps
+  extends Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, 'value'> {
   value?: TFieldValues;
 }
 

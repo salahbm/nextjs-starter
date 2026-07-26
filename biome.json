@@ -1,0 +1,120 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.5.5/schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "files": {
+    "ignoreUnknown": true
+  },
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": false,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 80,
+    "includes": [
+      "**",
+      "!**/.next",
+      "!**/build",
+      "!**/node_modules",
+      "!**/public",
+      "!**/bun.lock"
+    ]
+  },
+  "linter": {
+    "enabled": true,
+    "includes": [
+      "**",
+      "!**/node_modules",
+      "!**/dist",
+      "!**/build",
+      "!**/.next",
+      "!**/public",
+      "!**/*.config.{js,ts,mjs}",
+      "!**/coverage",
+      "!.lintstagedrc.js",
+      "!next-env.d.ts"
+    ],
+    "rules": {
+      "preset": "none",
+      "a11y": {
+        "useAltText": "warn",
+        "useValidAnchor": "warn"
+      },
+      "correctness": {
+        "noUnusedImports": "error",
+        "noUnusedVariables": "warn",
+        "useExhaustiveDependencies": "warn",
+        "useHookAtTopLevel": "error",
+        "useJsxKeyInIterable": "error"
+      },
+      "performance": {
+        "noImgElement": "warn"
+      },
+      "suspicious": {
+        "noConsole": {
+          "level": "warn",
+          "options": {
+            "allow": ["warn", "error", "info", "debug"]
+          }
+        },
+        "noExplicitAny": "warn"
+      }
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "jsxQuoteStyle": "double",
+      "quoteProperties": "asNeeded",
+      "trailingCommas": "all",
+      "semicolons": "always",
+      "arrowParentheses": "always",
+      "quoteStyle": "single"
+    }
+  },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
+  },
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": {
+          "level": "on",
+          "options": {
+            "groups": [
+              "react-scan",
+              ":BLANK_LINE:",
+              "scan",
+              ":BLANK_LINE:",
+              "react",
+              ":BLANK_LINE:",
+              "next/**",
+              ":BLANK_LINE:",
+              "next-intl/**",
+              ":BLANK_LINE:",
+              ":PACKAGE:",
+              ":BLANK_LINE:",
+              "@/components/**",
+              ":BLANK_LINE:",
+              "@/lib/**",
+              ":BLANK_LINE:",
+              "@/utils/**",
+              ":BLANK_LINE:",
+              "@/constants/**",
+              ":BLANK_LINE:",
+              "@/**",
+              ":BLANK_LINE:",
+              ":PATH:"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

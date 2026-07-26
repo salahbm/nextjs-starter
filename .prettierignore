@@ -1,6 +1,0 @@
-# Ignore artifacts:
-.next
-build
-node_modules
-public
-bun.lock

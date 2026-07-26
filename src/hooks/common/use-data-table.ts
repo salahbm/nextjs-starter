@@ -3,13 +3,6 @@
 import * as React from 'react';
 
 import {
-  type PaginationState,
-  type RowSelectionState,
-  type SortingState,
-  type TableOptions,
-  type TableState,
-  type Updater,
-  type VisibilityState,
   getCoreRowModel,
   getFacetedMinMaxValues,
   getFacetedRowModel,
@@ -17,9 +10,16 @@ import {
   getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
+  type PaginationState,
+  type RowSelectionState,
+  type SortingState,
+  type TableOptions,
+  type TableState,
+  type Updater,
   useReactTable,
+  type VisibilityState,
 } from '@tanstack/react-table';
-import { type UseQueryStateOptions, parseAsInteger, useQueryState } from 'nuqs';
+import { parseAsInteger, type UseQueryStateOptions, useQueryState } from 'nuqs';
 
 import { getSortingStateParser } from '@/lib/data-table-func';
 
@@ -32,8 +32,7 @@ const DEBOUNCE_MS = 300;
 const THROTTLE_MS = 50;
 
 interface UseDataTableProps<TData>
-  extends
-    Omit<
+  extends Omit<
       TableOptions<TData>,
       | 'state'
       | 'pageCount'

@@ -9,14 +9,14 @@
  * - @layer base for global base resets
  * ============================================================================= */
 
-@import 'tailwindcss';
-@import 'tw-animate-css';
+@import "tailwindcss";
+@import "tw-animate-css";
 
 /* Custom partial stylesheets */
-@import './common.css';
-@import './fonts.css';
-@import './inputs.css';
-@import './animations.css';
+@import "./common.css";
+@import "./fonts.css";
+@import "./inputs.css";
+@import "./animations.css";
 
 /* -----------------------------------------------------------------------------
  * 1. CUSTOM VARIANT — Dark Mode
@@ -237,7 +237,7 @@
 
   /* Restore pointer cursor for interactive elements (v4 changed the default) */
   button:not(:disabled),
-  [role='button']:not(:disabled) {
+  [role="button"]:not(:disabled) {
     cursor: pointer;
   }
 }

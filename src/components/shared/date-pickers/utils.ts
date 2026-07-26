@@ -1,4 +1,4 @@
-import { Locale, format } from 'date-fns';
+import { format, Locale } from 'date-fns';
 import { useLocale } from 'next-intl';
 
 import { cn } from '@/lib/utils';
@@ -8,7 +8,12 @@ import { dateLocales, isDayOutOfRange, toLocalDate } from '@/utils/date';
 import { TFieldValues } from '@/types/global';
 
 export type DatePickerVariant =
-  'default' | 'date-time' | 'time' | 'range' | 'month' | 'year';
+  | 'default'
+  | 'date-time'
+  | 'time'
+  | 'range'
+  | 'month'
+  | 'year';
 
 export interface DateRangeValue {
   from?: Date;

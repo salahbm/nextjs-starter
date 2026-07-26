@@ -30,7 +30,7 @@ const useTranslation = () => {
         );
       });
     },
-    [pathname, router, startTransition],
+    [pathname, router],
   );
 
   return { locales, currentLocale, handleLocale, isPending };

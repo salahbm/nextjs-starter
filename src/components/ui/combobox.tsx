@@ -24,10 +24,11 @@ import { cn } from '@/lib/utils';
 
 import { TFieldValues } from '@/types/global';
 
-interface ComboboxProps extends Omit<
-  React.ButtonHTMLAttributes<HTMLButtonElement>,
-  'value' | 'onValueChange'
-> {
+interface ComboboxProps
+  extends Omit<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    'value' | 'onValueChange'
+  > {
   options?: Array<{
     value: string;
     label: string;

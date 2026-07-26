@@ -1,9 +1,9 @@
 :root {
-  --font-main: 'Manrope', sans-serif;
+  --font-main: "Manrope", sans-serif;
   --ls: 0.01em;
 }
 
-[class^='font-'] {
+[class^="font-"] {
   font-family: var(--font-main);
   letter-spacing: var(--ls);
   text-transform: none;
