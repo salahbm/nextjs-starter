@@ -4,7 +4,13 @@ import { format, setMonth, setYear } from 'date-fns';
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
-import { useDateLocale } from '@/components/shared/date-pickers/utils';
+import {
+  DEFAULT_MAX_DATE,
+  DEFAULT_MIN_DATE,
+  pickerCellClass,
+  pickerNavClass,
+  useDateLocale,
+} from '@/components/shared/date-pickers/utils';
 
 import { cn } from '@/lib/utils';
 
@@ -16,20 +22,11 @@ interface MonthPickerProps {
   className?: string;
 }
 
-const navButtonClass = (isDisabled: boolean) =>
-  cn(
-    'rounded p-2 transition-colors outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50',
-    isDisabled
-      ? 'cursor-not-allowed opacity-50'
-      : 'hover:bg-accent hover:text-accent-foreground',
-  );
-
 export function MonthPicker({
   value,
   onValueChange,
-  // Local-time constructors — string dates parse as UTC and shift by timezone
-  minDate = new Date(1900, 0, 1),
-  maxDate = new Date(2100, 11, 31),
+  minDate = DEFAULT_MIN_DATE,
+  maxDate = DEFAULT_MAX_DATE,
   className,
 }: MonthPickerProps) {
   const t = useTranslations('Common');
@@ -56,25 +53,14 @@ export function MonthPicker({
     setYearView((prevYear) => Math.min(maxDate.getFullYear(), prevYear + 1));
   }, [maxDate]);
 
-  // Select a month
+  // Select a month — the caller clamps and normalizes the emitted date
   const handleSelectMonth = React.useCallback(
     (monthIndex: number) => {
-      if (!onValueChange) return;
-
       // date-fns setYear/setMonth clamp day overflow (Jan 31 -> Feb 28)
       // instead of rolling into the next month like Date#setMonth does
-      const newDate = setMonth(setYear(currentDate, year), monthIndex);
-
-      // Ensure date is within min/max range
-      if (newDate < minDate) {
-        onValueChange(new Date(minDate));
-      } else if (newDate > maxDate) {
-        onValueChange(new Date(maxDate));
-      } else {
-        onValueChange(newDate);
-      }
+      onValueChange?.(setMonth(setYear(currentDate, year), monthIndex));
     },
-    [currentDate, year, onValueChange, minDate, maxDate],
+    [currentDate, year, onValueChange],
   );
 
   return (
@@ -87,19 +73,17 @@ export function MonthPicker({
               type="button"
               onClick={handlePrevYear}
               disabled={year <= minDate.getFullYear()}
-              className={navButtonClass(year <= minDate.getFullYear())}
+              className={pickerNavClass(year <= minDate.getFullYear())}
               aria-label={t('previousYear')}
             >
               <ChevronLeftIcon className="size-4" />
             </button>
-            <div className="typo-caption-1 min-w-[60px] text-center">
-              {year}
-            </div>
+            <div className="typo-caption-1 min-w-15 text-center">{year}</div>
             <button
               type="button"
               onClick={handleNextYear}
               disabled={year >= maxDate.getFullYear()}
-              className={navButtonClass(year >= maxDate.getFullYear())}
+              className={pickerNavClass(year >= maxDate.getFullYear())}
               aria-label={t('nextYear')}
             >
               <ChevronRightIcon className="size-4" />
@@ -130,11 +114,11 @@ export function MonthPicker({
                 disabled={isDisabled}
                 aria-pressed={isSelected}
                 className={cn(
-                  'typo-caption-1 cursor-pointer rounded p-4 capitalize transition-colors outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50',
-                  isDisabled && 'cursor-not-allowed opacity-50',
-                  isSelected
-                    ? 'bg-primary text-primary-foreground'
-                    : 'hover:bg-accent hover:text-accent-foreground',
+                  pickerCellClass({
+                    selected: isSelected,
+                    disabled: isDisabled,
+                  }),
+                  'p-4 capitalize',
                 )}
               >
                 {monthName}

@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 
+import { format } from 'date-fns';
 import { ru, uz } from 'date-fns/locale';
 import {
   ChevronDownIcon,
@@ -9,7 +10,12 @@ import {
   ChevronRightIcon,
 } from 'lucide-react';
 import { useLocale } from 'next-intl';
-import { DayButton, DayPicker, getDefaultClassNames } from 'react-day-picker';
+import {
+  DayButton,
+  DayPicker,
+  DropdownProps,
+  getDefaultClassNames,
+} from 'react-day-picker';
 
 import { Button, buttonVariants } from '@/components/ui/button';
 
@@ -50,8 +56,8 @@ function Calendar({
       )}
       captionLayout={captionLayout}
       formatters={{
-        formatMonthDropdown: (date) =>
-          date.toLocaleString('default', { month: 'short' }),
+        // Standalone month name ('LLL') in the active locale
+        formatMonthDropdown: (date) => format(date, 'LLL', { locale }),
         ...formatters,
       }}
       classNames={{
@@ -176,73 +182,45 @@ function Calendar({
             </td>
           );
         },
-        Dropdown: ({ value, onChange, options, name }) => {
-          const isMonthDropdown =
-            name === 'month' || (options && options.length === 12);
-          const isYearDropdown =
-            name === 'year' || (options && options.length > 12);
-
-          let formattedOptions = options;
-
-          if (isMonthDropdown) {
-            formattedOptions = options?.map((option) => {
-              const monthValue =
-                typeof option.value === 'number'
-                  ? option.value
-                  : parseInt(String(option.value));
-
-              const date = new Date();
-              date.setMonth(monthValue);
-
-              const monthName = date.toLocaleString(lang, { month: 'short' });
-
-              return {
-                ...option,
-                value: monthValue,
-                label: monthName,
-              };
-            });
-          }
-
-          const handleChange = (value: string | string[]) => {
-            const changeEvent = {
-              target: { value },
-            } as React.ChangeEvent<HTMLSelectElement>;
-            onChange?.(changeEvent);
-          };
-
-          let selectedLabel = '';
-          if (isMonthDropdown && value !== undefined) {
-            const selectedOption = formattedOptions?.find(
-              (option) => String(option.value) === String(value),
-            );
-            if (selectedOption) {
-              selectedLabel = String(selectedOption.label);
-            }
-          }
-
-          return (
-            <div className="relative w-full cursor-pointer">
-              <Combobox
-                modalPopover
-                value={value as string}
-                onValueChange={handleChange}
-                options={formattedOptions?.map((option) => ({
-                  ...option,
-                  value: String(option.value),
-                  label: String(option.label),
-                }))}
-                className="flex h-auto w-full cursor-pointer items-center justify-center gap-2 border-none px-0 py-0"
-                searchable={isYearDropdown}
-                label={isMonthDropdown ? selectedLabel : undefined}
-              />
-            </div>
-          );
-        },
+        MonthsDropdown: (props) => <CalendarDropdown {...props} />,
+        YearsDropdown: (props) => <CalendarDropdown {...props} searchable />,
 
         ...components,
       }}
       {...props}
+    />
+  );
+}
+
+/**
+ * Caption dropdown rendered with the shared `Combobox`, so the currently
+ * displayed month/year is preselected, highlighted and scrolled into view.
+ */
+function CalendarDropdown({
+  value,
+  options = [],
+  onChange,
+  searchable = false,
+}: DropdownProps & { searchable?: boolean }) {
+  const handleChange = (next: string | string[]) => {
+    if (Array.isArray(next)) return;
+    onChange?.({
+      target: { value: next },
+    } as React.ChangeEvent<HTMLSelectElement>);
+  };
+
+  return (
+    <Combobox
+      modalPopover
+      searchable={searchable}
+      value={value === undefined ? '' : String(value)}
+      onValueChange={handleChange}
+      options={options.map((option) => ({
+        value: String(option.value),
+        label: String(option.label),
+        disabled: option.disabled,
+      }))}
+      className="typo-caption-1 flex h-8 w-full cursor-pointer items-center justify-center gap-1 border-none px-2 py-0"
     />
   );
 }

@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { ArrowRight, CheckCircle } from 'lucide-react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 import { Button } from '@/components/ui/button';
@@ -60,7 +60,7 @@ export function SuccessView({
         <div className="w-full max-w-md">
           <div className="space-y-6 text-center text-white">
             <div className="flex justify-center">
-              <CheckCircle className="h-16 w-16 text-primary" />
+              <CheckCircle2 className="h-16 w-16 text-primary" />
             </div>
 
             <div>

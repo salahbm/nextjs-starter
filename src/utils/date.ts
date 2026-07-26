@@ -1,4 +1,15 @@
-import { Locale, format, formatDistance, formatRelative } from 'date-fns';
+import {
+  Locale,
+  format,
+  formatDistance,
+  formatRelative,
+  isValid,
+  setHours,
+  setMilliseconds,
+  setMinutes,
+  setSeconds,
+  startOfDay,
+} from 'date-fns';
 import { enUS, ru, uz } from 'date-fns/locale';
 
 type SupportedLocale = 'en' | 'ru' | 'uz';
@@ -98,6 +109,91 @@ export const dateToISOString = (date?: Date) => date?.toISOString() ?? '';
  */
 export const isoStringToDate = (iso?: string) =>
   iso ? new Date(iso) : new Date();
+
+/** Hour a calendar day is anchored at, see `toCalendarDate` */
+export const CALENDAR_DAY_ANCHOR_HOUR = 12;
+
+/** Matches a date-only string, e.g. '2026-07-07' */
+const DATE_ONLY_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
+
+/** Matches an 'HH:mm' (or 'HH:mm:ss') time string */
+const TIME_PATTERN = /^(\d{1,2}):(\d{2})/;
+
+/**
+ * Parse any picker input into a LOCAL `Date`.
+ * Date-only strings are parsed at local midnight instead of UTC midnight —
+ * `new Date('2026-07-07')` is UTC and renders as Jul 6 west of UTC.
+ */
+export const toLocalDate = (value?: unknown): Date | undefined => {
+  if (value === null || value === undefined || value === '') return undefined;
+  if (value instanceof Date) return isValid(value) ? value : undefined;
+  if (typeof value === 'number') {
+    const fromNumber = new Date(value);
+    return isValid(fromNumber) ? fromNumber : undefined;
+  }
+  if (typeof value !== 'string') return undefined;
+  if (DATE_ONLY_PATTERN.test(value)) return fromDateOnlyString(value);
+  const parsed = new Date(value);
+  return isValid(parsed) ? parsed : undefined;
+};
+
+/**
+ * Anchor a calendar day at local noon.
+ *
+ * Date-only selections carry no meaningful time, but consumers often
+ * serialize them with `toISOString()`. Local midnight shifts to the previous
+ * day for users west of UTC; noon survives any UTC offset (±12h), so the
+ * calendar day never changes.
+ */
+export const toCalendarDate = (date: Date): Date =>
+  setMilliseconds(
+    setSeconds(setMinutes(setHours(date, CALENDAR_DAY_ANCHOR_HOUR), 0), 0),
+    0,
+  );
+
+/** Parse an 'HH:mm' string into hours/minutes, defaulting to 00:00 */
+export const parseTimeString = (
+  time?: string,
+): { hours: number; minutes: number } => {
+  const match = time?.match(TIME_PATTERN);
+  if (!match) return { hours: 0, minutes: 0 };
+  return {
+    hours: Math.min(23, Number(match[1])),
+    minutes: Math.min(59, Number(match[2])),
+  };
+};
+
+/** Format the time part of a date as 'HH:mm' */
+export const formatTimeString = (date?: Date): string =>
+  date ? format(date, 'HH:mm') : '';
+
+/** Apply an 'HH:mm' time to a date, keeping the calendar day intact */
+export const mergeDateAndTime = (date: Date, time?: string): Date => {
+  const { hours, minutes } = parseTimeString(time);
+  return setMilliseconds(
+    setSeconds(setMinutes(setHours(date, hours), minutes), 0),
+    0,
+  );
+};
+
+/** Restrict a date to the [min, max] window */
+export const clampDate = (date: Date, min?: Date, max?: Date): Date => {
+  if (min && date < min) return new Date(min);
+  if (max && date > max) return new Date(max);
+  return date;
+};
+
+/** Compare two dates by calendar day only, ignoring their time parts */
+export const isDayOutOfRange = (
+  date: Date,
+  min?: Date,
+  max?: Date,
+): boolean => {
+  const day = startOfDay(date);
+  if (min && day < startOfDay(min)) return true;
+  if (max && day > startOfDay(max)) return true;
+  return false;
+};
 
 /**
  * Get the year from a date

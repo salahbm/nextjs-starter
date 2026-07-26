@@ -66,6 +66,8 @@ export const Combobox = React.forwardRef<HTMLButtonElement, ComboboxProps>(
   ) => {
     const t = useTranslations();
     const [open, setOpen] = React.useState(false);
+    const listRef = React.useRef<HTMLDivElement>(null);
+    const selectedItemRef = React.useRef<HTMLDivElement>(null);
 
     const handleSelect = (val: string) => {
       if (multiple) {
@@ -111,6 +113,35 @@ export const Combobox = React.forwardRef<HTMLButtonElement, ComboboxProps>(
         }),
       [selectedValues, options],
     );
+
+    // cmdk highlights the first item by default — highlight the selection
+    // instead, and bring it into view, so long lists (years, months) open on
+    // the current value.
+    const [highlighted, setHighlighted] = React.useState('');
+
+    const selectedItemValue = React.useMemo(() => {
+      const match = options.find(
+        (option) => option.value === selectedValues[0],
+      );
+      return match ? String(match.label) : '';
+    }, [options, selectedValues]);
+
+    React.useEffect(() => {
+      if (!open) return;
+
+      setHighlighted(selectedItemValue);
+
+      const frame = requestAnimationFrame(() => {
+        const item = selectedItemRef.current;
+        const list = listRef.current;
+        if (!item || !list) return;
+
+        list.scrollTop =
+          item.offsetTop - list.clientHeight / 2 + item.clientHeight / 2;
+      });
+
+      return () => cancelAnimationFrame(frame);
+    }, [open, selectedItemValue]);
 
     const handleClear = (event: React.MouseEvent<HTMLElement>) => {
       event.stopPropagation();
@@ -171,9 +202,9 @@ export const Combobox = React.forwardRef<HTMLButtonElement, ComboboxProps>(
           align="start"
           className="w-full min-w-(--radix-popover-trigger-width)"
         >
-          <Command>
+          <Command value={highlighted} onValueChange={setHighlighted}>
             {searchable && <CommandInput placeholder={t('Common.search')} />}
-            <CommandList className="no-scrollbar max-h-80">
+            <CommandList ref={listRef} className="no-scrollbar max-h-80">
               <CommandEmpty>
                 <p className="typo-body-2 text-muted-foreground">
                   {t('Common.noData')}
@@ -185,6 +216,7 @@ export const Combobox = React.forwardRef<HTMLButtonElement, ComboboxProps>(
                   return (
                     <CommandItem
                       key={option.value.toString()}
+                      ref={isSelected ? selectedItemRef : undefined}
                       value={option.label as string}
                       onSelect={() => handleSelect(option.value.toString())}
                       disabled={option.disabled}

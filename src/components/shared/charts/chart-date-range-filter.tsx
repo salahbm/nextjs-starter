@@ -148,12 +148,11 @@ export function ChartDateRangeFilter({
           if (
             value &&
             typeof value === 'object' &&
-            !Array.isArray(value) &&
             'from' in value &&
             value.from instanceof Date
           ) {
             setSelection('custom');
-            updateRange(value, 'custom');
+            updateRange({ from: value.from, to: value.to }, 'custom');
           }
         }}
         placeholder="Select custom range"
