@@ -78,14 +78,14 @@ const SidebarNav: FC = () => {
 
   const navItemClasses = (isActive: boolean) =>
     cn(
-      'flex items-center gap-2 rounded px-4 py-3 w-full duration-300 cursor-pointer transition-colors whitespace-nowrap hover:bg-accent hover:text-sidebar-accent-foreground',
+      'flex items-center rounded px-4 py-3 w-full duration-300 cursor-pointer transition-colors whitespace-nowrap hover:bg-accent hover:text-sidebar-accent-foreground',
       isActive
         ? 'bg-sidebar-primary/10 text-sidebar-primary font-medium hover:bg-sidebar-primary/20'
         : 'text-sidebar-foreground',
     );
 
   const labelClasses = cn(
-    'overflow-hidden whitespace-nowrap transition-all duration-300',
+    'overflow-hidden ml-2 whitespace-nowrap transition-all duration-300',
     isMinimized ? 'max-w-0 opacity-0 blur-sm' : 'max-w-xs opacity-100 blur-0',
   );
 
@@ -150,7 +150,7 @@ const SidebarNav: FC = () => {
                             >
                               <DynamicIcon
                                 name={child.icon}
-                                className="size-5 text-current"
+                                className="size-5 text-current mr-2"
                                 aria-hidden
                               />
                               {t(`Sidebar.${child.label}`)}
