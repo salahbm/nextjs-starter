@@ -2,6 +2,94 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.3.2 (2026-07-26)
+
+
+### Features
+
+* add 404, loading, and catch-all pages for locale-based routing ([cec68f0](https://github.com/salahbm/nextjs-starter/commit/cec68f0289e0f8da2a09bff912a08bacf7338fa3))
+* add chart date range filter & redesign auth pages with split layout ([a5dcf96](https://github.com/salahbm/nextjs-starter/commit/a5dcf96a731b41f84180b2d45581177cd660f812))
+* add DatePicker component with Manrope font integration ([92c7e42](https://github.com/salahbm/nextjs-starter/commit/92c7e42acc659b44110cf75e346d452ded7f6717))
+* add debounced search functionality to data table with loading states ([22343d8](https://github.com/salahbm/nextjs-starter/commit/22343d88c79abe1a6df8ccbe2cecaf042e443aec))
+* add file uploader component with drag-and-drop support and responsive sidebar ([b3fbcd6](https://github.com/salahbm/nextjs-starter/commit/b3fbcd64f0b82377d7c99f16388584e23377d80c))
+* add form input components with phone, password and combobox fields ([d2a9107](https://github.com/salahbm/nextjs-starter/commit/d2a910792d70e5611c2e15dae3105da5fc05f5e5))
+* add forms page with comprehensive form components and validation ([970d0a1](https://github.com/salahbm/nextjs-starter/commit/970d0a127e89876acf5b7de913e0b65a9770acca))
+* add versioning system and project documentation ([a045f75](https://github.com/salahbm/nextjs-starter/commit/a045f75546b000b8fd247e82b2e36359cefb62bf))
+* enhance UI components with dynamic sizing and consistent typography ([3d8b0a1](https://github.com/salahbm/nextjs-starter/commit/3d8b0a1b0393cbcaa75965ad28a48e537adad44d))
+* implement advanced URL parameter handling with multi-sort support and query parsing ([0ed42f2](https://github.com/salahbm/nextjs-starter/commit/0ed42f273f1855f6904a8967a24dd5c961b25c2e))
+* implement auth middleware and cookie-based authentication flow ([11be278](https://github.com/salahbm/nextjs-starter/commit/11be278bd11052d1777ad2448e0522c3e6d1b50d))
+* implement auth pages with sign-in, sign-up and password reset flows ([0a947f0](https://github.com/salahbm/nextjs-starter/commit/0a947f0a4dedaf7b1d4d5e95998f4133d984f116))
+* implement comprehensive date picker with time, month, year and range variants ([25a8099](https://github.com/salahbm/nextjs-starter/commit/25a8099e73b99eb0e1012583d468dc604c5cb76c))
+* implement data table component with sorting and row selection ([707b8a8](https://github.com/salahbm/nextjs-starter/commit/707b8a887ade741e234dc93441f10fee61a40e6b))
+* implement data table with react-query and server-side pagination ([1f1e04e](https://github.com/salahbm/nextjs-starter/commit/1f1e04e32c53b30d75f819e8a3295ce66214e123))
+* implement data table with sorting, pagination and column visibility ([8d6c0a3](https://github.com/salahbm/nextjs-starter/commit/8d6c0a395d65fd5fc0630877bbeeedbd5cd12275))
+* implement data table with sorting, pagination and enhanced UI components ([97c97c1](https://github.com/salahbm/nextjs-starter/commit/97c97c1eccccd25af69a3edbcc4940d35055cc62))
+* implement form components with react-hook-form and zod validation ([297c879](https://github.com/salahbm/nextjs-starter/commit/297c879f6ad58461fa93cb01a3dcaba24d4610f1))
+* implement i18n for Zod validation with custom required field handling ([1ab4dfc](https://github.com/salahbm/nextjs-starter/commit/1ab4dfc32ba37efd660ce43dd544c4c72391505f))
+* implement multi-select combobox with search and persist sidebar state ([3fe43f6](https://github.com/salahbm/nextjs-starter/commit/3fe43f6ac8cf83ffdd026955771f7eb48a75ef7f))
+* implement preferences page with theme switching and i18n improvements ([f446a55](https://github.com/salahbm/nextjs-starter/commit/f446a558960df5df6e2b61252daf0d9b7124662e))
+* implement responsive sidebar with header components and navigation UI ([32ed432](https://github.com/salahbm/nextjs-starter/commit/32ed432e0c2f83aef6b2c669fb4e47bfb2984ad7))
+* implement theme system with dark mode support and UI components ([bec8a12](https://github.com/salahbm/nextjs-starter/commit/bec8a122cb454e8014e77f085084a127a991129a))
+* implement typography system with custom fonts and responsive UI components ([140c0ce](https://github.com/salahbm/nextjs-starter/commit/140c0ce7c77cafb742108d998be166aee9d10df1))
+* init next-intl & date-fns ([6f35f75](https://github.com/salahbm/nextjs-starter/commit/6f35f755b77d21a01724e94bde1fe1d129a58700))
+* update errors, configs, ui etc ([022dd21](https://github.com/salahbm/nextjs-starter/commit/022dd214d86c550a0d1cd0df63bf0452254a04b6))
+
+
+### Bug Fixes
+
+*  proxy & locales ([e15cc1b](https://github.com/salahbm/nextjs-starter/commit/e15cc1b6d2abc01a43c080181f3637f0b215da79))
+* ci img type check ([17d68df](https://github.com/salahbm/nextjs-starter/commit/17d68df31f3c1036346002d61702776cfd537dc6))
+* header & sidebar ([e661c91](https://github.com/salahbm/nextjs-starter/commit/e661c91f99725ca9eef306c3ff713f7fc976e49d))
+* upate tanstack ([e75f1c5](https://github.com/salahbm/nextjs-starter/commit/e75f1c536e3b4932170b0eaeda65df65578cd8ad))
+
+
+### Code Refactoring
+
+* improve file uploader with i18n support and better error handling ([8a72114](https://github.com/salahbm/nextjs-starter/commit/8a72114df6a15607b99904e53fe79648155951e0))
+* improve layout and sidebar responsiveness with sticky positioning and overflow handling ([9a2a1e1](https://github.com/salahbm/nextjs-starter/commit/9a2a1e1a3df541d55ee1fb7e6b48bac5b1973350))
+* reorganize data table components and add column pinning support ([a4ed68f](https://github.com/salahbm/nextjs-starter/commit/a4ed68fbde881a1d48c6d9ad58fb69bd1a0e2013))
+* simplify form schema and improve file upload handling with better error messages ([3e586e7](https://github.com/salahbm/nextjs-starter/commit/3e586e7d4a56a3c91689d2caaefab04d2ecd905c))
+* standardize border radius and update UI components styling ([a0c3e94](https://github.com/salahbm/nextjs-starter/commit/a0c3e94f04c2b7d914df7c1ed6afbeba35428cf9))
+
+
+### Documentation
+
+* add project documentation and license files ([d0da350](https://github.com/salahbm/nextjs-starter/commit/d0da350b81e2b328d43a6299e7257d7a7689574e))
+* project explanation added ([838a6f4](https://github.com/salahbm/nextjs-starter/commit/838a6f4fa2a49b935a83629bd67b3b50d306d8b6))
+* rewrite README with stack overview and project structure ([4ed6328](https://github.com/salahbm/nextjs-starter/commit/4ed632816b3aec00a3ea80528e1da8a0f4a52b3b))
+
+
+### Styles
+
+* move button files under btn dir ([5d37b59](https://github.com/salahbm/nextjs-starter/commit/5d37b59031dcc3d5f571029df6ac46daa341bf7b))
+* tailwind updatred ([f439ec1](https://github.com/salahbm/nextjs-starter/commit/f439ec1264c4f14a658b8225bf8b9176fc509325))
+* typography ([f66fa74](https://github.com/salahbm/nextjs-starter/commit/f66fa74beb6f84353e88b45f660e9f939ac06d33))
+
+
+### Chores
+
+* add eslint, prettier, husky and commitlint configuration files ([c737cc5](https://github.com/salahbm/nextjs-starter/commit/c737cc575fe2763017c9f4adb987fcab9fa16ab1))
+* add testing, observability, and CI infrastructure ([bef4bb5](https://github.com/salahbm/nextjs-starter/commit/bef4bb5512437b6d33da17b6676779ba4cf18581))
+* auth header ([2341d62](https://github.com/salahbm/nextjs-starter/commit/2341d628cd58c0172b20adebf83efb4fdd950392))
+* charts ([b2b7771](https://github.com/salahbm/nextjs-starter/commit/b2b7771f4554b3e0cf37cbc423c522ee0f5ea11d))
+* fix pickers ([bf97ead](https://github.com/salahbm/nextjs-starter/commit/bf97ead6ea467e0fe72fc7554e16096b60469a65))
+* migrate from eslint to biome ([135705f](https://github.com/salahbm/nextjs-starter/commit/135705fd645806ad75dbb38c2253d6750d9d2362))
+* move views out of components ([d78e1d3](https://github.com/salahbm/nextjs-starter/commit/d78e1d3ae84d823a7f9fdcefd9dfcffd3e706ce9))
+* optimze date pickers ([47d635b](https://github.com/salahbm/nextjs-starter/commit/47d635b221c2f4bd87b4caec43e102bd2e1d8f25))
+* **release:** 0.1.1 ([ff27448](https://github.com/salahbm/nextjs-starter/commit/ff274483020bd6fb0928d1b999047cf15fcb9f10))
+* **release:** 0.1.2 ([195a851](https://github.com/salahbm/nextjs-starter/commit/195a8510c8553848732ddb1c1804deb210c30141))
+* **release:** 0.2.0 ([6598288](https://github.com/salahbm/nextjs-starter/commit/65982889a59e6c4ea8ab69cdff0d260a0ef5eba5))
+* **release:** 0.2.1 ([661f96d](https://github.com/salahbm/nextjs-starter/commit/661f96d211d26d17dd6ddcc3bdf15d91aa4b2558))
+* **release:** 0.3.0 ([3d1a782](https://github.com/salahbm/nextjs-starter/commit/3d1a78294e74743d90043ff23dff7576a64f77a7))
+* **release:** 0.3.1 ([11ceca3](https://github.com/salahbm/nextjs-starter/commit/11ceca31b80a89e9920b5283b5920f6fe627d0c5))
+* remove demo pages for dashboard and forms ([d61e1f9](https://github.com/salahbm/nextjs-starter/commit/d61e1f96ac6302865378c4e7ac0ec1eb44a8e301))
+* remove kr to add uz ([4d81526](https://github.com/salahbm/nextjs-starter/commit/4d8152668afa930e06638210baa334084fde444f))
+* simplify husky hook scripts ([f6c1769](https://github.com/salahbm/nextjs-starter/commit/f6c1769793d004d86835a3478fe601be24d60c03))
+* update 404 & 500 pages ([ebec09d](https://github.com/salahbm/nextjs-starter/commit/ebec09d87d25dc265efa970bcddc1d0560d7ef59))
+* update project name to default ([1c804cf](https://github.com/salahbm/nextjs-starter/commit/1c804cffefcdac9c3233e77e20067bfad35f9307))
+* update zod to lts ([cd220f0](https://github.com/salahbm/nextjs-starter/commit/cd220f09bef5d9bfadaa1954480f51553b6b4554))
+* upgrade project with latest versions ([bb9e715](https://github.com/salahbm/nextjs-starter/commit/bb9e715532d65714deb468366b29a32ed580bafc))
+
 ### [0.3.1](https://github.com/salahbm/nextjs-starter/compare/v0.3.0...v0.3.1) (2026-06-05)
 
 ### Chores
