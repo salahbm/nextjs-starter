@@ -8,6 +8,7 @@ export const routes = {
   dev: '/dev/primitives',
   table: '/dev/table',
   forms: '/dev/forms',
+  charts: '/dev/charts',
 };
 
 export interface SideNavItem {
@@ -48,6 +49,11 @@ export const SIDENAV: SideNavItem[] = [
         href: routes.forms,
         label: 'forms',
         icon: 'Type',
+      },
+      {
+        href: routes.charts,
+        label: 'charts',
+        icon: 'ChartNoAxesCombined',
       },
     ],
   },

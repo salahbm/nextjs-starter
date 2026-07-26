@@ -258,7 +258,6 @@
   padding-block: 1rem;
 
   @media (width >= 40rem) {
-    max-width: 40rem;
     padding-inline: 2rem;
   }
 

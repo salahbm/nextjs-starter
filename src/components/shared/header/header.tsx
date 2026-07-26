@@ -18,7 +18,7 @@ export default function Header() {
   const t = useTranslations('Header');
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-background md:hidden">
+    <header className="sticky top-0 z-40 w-full bg-background md:hidden md:border-b">
       <div className="flex h-12 items-center justify-between px-4 sm:px-6">
         <div className="flex items-center gap-1">
           <Button

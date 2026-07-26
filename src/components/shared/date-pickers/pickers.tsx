@@ -173,7 +173,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
         );
       case 'time':
         return (
-          <div className="min-w-[280px] p-3">
+          <div className="min-w-70 p-3">
             <div className="flex flex-col space-y-2">
               <div className="flex items-center justify-start">
                 <div className="flex items-center space-x-2">

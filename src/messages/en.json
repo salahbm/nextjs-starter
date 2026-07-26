@@ -20,7 +20,8 @@
     "primitives": "Primitives",
     "preferences": "Preferences",
     "table": "Table",
-    "forms": "Forms"
+    "forms": "Forms",
+    "charts": "Charts"
   },
 
   "Error": {

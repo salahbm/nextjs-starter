@@ -62,17 +62,17 @@ function Calendar({
         ),
         month: cn('flex flex-col w-full gap-4', defaultClassNames.month),
         nav: cn(
-          'flex items-center gap-1 w-full absolute top-0 inset-x-0 justify-between',
+          'flex items-center gap-1 w-full absolute top-0 inset-x-0 justify-between ',
           defaultClassNames.nav,
         ),
         button_previous: cn(
           buttonVariants({ variant: buttonVariant }),
-          'size-(--cell-size) aria-disabled:opacity-50 p-0 select-none !h-auto',
+          'aria-disabled:opacity-50 p-2 select-none size-8 aspect-square',
           defaultClassNames.button_previous,
         ),
         button_next: cn(
           buttonVariants({ variant: buttonVariant }),
-          'size-(--cell-size) aria-disabled:opacity-50 p-0 select-none !h-auto',
+          'aria-disabled:opacity-50 p-2 select-none size-8 aspect-square',
           defaultClassNames.button_next,
         ),
         month_caption: cn(
@@ -141,7 +141,7 @@ function Calendar({
             <div
               data-slot="calendar"
               ref={rootRef}
-              className={cn(className)}
+              className={className}
               {...props}
             />
           );
@@ -149,14 +149,14 @@ function Calendar({
         Chevron: ({ className, orientation, ...props }) => {
           if (orientation === 'left') {
             return (
-              <ChevronLeftIcon className={cn('size-4', className)} {...props} />
+              <ChevronLeftIcon className={cn('size-5', className)} {...props} />
             );
           }
 
           if (orientation === 'right') {
             return (
               <ChevronRightIcon
-                className={cn('size-4', className)}
+                className={cn('size-5', className)}
                 {...props}
               />
             );

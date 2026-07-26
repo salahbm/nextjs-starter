@@ -105,16 +105,6 @@ function Uploader({
             </Button>
           </div>
         </div>
-      ) : maxFiles > files.length ? (
-        <Button
-          variant="outline"
-          className="ml-auto w-fit"
-          type="button"
-          onClick={openFileDialog}
-        >
-          <UploadIcon className="-ms-1 opacity-60" aria-hidden="true" />
-          {t('Common.uploadMore')}
-        </Button>
       ) : null}
 
       <input
