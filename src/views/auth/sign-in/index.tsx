@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 
+import Image from 'next/image';
+
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ArrowRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
@@ -68,75 +70,87 @@ export function SignInView() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center p-4">
-      <AuthHeader />
-      <div className="w-full max-w-md space-y-8">
-        <div className="text-center">
-          <h1 className="typo-header">{t('signIn.title')}</h1>
-          <p className="typo-body-2 mt-2 text-muted-foreground">
-            {t('signIn.subtitle')}
-          </p>
+    <div className="flex h-dvh flex-row items-stretch">
+      <main className="flex min-h-0 flex-1 flex-col items-center justify-center p-4">
+        <AuthHeader />
+        <div className="w-full max-w-md space-y-8">
+          <div className="text-center">
+            <h1 className="typo-header">{t('signIn.title')}</h1>
+            <p className="typo-body-2 mt-2 text-muted-foreground">
+              {t('signIn.subtitle')}
+            </p>
+          </div>
+
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <FormFields
+                name="email"
+                label={t('signIn.emailLabel')}
+                required
+                control={form.control}
+                render={({ field }) => (
+                  <Input
+                    placeholder={t('signIn.emailPlaceholder')}
+                    type="email"
+                    autoComplete="email"
+                    disabled={isLoading}
+                    {...field}
+                  />
+                )}
+              />
+
+              <FormFields
+                name="password"
+                label={t('signIn.passwordLabel')}
+                required
+                control={form.control}
+                render={({ field }) => (
+                  <PasswordInput
+                    placeholder={t('signIn.passwordPlaceholder')}
+                    autoComplete="current-password"
+                    disabled={isLoading}
+                    {...field}
+                  />
+                )}
+              />
+
+              <div className="flex items-center justify-end">
+                <Link
+                  href="/forgot-password"
+                  className="typo-body-2 text-primary hover:underline"
+                >
+                  {t('signIn.forgotPassword')}
+                </Link>
+              </div>
+
+              <Button type="submit" className="w-full" disabled={isLoading}>
+                {isLoading ? t('signIn.buttonLoading') : t('signIn.button')}
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+
+              <div className="typo-caption-1 text-center">
+                {t('signIn.noAccount')}{' '}
+                <Link
+                  href="/sign-up"
+                  className="text-primary underline underline-offset-2 hover:font-semibold"
+                >
+                  {t('signIn.signUpLink')}
+                </Link>
+              </div>
+            </form>
+          </Form>
         </div>
-
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            <FormFields
-              name="email"
-              label={t('signIn.emailLabel')}
-              required
-              control={form.control}
-              render={({ field }) => (
-                <Input
-                  placeholder={t('signIn.emailPlaceholder')}
-                  type="email"
-                  autoComplete="email"
-                  disabled={isLoading}
-                  {...field}
-                />
-              )}
-            />
-
-            <FormFields
-              name="password"
-              label={t('signIn.passwordLabel')}
-              required
-              control={form.control}
-              render={({ field }) => (
-                <PasswordInput
-                  placeholder={t('signIn.passwordPlaceholder')}
-                  autoComplete="current-password"
-                  disabled={isLoading}
-                  {...field}
-                />
-              )}
-            />
-
-            <div className="flex items-center justify-end">
-              <Link
-                href="/forgot-password"
-                className="typo-body-2 text-primary hover:underline"
-              >
-                {t('signIn.forgotPassword')}
-              </Link>
-            </div>
-
-            <Button type="submit" className="w-full" disabled={isLoading}>
-              {isLoading ? t('signIn.buttonLoading') : t('signIn.button')}
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-
-            <div className="typo-caption-1 text-center">
-              {t('signIn.noAccount')}{' '}
-              <Link
-                href="/sign-up"
-                className="text-primary underline underline-offset-2 hover:font-semibold"
-              >
-                {t('signIn.signUpLink')}
-              </Link>
-            </div>
-          </form>
-        </Form>
-      </div>
+      </main>
+      <aside className="relative hidden min-h-0 flex-1 overflow-hidden lg:block">
+        <Image
+          src="/images/login-background.webp"
+          alt="Auth background"
+          fill
+          sizes="50vw"
+          priority
+          className="object-cover"
+        />
+      </aside>
     </div>
   );
 }

@@ -56,6 +56,8 @@ export interface DatePickerProps {
   errorMessage?: string;
   /** Variant of the date picker */
   variant?: 'default' | 'date-time' | 'time' | 'range' | 'month' | 'year';
+  /** Callback when the picker popover opens or closes */
+  onOpenChange?: (open: boolean) => void;
 }
 
 const DEFAULT_PLACEHOLDERS: Record<string, string> = {
@@ -76,6 +78,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
   dropdownCalendar = true,
   error,
   variant = 'default',
+  onOpenChange,
 }) => {
   const t = useTranslations('Common');
   const [selectedTime, setSelectedTime] = useState<string>('12:00');
@@ -244,7 +247,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
   };
 
   return (
-    <Popover>
+    <Popover onOpenChange={onOpenChange}>
       <PopoverTrigger
         className={cn(
           'typo-caption-1 flex h-11 w-full min-w-0 cursor-pointer items-center justify-between rounded border border-input bg-transparent px-4 py-3 transition-[color,box-shadow] outline-none selection:bg-primary selection:text-primary-foreground hover:border-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 dark:bg-input/30',

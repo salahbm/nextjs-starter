@@ -5,6 +5,7 @@ import {
   BarChart,
   BarLineChart,
   type ChartConfig,
+  ChartDateRangeFilter,
   DonutChart,
   LineChart,
   RadarChart,
@@ -136,13 +137,16 @@ function ChartShowcaseCard({
 
 export default function ChartsPage() {
   return (
-    <main className="container mx-auto space-y-6 px-0 pb-10 sm:px-8">
-      <header className="space-y-2 px-4 sm:px-0">
-        <h1 className="text-3xl font-bold tracking-tight">Charts</h1>
-        <p className="max-w-3xl text-muted-foreground">
-          Reusable Recharts starters with theme-aware colors, accessible
-          interaction, tooltips, and legends.
-        </p>
+    <main className="container mx-auto space-y-6 px-2 pb-10 sm:px-8">
+      <header className="flex flex-col gap-4 px-2 sm:px-0 lg:flex-row lg:items-end lg:justify-between">
+        <div className="space-y-2">
+          <h1 className="text-3xl font-bold tracking-tight">Charts</h1>
+          <p className="max-w-3xl text-muted-foreground">
+            Reusable Recharts starters with theme-aware colors, accessible
+            interaction, tooltips, and legends.
+          </p>
+        </div>
+        <ChartDateRangeFilter />
       </header>
 
       <div className="grid gap-6 xl:grid-cols-2">

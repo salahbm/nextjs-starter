@@ -104,7 +104,7 @@ export function ChartTooltipContent({
 
             return (
               <div
-                key={`${item.dataKey ?? item.name ?? index}`}
+                key={`${item.dataKey ?? item.name ?? 'tooltip'}-${index}`}
                 className={cn(
                   'flex w-full flex-wrap items-stretch gap-2 [&>svg]:size-2.5 [&>svg]:text-muted-foreground',
                   indicator === 'dot' && 'items-center',

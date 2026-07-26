@@ -24,7 +24,7 @@ export function AuthHeader() {
           {BRAND.name}
         </span>
       </Link>
-      <div className="flex items-center gap-1">
+      <div className="flex items-center gap-1 lg:text-white lg:[&_button:hover]:text-white lg:[&_button[aria-expanded=true]]:text-white">
         <LanguageToggle />
         <ThemeToggle />
       </div>

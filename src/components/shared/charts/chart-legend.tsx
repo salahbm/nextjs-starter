@@ -44,7 +44,7 @@ export function ChartLegendContent({
 
           return (
             <div
-              key={`${item.dataKey ?? item.value ?? index}`}
+              key={`${item.dataKey ?? item.value ?? 'legend'}-${index}`}
               className="flex items-center gap-1.5 [&>svg]:size-3 [&>svg]:text-muted-foreground"
             >
               {itemConfig?.icon && !hideIcon ? (

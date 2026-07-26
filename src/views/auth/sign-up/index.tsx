@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -75,80 +76,92 @@ export function SignUpView() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center p-4">
-      <AuthHeader />
-      <div className="w-full max-w-md space-y-8">
-        <div className="text-center">
-          <h1 className="typo-header">{t('signUp.title')}</h1>
-          <p className="typo-body-2 mt-2 text-muted-foreground">
-            {t('signUp.subtitle')}
-          </p>
+    <div className="flex h-dvh flex-row items-stretch">
+      <main className="flex min-h-0 flex-1 flex-col items-center justify-center p-4">
+        <AuthHeader />
+        <div className="w-full max-w-md space-y-8">
+          <div className="text-center">
+            <h1 className="typo-header">{t('signUp.title')}</h1>
+            <p className="typo-body-2 mt-2 text-muted-foreground">
+              {t('signUp.subtitle')}
+            </p>
+          </div>
+
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <FormFields
+                name="username"
+                label={t('signUp.usernameLabel')}
+                required
+                control={form.control}
+                render={({ field }) => (
+                  <Input
+                    placeholder={t('signUp.usernamePlaceholder')}
+                    autoComplete="username"
+                    disabled={isLoading}
+                    {...field}
+                  />
+                )}
+              />
+
+              <FormFields
+                name="email"
+                label={t('signUp.emailLabel')}
+                required
+                control={form.control}
+                render={({ field }) => (
+                  <Input
+                    placeholder={t('signUp.emailPlaceholder')}
+                    type="email"
+                    autoComplete="email"
+                    disabled={isLoading}
+                    {...field}
+                  />
+                )}
+              />
+
+              <FormFields
+                name="password"
+                label={t('signUp.passwordLabel')}
+                required
+                message={t('signUp.passwordHint')}
+                messageClassName="text-muted-foreground text-xs"
+                control={form.control}
+                render={({ field }) => (
+                  <PasswordInput
+                    placeholder={t('signUp.passwordPlaceholder')}
+                    autoComplete="new-password"
+                    disabled={isLoading}
+                    {...field}
+                  />
+                )}
+              />
+
+              <Button type="submit" className="w-full" disabled={isLoading}>
+                {isLoading ? t('signUp.buttonLoading') : t('signUp.button')}
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+
+              <div className="typo-caption-1 text-center">
+                {t('signUp.haveAccount')}{' '}
+                <Link href="/sign-in" className="text-primary hover:underline">
+                  {t('signUp.signInLink')}
+                </Link>
+              </div>
+            </form>
+          </Form>
         </div>
-
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            <FormFields
-              name="username"
-              label={t('signUp.usernameLabel')}
-              required
-              control={form.control}
-              render={({ field }) => (
-                <Input
-                  placeholder={t('signUp.usernamePlaceholder')}
-                  autoComplete="username"
-                  disabled={isLoading}
-                  {...field}
-                />
-              )}
-            />
-
-            <FormFields
-              name="email"
-              label={t('signUp.emailLabel')}
-              required
-              control={form.control}
-              render={({ field }) => (
-                <Input
-                  placeholder={t('signUp.emailPlaceholder')}
-                  type="email"
-                  autoComplete="email"
-                  disabled={isLoading}
-                  {...field}
-                />
-              )}
-            />
-
-            <FormFields
-              name="password"
-              label={t('signUp.passwordLabel')}
-              required
-              message={t('signUp.passwordHint')}
-              messageClassName="text-muted-foreground text-xs"
-              control={form.control}
-              render={({ field }) => (
-                <PasswordInput
-                  placeholder={t('signUp.passwordPlaceholder')}
-                  autoComplete="new-password"
-                  disabled={isLoading}
-                  {...field}
-                />
-              )}
-            />
-
-            <Button type="submit" className="w-full" disabled={isLoading}>
-              {isLoading ? t('signUp.buttonLoading') : t('signUp.button')}
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-
-            <div className="typo-caption-1 text-center">
-              {t('signUp.haveAccount')}{' '}
-              <Link href="/sign-in" className="text-primary hover:underline">
-                {t('signUp.signInLink')}
-              </Link>
-            </div>
-          </form>
-        </Form>
-      </div>
+      </main>
+      <aside className="relative hidden min-h-0 flex-1 overflow-hidden lg:block">
+        <Image
+          src="/images/register-background.webp"
+          alt="Auth background"
+          fill
+          sizes="50vw"
+          priority
+          className="object-cover"
+        />
+      </aside>
     </div>
   );
 }
